@@ -93,6 +93,8 @@ Inflation: [+ inflation_2 +]%
 
 Economic growth: [+ economic_growth_2 +]%
 
+[? if debug = 1 : Average Income Per Capita: [+ income_pc +] [+ currency +] ?]
+
 # = Public Opinion
 
 @emergency
@@ -248,6 +250,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
 
+{!<span class="tooltip-text" title="Left Nationalists are in favour of Social Democratic policies, in a similar vein to the reformists, however they also have views which are much more socially right-wing. They split from the SPD in 1926 to form the ASPD [? if leftnat_joined = 1 : but have since rejoined the SPD. ?]">Left Nationals</span>!} strength: [+ left_nat_strength +], dissent [+ left_nat_strength +]
 
 @paramilitaries
 on-arrival: {!
