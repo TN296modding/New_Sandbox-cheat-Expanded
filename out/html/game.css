@@ -929,3 +929,29 @@ th {
 .progress-text {
   margin-top: 10px;
 }
+
+.state-tip-wrap {
+    position: relative;
+    display: inline;
+    cursor: help;
+    text-decoration: underline dotted;
+}
+.state-tip-wrap .state-tip {
+    display: none;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 2px solid #999;
+    padding: 10px;
+    width: 500px;
+    font-size: 0.90em;
+    text-align: center;
+    z-index: 100;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    color: #000;
+}
+.state-tip-wrap:hover .state-tip {
+    display: block;
+}

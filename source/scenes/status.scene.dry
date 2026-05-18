@@ -18,6 +18,7 @@ if (Q.economic_growth) {
 
 [? if debug = 0 : debug debug ?]
 [+ month : month +] [+ year +] Week [+ week +]
+<span class="state-tip-wrap">Test<span class="state-tip">{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!} </span></span>
 
 Resources available: [+ resources +]
 
