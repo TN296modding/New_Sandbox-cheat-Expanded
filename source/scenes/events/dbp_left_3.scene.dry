@@ -1,5 +1,5 @@
 title: The DBP negotiates with the [? if not lvp_formed : DDP ?][? if lvp_formed : LVP ?]
-subtitle: [? if not lvp formed : Can the DBP revitalise the DDP? ?]
+subtitle: [? if not lvp_formed : Can the DBP revitalise the DDP? ?]
 view-if: dbp_congress_seen and dbp_ddp_timer = 0 and dbp_leader == "Fehr" and not dbp_ddp_merger_seen
 on-arrival: dbp_ddp_merger_seen = 1
 tags: event
