@@ -18,7 +18,7 @@ tags: event
 - @merger_fail_lvp: The merger fails...
 
 @merger_succeed
-view-if: dbp_left >= 10 and ddp_left >= (ddp_right + 3) and not dstp_formed and not lvp_formed and not (ddp_in_government and dnvp_in_government) and not ((president == "Hindenburg" or "Jarres" or "Lettow-Vorbeck" or "Westarp" ) and ddp_in_government and year >= 1932)
+view-if: dbp_left >= 10 and ddp_left >= (ddp_right + 3) and not dstp_formed and not lvp_formed and not (ddp_in_government and dnvp_in_government) and not ((president == "Hindenburg" or president == "Jarres" or president == "Lettow-Vorbeck" or president == "Westarp" ) and ddp_in_government and year >= 1932)
 go-to: merger_succeeds_actions
 
 text
