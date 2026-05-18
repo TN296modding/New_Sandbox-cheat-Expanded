@@ -112,11 +112,7 @@ The DBP quickly discovers that the interests of a party catering towards the Rur
 ### Add options for changing DBP ideology towards AgSoc, the DBP staying the same, and the DBP merging with the SPD anyway
 
 @merger_succeeds_actions
-on-arrival {!
-Q.wip_var += 1
-!}
+on-arrival wip_var += 1
 
 @merger_fails_actions
-on-arrival: {! 
-Q.wip_var += 1
-!}
+on-arrival: wip_var += 1
