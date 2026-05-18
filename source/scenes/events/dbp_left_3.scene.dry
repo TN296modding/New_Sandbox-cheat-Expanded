@@ -98,10 +98,10 @@ If a right-wing president, or second-term hindenburg is in control, presidential
 - @mdrp_n
 
 @mdrp_y
-go-to: merger_succeed_actions
+go-to: merger_succeeds_actions
 
 @mdrp_n
-go-to: merger_succeed_actions
+go-to: merger_succeeds_actions
 
 @merger_fail_lvp
 view-if: lvp_formed
