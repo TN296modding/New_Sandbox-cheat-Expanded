@@ -546,6 +546,15 @@ if (Q.aspd_other) {
     Q.old_other_r = Q.other_r;
 }
 
+Q.str_change_dbp = Q.dbp_r - Q.old_dbp_r;
+    var sign2 = Q.str_change_dbp > 0 ?
+        '<img src="img/arrowup.png"> ' :
+        Q.str_change_dbp < 0 ?
+        '<img src="img/arrowdown.png"> ' :
+        '<img src="img/steady.png"> ';
+    Q.str_change_dbp = sign2 + Math.abs(Q.str_change_dbp).toFixed(1);
+    Q.old_dbp_r = Q.dbp_r;
+
 if ((Q.time - Q.marxist_malus_time >= 10 || !Q.marxist_malus_time) && (Q.left_strength >= Q.reformist_strength + Q.labor_strength)) {
     if (Q.spd_votes >= 50) {
         Q.z_relation -= 12;
