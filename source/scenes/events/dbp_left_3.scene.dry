@@ -34,8 +34,8 @@ view-if: never
 
 Decision between merging with the DBP and the DNVP bringing down the coalition, or no mergber and keep the coalition
 
-- @mdd_idc
-- @mdd_no
+- @mdd_idc: DDP merges
+- @mdd_no: DDP no merge
 
 @mdd_idc
 go-to: merger_succeeds_actions
@@ -76,8 +76,8 @@ view-if: never
 
 If the DStP has neither failed nor been maintained, the. DDP can abandon the VNR in faction of the DBP
 
-- @mddd_ab
-- @mddd_st
+- @mddd_ab: ddp merge
+- @mddd_st: ddp no merge
 
 @mddd_ab
 go-to: merger_succeeds_actions
@@ -94,8 +94,8 @@ view-if: never
 
 If a right-wing president, or second-term hindenburg is in control, presidential powers are not limited, and the DDP is in government, the DDP can either merge and be kicked out of government, or not merge and stay in goverment.
 
-- @mdrp_y
-- @mdrp_n
+- @mdrp_y: ddp merge 
+- @mdrp_n: ddp no merge
 
 @mdrp_y
 go-to: merger_succeeds_actions
