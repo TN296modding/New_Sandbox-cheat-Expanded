@@ -29,6 +29,7 @@ go-to: state_menu
 - @brunswick: Deal with <span style="color: #0047ab;">Bruns</span><span style="color: #ffce08;">wick</span>
 - @coburg: Deal with <span style="color:#000000;">Cob</span><span style="color:#fff02;">urg</span>
 - @danzig: Deal with <span style="color:#bf0000;">Da</span><span style="color:#f3c547;">nz</span><span style="color:#ffffff;">ig</span>
+- @return
 
 @alsace
 view-if: alsace_ger = 1 or wip = 0
