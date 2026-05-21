@@ -1,0 +1,24 @@
+title: DEBUG
+new-page: true
+### fr_germany_love is the general opinion of french people towards Germany - slightly biases french people towards voting for parties ideologically similar to Germanys gov, or the SFIO if the SPD is in government.
+### aslo is specifically for the Alsace Lorraine - boosts referendum to give Germany back the Alsace
+### aslo ethnicity is a spectrum between fully french and fully german - boosts referendum to give Germany back the Alsace
+### relation is obvious
+### France gov is left-cartel / popular front / whatever
+  
+= France | Frankreich
+
+- @wip_option
+- @return_western_menu: Return to Menu
+- @return
+
+@wip_option
+
+[ france_wip : fr_germany_love ]</br>
+[ france_wip : fr_aslo_germany_love ] </br>
+[ france_wip : aslo_ethnicity ] </br>
+[ france_wip : relation_img ] </br>
+France gov: [+ france_gov +] 
+
+@return_western_menu
+go-to: western_menu
