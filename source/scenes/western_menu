@@ -1,0 +1,21 @@
+title: Western Countries
+new-page: true
+
+= Western Countries
+
+- @c1
+- @c2
+- @c3
+- @return
+
+@c1
+
+Text
+
+@c2
+
+text
+
+@c3
+
+text
