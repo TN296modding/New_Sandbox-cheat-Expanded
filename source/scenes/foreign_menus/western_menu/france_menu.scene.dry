@@ -18,7 +18,7 @@ new-page: true
 [ france_wip : fr_germany_love ]</br>
 [ france_wip : fr_aslo_germany_love ] </br>
 [ france_wip : aslo_ethnicity ] </br>
-[? if france_relation = 0 : <img src="/out/html/img/1949_poster.png" width="50" height="50"> ?][? if france_relation >= 0 : <img src="/out/html/img/Dolfuss.jpg" width="50" height="50">?] </br>
+[? if france_relation = 0 : Hostile <progress id="file" value="32" max="100"> 50% </progress> Very Friendly ?][? if france_relation >= 0 : <img src="/out/html/img/Dolfuss.jpg" width="50" height="50">?] </br>
 France gov: [+ france_gov +] 
 
 - @return_western_menu: Return to Menu
