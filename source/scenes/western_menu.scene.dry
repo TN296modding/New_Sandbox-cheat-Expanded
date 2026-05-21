@@ -1,21 +1,44 @@
 title: Western Countries
 new-page: true
+go-to: western_menu_true
+
+@western_menu_true
 
 = Western Countries
 
-- @c1
-- @c2
-- @c3
+- @france_menu: France [ french_actions : foreign_actions ]
+- @britain_menu: Britain [ british_actions : foreign_actions ]
+- @netherlands_menu: Netherlands [ dutch_actions : foreign_actions ]
+- @belgium_menu: Belgium [ belgian_actions : foreign_actions ]
+- @luxembourg_menu: Luxembourg [ luxembourgish_actions : foreign_actions ]
+- @portugal_menu: Portugal [ portuguese_actions : foreign_actions ]
+- @spain_menu: Spain [ spanish_actions : foreign ]
 - @return
 
-@c1
+@france_menu
 
 Text
 
-@c2
+@britain_menu
 
 text
 
-@c3
+@netherlands_menu
+
+text
+
+@belgium_menu
+
+text
+
+@luxembourg_menu
+
+text
+
+@portugal_menu
+
+text
+
+@spain_menu
 
 text
