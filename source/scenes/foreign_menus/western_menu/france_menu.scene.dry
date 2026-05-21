@@ -8,7 +8,7 @@ new-page: true
   
 = France | Frankreich
 
-- @wip_option
+- @wip_option: title
 - @return_western_menu: Return to Menu
 - @return
 
