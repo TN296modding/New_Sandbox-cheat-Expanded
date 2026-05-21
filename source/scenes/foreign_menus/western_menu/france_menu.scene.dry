@@ -17,7 +17,7 @@ new-page: true
 [ france_wip : fr_germany_love ]</br>
 [ france_wip : fr_aslo_germany_love ] </br>
 [ france_wip : aslo_ethnicity ] </br>
-[ france_wip : relation_img ] </br>
+[+ france_wip : relation_img +] </br>
 France gov: [+ france_gov +] 
 
 @return_western_menu
