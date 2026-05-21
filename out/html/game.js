@@ -229,6 +229,14 @@ window.disableGrayMode = function() {
     $('#qualities').append(dendryUI.contentToHTML.convert(displayContent));
 };
 
+    window.updateSidebarRight = function() {
+        $('#qualities_right').empty();
+        var scene = dendryUI.game.scenes[window.statusTabRight];
+        dendryUI.dendryEngine._runActions(scene.onArrival);
+        var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+        $('#qualities_right').append(dendryUI.contentToHTML.convert(displayContent));
+};
+
   window.changeTab = function(newTab, tabId, isRight) {
       if (tabId == 'poll_tab' && (dendryUI.dendryEngine.state.qualities.historical_mode)) {
           if (dendryUI.dendryEngine.state.qualities.historical_mode) window.alert('Polls are not available in historical mode.');
@@ -240,12 +248,20 @@ window.disableGrayMode = function() {
         tabButtons[i].className = tabButtons[i].className.replace(' active', '');
       }
       tabButton.className += ' active';
+      if (isRight) {
+        window.statusTabRight = newTab;
+        window.updateSidebarRight();
+        } else {
+          window.statusTab = newTab;
+          window.updateSidebar();
+    }
           window.statusTab = newTab;
           window.updateSidebar();
   };
 
   window.onDisplayContent = function() {
       window.updateSidebar();
+      window.updateSidebarRight();
   };
 
   window.toggleDem = function toggleDemographicTable() {
@@ -338,6 +354,7 @@ window.disableGrayMode = function() {
 
   window.justLoaded = true;
   window.statusTab = "status";
+  window.statusTabRight = "status_right";
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");
 
@@ -350,6 +367,10 @@ window.disableGrayMode = function() {
         document.body.classList.add('gray-mode');
     }
     window.pinnedCardsDescription = "Advisor cards - actions are only usable once per 6 months.";
-  };
+    window.statusTab = "status";
+    window.updateSidebar();
+    window.statusTabRight = "status_right";
+    window.updateSidebarRight();
+};
 
 }());
