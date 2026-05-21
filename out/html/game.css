@@ -1003,9 +1003,9 @@ th {
 
 progress {
   border-radius: 3px; 
-  width: 80%;
+  width: 70%;
   height: 10px;
-  margin-left: -11.5%;
+  margin-left: -1.5%;
   box-shadow: 1px 1px 1px rgba( 0, 0, 0, 0.2 );
 }
 progress::-webkit-progress-bar {

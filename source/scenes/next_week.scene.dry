@@ -1,0 +1,3 @@
+title: Next Week
+on-arrival: month_actions += 1
+go-to: post_event

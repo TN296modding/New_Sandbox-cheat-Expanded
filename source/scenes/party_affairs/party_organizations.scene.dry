@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: party_affairs_spd
 view-if: party_organizations_timer <= 0
-on-arrival: month_actions += 1; party_organizations_timer = 6;
+on-arrival: party_actions += 1; party_organizations_timer = 6;
 card-image: img/Mann_der_Arbeit.jpg
 max-visits: 6
 #subtitle: Outside of electoral politics, the SPD runs a social world onto itself.
@@ -17,18 +17,18 @@ In addition to being a political party, the <span style="color: #c00000;">**SPD*
 - @culture: Fund sports leagues, educational, and cultural programs.
 - @rb: Fund the Reichsbanner, our self-defense organization.
 - @youth: We have the reputation of being a party for old men. Support the youth organizations.
-- @wip1: Fund our think tank, the Friedrich Ebert Foundation
-- @wip2: Fund the Iron Front
-- @wip3: Fund Local Branches
-- @wip4: Fund Union and Labour Lawyers
-- @wip5: Fund an SPD-centred union
-- @wip6: Fund the ASBD (Arbeiter-Samariter-Bund-Deutschland), a workers and medical aid organisation
-- @wip7: Fund Co-ops with Party resources
-- @wip8: Fund Food & Water relief
-- @wip9: Fund Childcare programs
-- @wip10: Fund apprenticeships with Party resources
-- @wip11: Fund Libraries and other item-lenders
-- @wip12: Fund eldercare
+- @fef: Fund our think tank, the Friedrich Ebert Foundation
+- @if: Fund the Iron Front
+- @local: Fund Local Branches
+- @lablaw: Fund Union and Labour Lawyers
+- @spduniom: Fund an SPD-centred union
+- @asbd: Fund the ASBD (Arbeiter-Samariter-Bund-Deutschland), a workers and medical aid organisation
+- @coops: Fund Co-ops with Party resources
+- @fwrelief: Fund Food & Water relief
+- @childcare: Fund Childcare programs
+- @apprenticeships: Fund apprenticeships with Party resources
+- @lenderies: Fund Libraries and other item lenderies
+- @eldercare: Fund an SPD-associated Eldercare program
 - @nothing: Do not increase funding for any program.
 - @easy_discard
 
@@ -77,86 +77,85 @@ on-arrival: resources -= 1; rb_strength += 50; rb_militancy += 0.02; young_socia
 
 Our new youth members flock to the left or neorevisionist wings of the party, and also bring new radicalism to the Reichsbanner.
 
-@wip1
+@fef
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
-- @wip1A: Fund political education
-- @wip1B: Fund scholarships and promote students with outstanding intellectual abilities or personality
+- @poled: Fund political education
+- @students: Fund scholarships and promote students with outstanding intellectual abilities or personality
 
-@wip1A
-
-wip
-
-@wip1B
+@poled
 
 wip
 
-@wip2
-choose-if: wip = 1
-unavailable-subtitle: Coming Soon
+@students
 
 wip
 
-@wip3
+@if
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip4
+@local
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip5
+@lablaw
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip6
+@spdunion
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip7
+@asbd
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip8
+@coops
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip9
+@fwrelief
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip10
+@chilcare
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip11
+@apprenticeships
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
 
-@wip12
+@lenderies
 choose-if: wip = 1
 unavailable-subtitle: Coming Soon
 
 wip
+
+@eldercare
+on-arrival: workers_spd_growth += 0.1; new_middle_spd_growth += 0.1; unemployed_spd_growth += 0.1; workers_spd += 1; unemployed_spd += 1; eldercare_funded += 1
+
+We have [? if eldercare_funded > 0: further ?] funded and SPD-associated eldercare programs, ensuring that our older members have a place to stay, and are fed at least one meal everyday. This ensures that older members are more likely to stick with the party, as we may well be supply their house.
 
 @nothing
 

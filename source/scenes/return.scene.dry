@@ -1,3 +1,2 @@
 title: Back to main
-go-to: root if ddp_start = 0; root_ddp if ddp_start = 1
-on-arrival: month_actions -= 1 if difficulty < 0
+go-to: main

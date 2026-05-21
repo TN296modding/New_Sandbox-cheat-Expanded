@@ -1,7 +1,7 @@
 title: Campaigning
 new-page: true
 view-if: campaigning_timer <= 0
-on-arrival: month_actions += 1;
+on-arrival: party_actions += 1
 max-visits: 360
 is-card: true
 card-image: img/flags.jpg
