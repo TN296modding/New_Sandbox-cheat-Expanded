@@ -6,13 +6,13 @@ go-to: western_menu_true
 
 = Western Countries
 
-- @france_menu: France [ french_actions : foreign_actions ]
-- @britain_menu: Britain [ british_actions : foreign_actions ]
-- @netherlands_menu: Netherlands [ dutch_actions : foreign_actions ]
-- @belgium_menu: Belgium [ belgian_actions : foreign_actions ]
-- @luxembourg_menu: Luxembourg [ luxembourgish_actions : foreign_actions ]
-- @portugal_menu: Portugal [ portuguese_actions : foreign_actions ]
-- @spain_menu: Spain [ spanish_actions : foreign ]
+- @france_menu: France ([? if french_actions_timer > 0 : [+ french_actions_timer +] Weeks until next action ?][? if french_actions_timer = 0 : Action Ready ?])
+- @britain_menu: Britain ([? if british_actions_timer > 0 : [+ british_actions_timer +] Weeks until next action ?][? if british_actions_timer = 0 : Action Ready ?])
+- @netherlands_menu: Netherlands ([? if dutch_actions_timer > 0 : [+ dutch_actions_timer +] Weeks until next action ?][? if dutch_actions_timer = 0 : Action Ready ?])
+- @belgium_menu: Belgium ([? if belgian_actions_timer > 0 : [+ belgian_actions_timer +] Weeks until next action ?][? if belgian_actions_timer = 0 : Action Ready ?])
+- @luxembourg_menu: Luxembourg ([? if luxembourgish_actions_timer > 0 : [+ luxembourgish_actions_timer +] Weeks until next action ?][? if luxembourgish_actions_timer = 0 : Action Ready ?])
+- @portugal_menu: Portugal ([? if portuguese_actions_timer > 0 : [+ portuguese_actions_timer +] Weeks until next action ?][? if portuguese_actions_timer = 0 : Action Ready ?])
+- @spain_menu: Spain ([? if spanish_actions_timer > 0 : [+ spanish_actions_timer +] Weeks until next action ?][? if spanish_actions_timer = 0 : Action Ready ?])
 - @return
 
 @france_menu
