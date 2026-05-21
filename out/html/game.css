@@ -258,7 +258,8 @@ blockquote+blockquote.attribution {
 .tools.right {
   float: right;
   right: 0.4em;
-  margin-right: -6em;
+  margin-right: -4em;
+  margin-left: 2em
 }
 
 #qualities {
