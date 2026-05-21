@@ -20,5 +20,7 @@ new-page: true
 [+ france_wip : relation_img +] </br>
 France gov: [+ france_gov +] 
 
+- @return_western_menu: Return to Menu
+
 @return_western_menu
 go-to: western_menu
