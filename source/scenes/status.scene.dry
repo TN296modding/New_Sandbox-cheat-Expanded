@@ -529,7 +529,7 @@ Catholics: SPD: [+ catholics_spd_display +]%, [+ z_party_name +]: [+ catholics_z
 
 = Foreign Relations
 
-<button onclick="window.dendryUI.dendryEngine.goToScene('campaigning');"><span style="color: #000091;">W</span><span style="color: #C8102E;">e</span><span style="color: #003DA5;">s</span><span style="color: #FFCD00;">t</span><span style="color: #51ADDA;">e</span><span style="color: #046A38;">r</span><span style="color: #F1BF00;">n</span></button> European Countries:
+<span onclick="window.dendryUI.dendryEngine.goToScene('campaigning');"><span style="color: #000091;">W</span><span style="color: #C8102E;">e</span><span style="color: #003DA5;">s</span><span style="color: #FFCD00;">t</span><span style="color: #51ADDA;">e</span><span style="color: #046A38;">r</span><span style="color: #F1BF00;">n</span></span> European Countries:
 
 <span style="color: #000091;">France</span>: [? if fra_relation <= -3 : {!<span style="color: #FF0000;">!}[+ fra_relation : foreign_relations +]{!</span>!} ?][? if fra_relation >= -2 and fra_relation <= 2 : {!<span style="color: #FFE000;">!}[+ fra_relation : foreign_relations +]{!</span>!} ?][? if fra_relation >= 3 : {!<span style="color: #00B300;">!}[+ fra_relation : foreign_relations +]{!</span>!} ?]
 
