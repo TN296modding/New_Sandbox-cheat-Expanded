@@ -37,6 +37,7 @@ go-to: sandbox_menu
 - @editparamilitary: Edit Paramilitary Groups
 - @editreichswehr: Edit Reichswehr and Police
 - @agsocbutton: Agsoc button
+- @test_button: Testing button
 - @root: Return to main
 
 @disable_end
@@ -3177,3 +3178,8 @@ Lowered Catholics support for Other.
 
 @agsocbutton
 on-arrival: agsoc_plan_adopted = 1
+
+@test_button
+on-arrival: test_wip += 1; fr_germany_love = 0; fr_germany_love = 20 if test_wip = 1; fr_germany_love = 50 if test_wip = 2; fr_germany_love = 100 if test_wip = 3; test_wip = 0 if test_wip > 3
+
+Test
