@@ -5,7 +5,8 @@ new-page: true
 ### aslo ethnicity is a spectrum between fully french and fully german - boosts referendum to give Germany back the Alsace
 ### relation is obvious
 ### France gov is left-cartel / popular front / whatever
-  
+### Qdisplays didn't work for imgs....
+
 = France | Frankreich
 
 - @wip_option: title
@@ -17,7 +18,7 @@ new-page: true
 [ france_wip : fr_germany_love ]</br>
 [ france_wip : fr_aslo_germany_love ] </br>
 [ france_wip : aslo_ethnicity ] </br>
-[+ france_wip : relation_img +] </br>
+[? if france_relation = 0 : <img src="/out/html/img/1949_poster.png" width="50" height="50"> ?][? if france_relation >= 0 : <img src="/out/html/img/Dolfuss.jpg" width="50" height="50">?] </br>
 France gov: [+ france_gov +] 
 
 - @return_western_menu: Return to Menu
