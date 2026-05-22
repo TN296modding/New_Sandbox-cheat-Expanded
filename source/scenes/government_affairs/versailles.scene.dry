@@ -1,7 +1,7 @@
 title: Negotiating Versailles
 new-page: true
 is-card: true
-on-arrival: neg_versailles_timer += 6; month_actions += 1
+on-arrival: neg_versailles_timer += 6; gov_actions += 1
 view-if: spd_in_government and (foreign_minister_party = "SPD") and neg_versailles_timer == 0
 #card-image:
 tags: govt_affairs_spd, cabinet

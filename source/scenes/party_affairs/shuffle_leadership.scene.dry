@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: party_affairs_spd
 view-if: shuffle_leadership_timer = 0 and difficulty >= 0 and not started
-on-arrival: month_activities += 1; shuffle_leadership_timer = 10;
+on-arrival: party_actions += 1; shuffle_leadership_timer = 10;
 card-image: img/vorwarts_2.jpg
 go-to: rm_main
 
