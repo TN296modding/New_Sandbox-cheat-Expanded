@@ -21,7 +21,7 @@ In addition to being a political party, the <span style="color: #c00000;">**SPD*
 - @if: Fund the Iron Front
 - @local: Fund Local Branches
 - @lablaw: Fund Union and Labour Lawyers
-- @spduniom: Fund an SPD-centred union
+- @spdunion: Fund an SPD-centred union
 - @asbd: Fund the ASBD (Arbeiter-Samariter-Bund-Deutschland), a workers and medical aid organisation
 - @coops: Fund Co-ops with Party resources
 - @fwrelief: Fund Food & Water relief
