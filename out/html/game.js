@@ -350,6 +350,46 @@ window.disableGrayMode = function() {
       bar.appendChild(value);
       return bar;
   };
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '1') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '2') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '3') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '4') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '5') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '6') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '7') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '8') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '9') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '0') {
+        window.dendryUI.dendryEngine.goToScene('wip');
+    }
 
 
   window.justLoaded = true;
