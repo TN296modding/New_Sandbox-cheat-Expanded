@@ -4474,22 +4474,22 @@ if (Q.in_social_liberal_coalition == 1 && Q.pro_republic >= 75) {
     Q.workers_z -= 1/48;
 }
 Q.workers_spd += (Q.workers_spd_growth/48)
-Q.unemployed_spd_growth/48
-Q.new_middle_spd_growth/48
-Q.old_middle_spd_growth/48
-Q.rural_spd_growth/48
-Q.catholics_spd_growth/48
-Q.kpd_spd_relation_growth/4
-Q.spd_spd_relation_growth/4
-Q.ddp_spd_relation_growth/4
-Q.z_spd_relation_growth/4
-Q.dvp_spd_relation_growth/4
-Q.dbp_spd_relation_growth/4
-Q.dhp_spd_relation_growth/4
-Q.cnblp_spd_relation_growth/4
-Q.wp_spd_relation_growth/4
-Q.csvd_spd_relation_growth/4
-Q.rural_others_relation_growth/4 
+Q.unemployed_spd += Q.unemployed_spd_growth/48
+Q.new_middle_spd += Q.new_middle_spd_growth/48
+Q.old_middle_spd += Q.old_middle_spd_growth/48
+Q.rural_spd += Q.rural_spd_growth/48
+Q.catholics_spd += Q.catholics_spd_growth/48
+Q.kpd_relation += Q.kpd_spd_relation_growth/4
+Q.sapd_relation += Q.spd_spd_relation_growth/4
+Q.ddp_relation += Q.ddp_spd_relation_growth/4
+Q.z_relation += Q.z_spd_relation_growth/4
+Q.dvp_relation += Q.dvp_spd_relation_growth/4
+Q.dbp_relation += Q.dbp_spd_relation_growth/4
+Q.dhp_relation += Q.dhp_spd_relation_growth/4
+Q.cnblp_relation += Q.cnblp_spd_relation_growth/4
+Q.wp_relation += Q.wp_spd_relation_growth/4
+Q.csvd_relation += Q.csvd_spd_relation_growth/4
+Q.rural_relation += Q.rural_others_relation_growth/4 
 /// fourth barrier
 /// third barrier
 /// second barier
@@ -4554,7 +4554,7 @@ if (typeof window !== "undefined" && window.generateBar) {
 }
 
 !}
-go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
+go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0;
 
 = [+ month : month +] [+ year +] Week [+ week +]
 
