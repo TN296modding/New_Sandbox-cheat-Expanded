@@ -752,3 +752,5 @@ Labour Affairs:
 = Internal Affairs
 
 <button class="button-30" role=-"button" onclick="var q = window.dendryUI.dendryEngine.state.qualities; q.button1_pressed = (q.button1_pressed || 0) + 1; alert(q.button1_pressed);">Button1</button>
+
+[+ button1_pressed +]
