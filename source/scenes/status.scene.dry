@@ -745,10 +745,12 @@ Labour Affairs:
 
 = States Menu
 
-<button class="button-30" role="button" onclick="window.dendryUI.dendryEngine.goToScene('state_affairs');'>Debug</span>
+<button class="button-30" role="button" onclick="window.dendryUI.dendryEngine.goToScene('state_affairs');">Debug</span>
 
 @internal_tab
 
 = Internal Affairs
 
-Debug
+<button class="button-30" role=-"button" onclick="window.dendryUI.dendryEngine.state.qualities.button1_pressed;">Button1</span>
+
+times button pressed: [+ button1_pressed +]
