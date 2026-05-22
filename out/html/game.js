@@ -350,46 +350,20 @@ window.disableGrayMode = function() {
       bar.appendChild(value);
       return bar;
   };
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '1') {
-        window.dendryUI.dendryEngine.goToScene('wip');
+document.addEventListener('keydown', function(event) {
+    switch(event.key) {
+        case '1': window.dendryUI.dendryEngine.goToScene('scene1'); break;
+        case '2': window.dendryUI.dendryEngine.goToScene('scene2'); break;
+        case '3': window.dendryUI.dendryEngine.goToScene('scene3'); break;
+        case '4': window.dendryUI.dendryEngine.goToScene('scene4'); break;
+        case '5': window.dendryUI.dendryEngine.goToScene('scene5'); break;
+        case '6': window.dendryUI.dendryEngine.goToScene('scene6'); break;
+        case '7': window.dendryUI.dendryEngine.goToScene('scene7'); break;
+        case '8': window.dendryUI.dendryEngine.goToScene('scene8'); break;
+        case '9': window.dendryUI.dendryEngine.goToScene('scene9'); break;
+        case '0': window.dendryUI.dendryEngine.goToScene('scene0'); break;
     }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '2') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '3') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '4') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '5') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '6') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '7') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '8') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '9') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '0') {
-        window.dendryUI.dendryEngine.goToScene('wip');
-    }
+});
 
 
   window.justLoaded = true;
