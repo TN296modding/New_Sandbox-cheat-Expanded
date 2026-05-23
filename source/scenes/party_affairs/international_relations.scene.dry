@@ -5,7 +5,7 @@ tags: party_affairs_spd
 view-if: international_relations_timer <= 0
 on-arrival: party_actions += 1; international_relations_timer += 11;
 card-image: img/international.jpg
-max-visits: 40
+max-visits: 4000
 #subtitle: Building ties with our fraternal socialist parties.
 
 At the <span style="color: #D50032;">Labor and Socialist International</span>, we can forge contacts with our fraternal <span style="color: #c00000;">socialist</span> parties in <span style="color: #001489;">Europe</span> and across the world.

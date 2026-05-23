@@ -725,7 +725,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
     'bruning_event', 'lvp_merger', 'lvp_merger_1', 'lvp_merger_2', 'bourgeois_merger',
     'bourgeois_negotiations_1930', 'bourgeois_negotiations_1930_aftermath', 'schleichers_schemes',
     'bourgeois_negotiations_elections_1930', 'nazi_decay', 'stegerwald_transformation', 'emergency_fundraising', 'red_general', 'weimar_rally', 'nazi_funds',
-    'dsu_policy', 'dbp_congress'];
+    'dsu_policy', 'dbp_congress', 'dvp_spy'];
 Q.advisor_action_timer = 0;
 // party affairs timers
 Q.confronting_nazis_timer = 0;

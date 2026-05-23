@@ -5,7 +5,7 @@ tags: party_affairs_spd
 view-if: party_organizations_timer <= 0
 on-arrival: party_actions += 1; party_organizations_timer = 6;
 card-image: img/Mann_der_Arbeit.jpg
-max-visits: 6
+max-visits: 6000
 #subtitle: Outside of electoral politics, the SPD runs a social world onto itself.
 
 = Party Organizations
@@ -29,6 +29,7 @@ In addition to being a political party, the <span style="color: #c00000;">**SPD*
 - @apprenticeships: Fund apprenticeships with Party resources
 - @lenderies: Fund Libraries and other item lenderies
 - @eldercare: Fund an SPD-associated Eldercare program
+- @dvp_spy: Plant a spy in the DVP's Left-Wing
 - @nothing: Do not increase funding for any program.
 - @easy_discard
 
@@ -153,9 +154,16 @@ unavailable-subtitle: Coming Soon
 wip
 
 @eldercare
-on-arrival: workers_spd_growth += 0.1; new_middle_spd_growth += 0.1; unemployed_spd_growth += 0.1; workers_spd += 1; unemployed_spd += 1; eldercare_funded += 1
+subtitle: -1 resource
+on-arrival: workers_spd_growth += 0.1; new_middle_spd_growth += 0.1; unemployed_spd_growth += 0.1; workers_spd += 1; unemployed_spd += 1; eldercare_funded += 1; resource -= 1
 
 We have [? if eldercare_funded > 0: further ?] funded and SPD-associated eldercare programs, ensuring that our older members have a place to stay, and are fed at least one meal everyday. This ensures that older members are more likely to stick with the party, as we may well be supply their house.
+
+@dvp_spy
+subtitle: -1 resource
+on-arrival: dvp_spy_timer = 6; dvp_spy = 1; resources -= 1
+
+We have planted a spy in the DVP. After he is settled, we can decide how to use his abilities.
 
 @nothing
 

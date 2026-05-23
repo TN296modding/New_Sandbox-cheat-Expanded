@@ -2,7 +2,7 @@ title: Class Consciousness in the Peasant Class
 new-page: true
 view-if: agr_cc >= 6 and agr_cc_timer <= 0 and agr_awakened = 0
 on-arrival: agr_cc_timer = 4; party_actions += 1
-max-visits: 4
+max-visits: 40
 is-card: true
 card-image: img/freiheit_und_arbeit.jpg
 tags: party_affairs_spd

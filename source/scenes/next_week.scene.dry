@@ -1,3 +1,5 @@
 title: Next Week
 on-arrival: month_actions += 1; party_actions = 0; gov_actions = 0
+max-visits: 1000
+tags: next_week_card
 go-to: post_event

@@ -1,0 +1,29 @@
+title: Our spy in the DVP is ready to act
+view-if: dvp_spy_timer = 0 and dvp_spy_1_seen = 0 and dvp_spy = 1
+on-arrival: dvp_spy_1_seen = 1
+
+= The DVP spy
+
+Now that our spy has settled himself firmly within a position of power in the DVP, what shall we do with him?
+
+- @dvp_left: Push the DVP towards the left
+- @dvp_friendless: Bias the DVP towards actions that would antagonize the parties around them
+- @dvp_breakup: Reveal him as a "Communist" and have him throw a bomb at the DVP's right-wing
+
+@dvp_left
+on-arrival:  dvp_left += 7; dvp_right -= 3; workers_dvp += 1; new_middle_dvp += 1; dvp_relation += 10; pro_republic += 5; nationalism -= 5
+subtitle: This will make them more co-operative
+
+We have used our spy to push the DVP's right-wing towards the centre, and lower industrial influence
+
+@dvp_friendless
+subtitle: As they will have fewer allies, it will be easier to negotiate with them
+on-arrival: dvp_friendless = 1; dvp_relation -= 10; nationalism += 3
+
+We have used our spy to advocate for positions that would harm the DVP's relation with other parties
+
+@dvp_breakup
+on-arrival: dvp_breakup_timer = 4; dvp_breakup_timer += 1 if dvp_left > dvp-right; dvp_breakup_timer += 1; if dvp_relation < 50; dvp_breakup_timer -= 1 if dvp_right > dvp_left; dvp_breakup_timer += 1 if not spd_in_government; dvp_breakup_timer += 1 if dvp_in_government;  dvp_breakup_timer -= 1 if spd_in_government and not dvp_in_government; dvp_breakup_timer -= 1 if hindenburg_angry > 50
+subtitle: If someone were to find out, this would reflect badly on us
+
+In a local berlin DVP congress, a member yells "Glory to the Revolution!", before throwing a firebomb at the members seated across from him. The right-wing of the DVP is in uproar over this, and it appears the unity that once held the DVP together is quickly fraying.
