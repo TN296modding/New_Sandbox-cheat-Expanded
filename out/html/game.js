@@ -321,6 +321,8 @@ window.disableGrayMode = function() {
         });
     }
     colorTextNodes(document.getElementById('content'), colors);
+    colorTextNodes(document.getElementById('qualities'), colors);
+    colorTextNodes(document.getElementById('qualities_right'), colors);
 };
 
   window.toggleDem = function toggleDemographicTable() {
