@@ -23,6 +23,8 @@ max-cards: 4
 - @party
 - @govt
 - @eco
+- @next_week
+- @presidential_affairs
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -48,3 +50,18 @@ card-image: img/portraits/SchmidtRobert.jpg
 is-deck: true
 
 - @economic_policy
+
+@next_week
+title: Next Week
+card-image: we_build_the_state.jpg
+is-deck: true
+
+- @next_week
+
+@presidential_affairs
+title: Presidential Affairs
+card-image: weimar_constitution.jpg
+is-deck: true
+view-if: spd_president
+
+- #presidential_affairs
