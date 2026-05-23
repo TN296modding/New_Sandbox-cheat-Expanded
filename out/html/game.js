@@ -300,6 +300,43 @@ window.disableGrayMode = function() {
         'dstp': '#d3c24d',
         'dlp': '#d8c200',
         'vlp': '#b2a000'
+        'KPD': '#700000',
+        'SPD': '#C90000',
+        'DDP': '#D3C24D',
+        'Z': '#000000',
+        'DVP': '#C0A054',
+        'DNVP': '#3E88B3',
+        'NSDAP': '#7A3C00',
+        'OTHERS': '#808080',
+        'INDEPENDENTS': '#808080',
+        'WP': '#E9EBF0',
+        'VNR': '#D3D3A9',
+        'VRP': '#000000',
+        'DBP': '#097100',
+        'CNBLP': '#7FCEB1',
+        'CSVD': '#67BED9',
+        'KVP': '#0087DC',
+        'ASPD': '#000000',
+        'SAPD': '#9B0000',
+        'LVP': '#FFCC00',
+        'DNF': '#003755',
+        'SLP': '#FFE600',
+        'KPO': '#C43988',
+        'SPO': '#C43988',
+        'SED': '#5B0303',
+        'SRP': '#F0B9CA',
+        'ADGBPF': '#DD6400',
+        'NSBP': '#FF9393',
+        'MSP': '#ACACAC',
+        'SZ': '#61E790',
+        'NSPD': '#ED5151',
+        'LLB': '#FFFF50',
+        'ACVP': '#700147',
+        'PCP': '#A85C00',
+        'CVP': '#000000',
+        'DSTP': '#D3C24D',
+        'DLP': '#D8C200',
+        'VLP': '#B2A000'
     };
     function colorTextNodes(element, colors) {
         element.childNodes.forEach(function(node) {
@@ -307,7 +344,7 @@ window.disableGrayMode = function() {
                 var text = node.textContent;
                 var newHTML = text;
                 Object.keys(colors).forEach(function(word) {
-                    newHTML = newHTML.replace(new RegExp('\\b' + word + '\\b', 'gi'),
+                    newHTML = newHTML.replace(new RegExp('\\b' + word + '\\b', 'g'),
                         '<span style="color:' + colors[word] + ';">' + word + '</span>');
                 });
                 if (newHTML !== text) {
