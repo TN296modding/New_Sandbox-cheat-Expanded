@@ -299,7 +299,7 @@ window.disableGrayMode = function() {
         'cvp': '#000000',
         'dstp': '#d3c24d',
         'dlp': '#d8c200',
-        'vlp': '#b2a000'
+        'vlp': '#b2a000',
         'KPD': '#700000',
         'SPD': '#C90000',
         'DDP': '#D3C24D',
@@ -334,7 +334,7 @@ window.disableGrayMode = function() {
         'ACVP': '#700147',
         'PCP': '#A85C00',
         'CVP': '#000000',
-        'DSTP': '#D3C24D',
+        'DStP': '#D3C24D',
         'DLP': '#D8C200',
         'VLP': '#B2A000'
     };
