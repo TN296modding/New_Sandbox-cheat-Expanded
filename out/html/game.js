@@ -260,8 +260,53 @@ window.disableGrayMode = function() {
   };
 
   window.onDisplayContent = function() {
-      window.updateSidebar();
-      window.updateSidebarRight();
+    window.updateSidebar();
+    window.updateSidebarRight();
+    var colors = {
+        'kpd': '#00ff00',
+        'spd': '#ff0000',
+        'ddp': '#ffff00'
+        'z': '#000000',
+    'dvp': '#000000',
+    'dnvp': '#000000',
+    'nsdap': '#000000',
+    'others': '#000000',
+    'independents': '#000000',
+    'wp': '#000000',
+    'vnr': '#000000',
+    'vrp': '#000000',
+    'dbp': '#000000',
+    'cnblp': '#000000',
+    'csvd': '#000000',
+    'kvp': '#000000',
+    'aspd': '#000000',
+    'sapd': '#000000',
+    'lvp': '#000000',
+    'dnf': '#000000',
+    'slp': '#000000',
+    'kpo': '#000000',
+    'spo': '#000000',
+    'sed': '#000000',
+    'srp': '#000000',
+    'adgbpf': '#000000',
+    'nsbp': '#000000',
+    'msp': '#000000',
+    'sz': '#000000',
+    'nspd': '#000000',
+    'llb': '#000000',
+    'acvp': '#000000',
+    'pcp': '#000000',
+    'cvp': '#000000',
+    'dstp': '#000000',
+    'dlp': '#000000',
+    'vlp': '#000000'
+    };
+    Object.keys(colors).forEach(function(word) {
+        document.getElementById('content').innerHTML = 
+            document.getElementById('content').innerHTML
+            .replace(new RegExp('\\b' + word + '\\b', 'gi'), 
+            '<span style="color:' + colors[word] + ';">' + word + '</span>');
+    });
   };
 
   window.toggleDem = function toggleDemographicTable() {
