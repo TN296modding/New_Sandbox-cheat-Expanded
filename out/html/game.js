@@ -265,7 +265,7 @@ window.disableGrayMode = function() {
     var colors = {
         'kpd': '#00ff00',
         'spd': '#ff0000',
-        'ddp': '#ffff00'
+        'ddp': '#ffff00',
         'z': '#000000',
     'dvp': '#000000',
     'dnvp': '#000000',
@@ -301,13 +301,27 @@ window.disableGrayMode = function() {
     'dlp': '#000000',
     'vlp': '#000000'
     };
-    Object.keys(colors).forEach(function(word) {
-        document.getElementById('content').innerHTML = 
-            document.getElementById('content').innerHTML
-            .replace(new RegExp('\\b' + word + '\\b', 'gi'), 
-            '<span style="color:' + colors[word] + ';">' + word + '</span>');
-    });
-  };
+    function colorTextNodes(element, colors) {
+        element.childNodes.forEach(function(node) {
+            if (node.nodeType === 3) { // text node only
+                var text = node.textContent;
+                var newHTML = text;
+                Object.keys(colors).forEach(function(word) {
+                    newHTML = newHTML.replace(new RegExp('\\b' + word + '\\b', 'gi'),
+                        '<span style="color:' + colors[word] + ';">' + word + '</span>');
+                });
+                if (newHTML !== text) {
+                    var span = document.createElement('span');
+                    span.innerHTML = newHTML;
+                    node.parentNode.replaceChild(span, node);
+                }
+            } else if (node.nodeType === 1) { // element node, recurse
+                colorTextNodes(node, colors);
+            }
+        });
+    }
+    colorTextNodes(document.getElementById('content'), colors);
+};
 
   window.toggleDem = function toggleDemographicTable() {
       const resultsDiv = document.getElementById('results');
