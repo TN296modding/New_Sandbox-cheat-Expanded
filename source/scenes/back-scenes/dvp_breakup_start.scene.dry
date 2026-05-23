@@ -1,0 +1,3 @@
+title: Debug
+on-arrival: dvp_breakup_button_seen = 1; dvp_breakup_start_chain = 1
+go-to: main

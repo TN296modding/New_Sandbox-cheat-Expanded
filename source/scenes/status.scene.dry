@@ -770,3 +770,5 @@ on-arrival: {!
 <button class="button-30" role="button" onclick="var q = window.dendryUI.dendryEngine.state.qualities; q.button1_pressed = (q.button1_pressed || 0) + 1;">1</button><button class="button-30" role="button" onclick="var q = window.dendryUI.dendryEngine.state.qualities; q.button2_pressed = (q.button2_pressed || 0) + 1;">2</button>
 
 <button class="button-30" role="button" onclick="var q = window.dendryUI.dendryEngine.state.qualities; q.button3_pressed = (q.button3_pressed || 0) + 1;">3</button><button class="button-30" role="button" onclick="var q = window.dendryUI.dendryEngine.state.qualities; q.button4_pressed = (q.button2_pressed || 0) + 1;">4</button>
+
+[? if button1_pressed = 3 and button2_pressed = 0 and button3_pressed = 0 and button4_pressed = 0 and not dvp_breakup_button_seen : <button class="button-30" role="button" onclick="window.dendryUI.dendryEngine.goToScene('dvp_breakup_start');">Start The DVP Breakup Chain</button> ?]
