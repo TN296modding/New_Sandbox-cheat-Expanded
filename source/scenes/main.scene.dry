@@ -23,7 +23,6 @@ max-cards: 4
 - @party
 - @govt
 - @eco
-- @next_week
 - @presidential_affairs
 - #advisor
 - @shuffle_leadership_pinned
