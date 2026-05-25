@@ -4473,12 +4473,12 @@ if (Q.in_social_liberal_coalition == 1 && Q.pro_republic >= 75) {
     Q.catholics_ddp += 1/48;
     Q.workers_z -= 1/48;
 }
-Q.workers_spd += (Q.workers_spd_growth/48)
-Q.unemployed_spd += Q.unemployed_spd_growth/48
-Q.new_middle_spd += Q.new_middle_spd_growth/48
-Q.old_middle_spd += Q.old_middle_spd_growth/48
-Q.rural_spd += Q.rural_spd_growth/48
-Q.catholics_spd += Q.catholics_spd_growth/48
+/// Q.workers_spd += (Q.workers_spd_growth/48)
+/// Q.unemployed_spd += Q.unemployed_spd_growth/48
+/// Q.new_middle_spd += Q.new_middle_spd_growth/48
+/// Q.old_middle_spd += Q.old_middle_spd_growth/48
+/// Q.rural_spd += Q.rural_spd_growth/48
+/// Q.catholics_spd += Q.catholics_spd_growth/48
 Q.kpd_relation += Q.kpd_spd_relation_growth/4
 Q.sapd_relation += Q.spd_spd_relation_growth/4
 Q.ddp_relation += Q.ddp_spd_relation_growth/4
