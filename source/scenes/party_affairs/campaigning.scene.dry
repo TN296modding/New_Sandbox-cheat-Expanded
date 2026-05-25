@@ -24,9 +24,9 @@ Whether or not we are in an electoral campaign, the party is always trying to br
 
 @workers
 subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: workers_spd += 6*(1-dissent)*(workers_reach+1); workers_spd -= 1 if unemployed >= 20; workers_spd -= 1 if unemployed >= 30; workers_spd += 3*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_spd += 3*(1-dissent) if nationalization_progress >= 1;
+choose-if: resources >= 1 and party_actions = 0
+unavailable-subtitle: [? if resources < 1 : Not enough resources. ?][? if party_actions = 0 : We have taken our Party Action this week ?]
+on-arrival: workers_spd += 6*(1-dissent)*(workers_reach+1); workers_spd -= 1 if unemployed >= 20; workers_spd -= 1 if unemployed >= 30; workers_spd += 3*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_spd += 3*(1-dissent) if nationalization_progress >= 1; party_actions += 1
 
 We have increased our campaigning among the workers. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
 
@@ -47,9 +47,9 @@ We have declined to exclude overt union advertising in our campaign.
 
 @new_middle
 subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: new_middle_spd += 6*(1-dissent)*(new_middle_reach+1); new_middle_spd += 2*(1-dissent)*(new_middle_reach+1) if nmc_awakened = 1; new_middle_spd += 4 if socialism <= 49 and peoples_party == 0 and nmc_awakened = 1; new_middle_spd -= 4 if socialism <= 49 and peoples_party == 0; resources -= 1; peoples_party_support += 1; labor_dissent -= 5; labor_strength += 3; nmc_cc += 1;
+choose-if: resources >=  and party_actions = 0
+unavailable-subtitle: [? if resources = 0 : Not enough resources. ?][? if party_actions = 0 : We have taken our Party Action this week ?]
+on-arrival: new_middle_spd += 6*(1-dissent)*(new_middle_reach+1); new_middle_spd += 2*(1-dissent)*(new_middle_reach+1) if nmc_awakened = 1; new_middle_spd += 4 if socialism <= 49 and peoples_party == 0 and nmc_awakened = 1; new_middle_spd -= 4 if socialism <= 49 and peoples_party == 0; resources -= 1; peoples_party_support += 1; labor_dissent -= 5; labor_strength += 3; nmc_cc += 1; party_actions += 1
 
 We have increased our campaigning among the new middle class. [? if socialism <= 49 and peoples_party == 0: The popular antipathy towards <span style="color: #c00000;">socialism</span> among this group makes our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
 
@@ -66,17 +66,17 @@ The unions are already seeing growth. While not super effecive, this is an easy 
 
 @old_middle
 subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: old_middle_spd += 5*(1-dissent)*(old_middle_reach+1); resources -= 1; old_middle_spd -= 3 if nationalism >= 51 and peoples_party == 0; peoples_party_support += 1
+choose-if: resources >= 1 and party_actions = 0
+unavailable-subtitle: [? if resources < 1 : Not enough resources. ?][? if party_actions = 0 : We have taken our Party Action this week ?]
+on-arrival: old_middle_spd += 5*(1-dissent)*(old_middle_reach+1); resources -= 1; old_middle_spd -= 3 if nationalism >= 51 and peoples_party == 0; peoples_party_support += 1; party_actions += 1
 
 We have increased our campaigning among the old middle class. [? if nationalism >= 51 and peoples_party == 0: The high levels of nationalism among this group make our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
 
 @rural
 subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: rural_spd += 5*(1-dissent)*(rural_reach+1); rural_spd += 2*(rural_reach+1) if agr_awakened = 1; rural_spd -= 3*(1-dissent) if peoples_party == 0; rural_spd += 3 if agr_awakened == 1 and peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_spd += 3*(1-dissent) if rural_policy >= 2; rural_campaigned += 1; agr_cc += 1; dbp_left += 0.5; cnblp_left += 0.25; others_left += 0.75
+choose-if: resources >= 1 and party_actions = 0
+unavailable-subtitle: [? if resources < 1 : Not enough resources. ?][? if party_actions = 0 : We have taken our Party Action this week ?]
+on-arrival: rural_spd += 5*(1-dissent)*(rural_reach+1); rural_spd += 2*(rural_reach+1) if agr_awakened = 1; rural_spd -= 3*(1-dissent) if peoples_party == 0; rural_spd += 3 if agr_awakened == 1 and peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_spd += 3*(1-dissent) if rural_policy >= 2; rural_campaigned += 1; agr_cc += 1; dbp_left += 0.5; cnblp_left += 0.25; others_left += 0.75; party_actions += 1
 
 We have increased our campaigning among farmers. [? if peoples_party == 0: We have not historically campaigned much among the farmers, and they do not trust us. ?][? if peoples_party > 0: As a people's party, we have an easier time increasing support among farmers than before. ?][? if rural_policy >= 2 : Our rural policies have made it easier for us to build support among farmers. ?]
 
@@ -93,9 +93,9 @@ The unions are already seeing growth. While not super effective, this is an easy
 
 @unemployed
 subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: unemployed_spd += 6*(1-dissent)*(unemployed_reach+1); resources -= 1; unemployed_spd -= 3 if welfare < 0; unemployed_spd -= 2 if unemployed >= 30; unemployed_spd += 6*(1-dissent) if wtb_adopted = 1; unemployed_spd += 3*(1-dissent) if welfare >= 2;
+choose-if: resources >= 1 and party_actions = 0
+unavailable-subtitle: [? if resources < 1 : Not enough resources. ?][? if party_actions = 0 : We have taken our Party Action this week ?]
+on-arrival: unemployed_spd += 6*(1-dissent)*(unemployed_reach+1); resources -= 1; unemployed_spd -= 3 if welfare < 0; unemployed_spd -= 2 if unemployed >= 30; unemployed_spd += 6*(1-dissent) if wtb_adopted = 1; unemployed_spd += 3*(1-dissent) if welfare >= 2; party_actions += 1
 
 We have increased our campaigning among the unemployed. [? if welfare < 0: The welfare cuts and resultant poverty make our campaign more difficult, since we are associated with the government that enacted these cuts, and our campaign may even backfire. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract support from the unemployed. ?]
 
@@ -112,10 +112,10 @@ The IWW is already seeing growth. While not super effecive, this is an easy way 
 
 @catholics
 subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
+choose-if: resources >= 1 and party_actions = 0
+unavailable-subtitle: [? if resources < 1 : Not enough resources. ?][? if party_actions = 0 : We have taken our Party Action this week ?]
 view-if: peoples_party == 1
-on-arrival: catholics_spd += 6*(1-dissent)*(catholics_reach+1); resources -= 1
+on-arrival: catholics_spd += 6*(1-dissent)*(catholics_reach+1); resources -= 1; party_actions += 1
 
 We have increased our campaigning among Catholics.
 

@@ -20,9 +20,9 @@ The DDP is primarily a party of the Middle Classes, however some in our party su
 @unlock_agr_lib
 title: Convert the Peasant Class to Liberalism
 subtitle: This will make them far more receptive to liberalism.
-choose-if: agr_lib >= 8
-unavailable-subtitle: The Peasant Class has not yet had enough exposure to Liberal ideals
-on-arrival: rural_ddp += 6; rural_dvp += 3; spd_right += 3 if rural_spd > 6; cnblp_left += 3; kvp_left += 3; dnvp_left += 3; others_left += 3; pro_republic += 6; nationalism -= 6; libun_rur_perc += 0.03 if liberal_unions = 1; agr_liberalised = 1;
+choose-if: agr_lib >= 8 and party_actions = 0
+unavailable-subtitle:. [? if agr_lib < 8 : The Peasant Class has not yet had enough exposure to Liberal ideals ?][? if party_actions = 0 : We have taken our Party Action this week ?]
+on-arrival: rural_ddp += 6; rural_dvp += 3; spd_right += 3 if rural_spd > 6; cnblp_left += 3; kvp_left += 3; dnvp_left += 3; others_left += 3; pro_republic += 6; nationalism -= 6; libun_rur_perc += 0.03 if liberal_unions = 1; agr_liberalised = 1; party_actions += 1
 
 We have sucessfully fostered Class consciousness in the Peasant Class, and pushed the Agrarian-Conservative parties left.
 
@@ -31,13 +31,17 @@ We have sucessfully fostered Class consciousness in the Peasant Class, and pushe
 @foster_lib
 title: Push Socialist ideas onto the Peasant Class
 subtitle: This will make it easier to make them class-conscious
-on-arrival: agr_lib += 1; rural_ddp += 1; rural_dvp += 0.5; rural_dvp += 0.5 if rural_dvp > 5 and rural_dnvp > 14; rural_dvp += 0.5 if rural_dvp > 2 and rural_dnvp < 15;
+choose-if: party_actions = 0
+unavailable-subtitle: [? if party_actions = 0 : We have taken our Party Action this week ?]
+on-arrival: agr_lib += 1; rural_ddp += 1; rural_dvp += 0.5; rural_dvp += 0.5 if rural_dvp > 5 and rural_dnvp > 14; rural_dvp += 0.5 if rural_dvp > 2 and rural_dnvp < 15; party_actions += 1
 
 We are progressing towards class-consciousness in the Peasant Class
 
 - @ddp_continue
 
 @too_conservative
+choose-if: party_actions = 0
+unavailable-subtitle: [? if party_actions = 0 : We have taken our Party Action this week ?]
 title: The Peasant Class is far too conservative, and wouldn't truly be able to embrace liberalism - There's nothing we can do
 on-arrival: agr_liberalism = -1; rural_ddp -= 2
 

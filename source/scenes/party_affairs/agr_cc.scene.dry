@@ -20,8 +20,8 @@ While the SPD is primarily a party of the Working Class, some proponents argue t
 @unlock_agr_cc
 title: Awaken the Class Consciousness of the Peasants
 subtitle: This will make them more receptive to socialism, as well as pushing the Agrarian-Conservative (WIP note: Colour) parties to the left
-choose-if: agr_cc >= 8
-unavailable-subtitle: The Peasant Class has not yet had enough exposure to Socialist ideals
+choose-if: agr_cc >= 8 and party_actions = 0
+unavailable-subtitle: [? if agr_cc < 8 : The Peasant Class has not yet had enough exposure to Socialist ideals?][? if party_actions = 0 : We have taken our Party Action this week ?]
 on-arrival: advisor_action_timer = 6; rural_spd += 8; ddp_left += 5 if rural_ddp > 10; ddp_cohesion -= 1 if rural_ddp > 10; dbp_left += 3; cnblp_left += 3; kvp_left += 3; dnvp_left += 3; others_left += 3; pro_republic += 4; nationalism -= 6; trun_rur_perc += 0.03; iww_rur_perc += 0.02 if syndicalism = 1; agr_awakened = 1; agr_form_timer = 6
 
 We have sucessfully fostered Class consciousness in the Peasant Class, and pushed the Agrarian-Conservative parties left.
@@ -29,10 +29,14 @@ We have sucessfully fostered Class consciousness in the Peasant Class, and pushe
 @foster_cc
 title: Push Socialist ideas onto the Peasant Class
 subtitle: This will make it easier to make them class-conscious
+choose-if: party_actions = 0
+unavailable-subtitle: [? if party_actions = 0 : We have taken our Party Action this week ?]
 on-arrival: agr_cc += 1; rural_spd += 1
 
 We are progressing towards class-consciousness in the Peasant Class
 
 @petit_bourgeois
-title: The Peasant Class seeks only to become petit-bourgeois, and will always stay that way - There's nothing we can do
+choose-if: party_actions = 0
+unavailable-subtitle: [? if party_actions = 0 : We have taken our Party Action this week ?]
+title: The Peasant Class seeks only to become part of the petit-bourgeois, and will always stay that way - There's nothing we can do
 on-arrival: agr_awakened = -1; rural_spd -= 2
