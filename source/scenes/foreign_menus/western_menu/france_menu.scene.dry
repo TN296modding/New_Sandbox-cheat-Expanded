@@ -56,7 +56,7 @@ wip
 @4alsace_popularity
 choose-if: french_actions_timer < 1
 unavailable-subtitle: [+ french_actions_timer +] Weeks until next action
-on-arrival: french_actions_timer = 6; french_actions_timer = 0 if debug; fr_germany_love += 1; fr_also_germany_love += 1; also_ethnicity += 1
+on-arrival: french_actions_timer = 6; french_actions_timer = 0 if debug_mode; fr_germany_love += 1; fr_also_germany_love += 1; also_ethnicity += 1
 
 wip
 
