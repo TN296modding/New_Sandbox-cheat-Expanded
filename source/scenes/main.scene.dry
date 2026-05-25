@@ -51,12 +51,6 @@ is-deck: true
 
 - @economic_policy
 
-@next_week
-title: Next Week
-card-image: we_build_the_state.jpg
-is-deck: true
-go-to: next_week_card
-
 @presidential_affairs
 title: Presidential Affairs
 card-image: weimar_constitution.jpg
