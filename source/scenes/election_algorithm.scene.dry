@@ -35,7 +35,7 @@ for (var party of Q.parties) {
     Q[party + '_support'] = party_support;
     total_support += party_support;
     if (party == "other") {
-        Q.cnblp_normalized = ((Q.rural_other_normalized)*Q.rural);
+        Q.cnblp_normalized = ((Q.catholics_other_normalized)*Q.catholics);
         Q.wp_normalized = (Q.new_middle_other_normalized*Q.new_middle) + (Q.old_middle_other_normalized*Q.old_middle);
         Q.dbp_normalized = ((Q.rural_other_normalized)*Q.rural);
         if (Q.csvd_formed && !Q.aspd_other) Q.csvd_normalized = Q.workers_other_normalized*Q.workers;
@@ -96,6 +96,7 @@ for (var party of Q.parties) {
     if (party == "other") {
         Q.cnblp_votes = Math.round((Q.cnblp_votes*1000)/10);
         Q.wp_votes = Math.round((Q.wp_votes*1000)/10);
+        Q.dbp_votes = Math.round(Q.dbp_votes*1000) / 10;
         if (Q.csvd_formed && !Q.aspd_other) Q.csvd_votes = Math.round((Q.csvd_votes*1000)/10);
         if (Q.aspd_other || Q.aspd_kvp) Q.aspd_votes = Math.round((Q.aspd_votes*1000)/10);
         if (Q.right_dnef) Q.right_dnef_votes = Math.round((Q.right_dnef_votes*1000)/10);
