@@ -41,16 +41,22 @@ We have organised a state visit to France and improved relations with their Gove
 
 @2reparations
 choose-if: french_actions_timer < 1
+unavailable-subtitle: [+ french_actions_timer +] Weeks until next action
+on-arrival: french_actions_timer = 6; reparations_negotiation += 1; fr_germany_love += 0.01 if sfio_in_fr_gov
 
 wip
 
 @3sister_party
 choose-if: french_actions_timer < 1
+unavailable-subtitle: [+ french_actions_timer +] Weeks until next action
+on-arrival: french_actions_timer = 6; french_relation += 1 if sfio_in_fr_gov; sfio_sp_factor += 0.01; pup_sp_factor += 0.01; pcf_sp_factor += 0.01; prs_sp_factor += 0.01; fr_also_germany_love += 1; fr_germany_love += 1
 
 wip
 
 @4alsace_popularity
 choose-if: french_actions_timer < 1
+unavailable-subtitle: [+ french_actions_timer +] Weeks until next action
+on-arrival: french_actions_timer = 6; french_actions_timer = 0 if debug; fr_germany_love += 1; fr_also_germany_love += 1; also_ethnicity += 1
 
 wip
 
