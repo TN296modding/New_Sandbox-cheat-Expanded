@@ -47,7 +47,7 @@ We have declined to exclude overt union advertising in our campaign.
 
 @new_middle
 subtitle: -1 resources
-choose-if: resources >=  and party_actions = 0
+choose-if: resources >= 1 and party_actions = 0
 unavailable-subtitle: [? if resources = 0 : Not enough resources. ?][? if party_actions = 0 : We have taken our Party Action this week ?]
 on-arrival: new_middle_spd += 6*(1-dissent)*(new_middle_reach+1); new_middle_spd += 2*(1-dissent)*(new_middle_reach+1) if nmc_awakened = 1; new_middle_spd += 4 if socialism <= 49 and peoples_party == 0 and nmc_awakened = 1; new_middle_spd -= 4 if socialism <= 49 and peoples_party == 0; resources -= 1; peoples_party_support += 1; labor_dissent -= 5; labor_strength += 3; nmc_cc += 1; party_actions += 1
 

@@ -55,8 +55,7 @@ is-deck: true
 title: Next Week
 card-image: we_build_the_state.jpg
 is-deck: true
-
-- @next_week_card
+go-to: next_week_card
 
 @presidential_affairs
 title: Presidential Affairs
