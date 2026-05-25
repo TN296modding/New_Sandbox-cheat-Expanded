@@ -18,28 +18,34 @@ go-to: western_menu_true
 @france_menu_top
 go-to: france_menu
 
-Text
+
 
 @britain_menu_top
+go-to: britain_menu
 
-text
+
 
 @netherlands_menu_top
+go-to: netherlands_menu
 
-text
+
 
 @belgium_menu_top
+go-to: belgium_menu
 
-text
+
 
 @luxembourg_menu_top
+go-to: luxembourg_menu
 
-text
+
 
 @portugal_menu_top
+go-to: portugal_menu
 
-text
+
 
 @spain_menu_top
+go-to: spain_menu
 
-text
+
