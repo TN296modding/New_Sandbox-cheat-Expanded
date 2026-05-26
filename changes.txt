@@ -1,4 +1,12 @@
-v0.01
+v - Version | (1st) X - Release Version | (2nd) X - Beta Version | (3rd) X - Alpha Version
+i.e. : v.X.X.X
+
+v0.0.1
 
 A lot of changes
+Removed Rubicon
+
+v0.02
+
+Added Communications Card | WIP
 Removed Rubicon
