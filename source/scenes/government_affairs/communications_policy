@@ -1,1 +1,20 @@
-Gvmnt TV Programmes, Gvmnt newspapers, Gvmnt radio, Influencing the positive image of the governmnet, etc.
+title: Communications Policy
+###Gvmnt TV Programmes, Gvmnt newspapers, Gvmnt radio, Influencing the positive image of the governmnet, etc.
+
+Debug
+
+- @gv_news: Provide a Government-aligned news source, mainly covering politics and world news
+- @gv_radio: Gov radio
+- @gv_tv: Turn the RRG (<i> Reichs-Rundfunk-Gesellschaft</i>) into more publicly owned ARD (<i></i>)
+
+@gv_news
+
+news
+
+@gv_radio
+
+radio
+
+@gv_tv
+
+tv
