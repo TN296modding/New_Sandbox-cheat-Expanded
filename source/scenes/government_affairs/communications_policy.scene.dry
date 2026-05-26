@@ -1,0 +1,44 @@
+title: Communications Policy
+###Gvmnt TV Programmes, Gvmnt newspapers, Gvmnt radio, Influencing the positive image of the governmnet, etc.
+go-to: compol
+on-arrival: communcations_timer = 6
+is-card: true
+new-page: true
+tags: government_affairs
+view-if: year >= 1936 and spd_in_government and communications_timer <= 0 and (chancellor_party == "SPD" or interior_minister_party == "SPD")
+
+@compol
+
+= Communications Policy
+
+- @gv_news: Provide a Government-aligned newspaper (Die Deutsche Nationalzeitung), mainly covering German politics and world news
+- @gv_news_options: Set the government line in the Deutsche Nationalzeitung
+- @gv_radio: Fund a "Republikaner Radio Netzwerk" (RRN), funding radio station to broadcast Republican and Govenrment aligned programmes
+- @gv_radio_options: Increase or decrease the focus on certain programmes within the RRN
+- @gv_tv: Turn the RRG (<i> Reichs-Rundfunk-Gesellschaft </i>) into a more publicly owned ARD (<i> <b>Arbeitsgemeinschaft</b> der öffentlich-rechtlichen <b>Rundfunkanstalten</b> der [? if bundesrepublik_formed = 1 : Bundesrepublik ?][? if not bundesrepublik_formed : Deutscherepublik ?] </i>), to specifically focus on TV [? if year >= 1999 : and Internet ?] programmes
+- @gv_tv_options: Choose what kind of programmes the ARD should run
+- @return
+
+@gv_news
+
+news
+
+@gv_news_options
+
+options
+
+@gv_radio
+
+radio
+
+@gv_radio_options
+
+news
+
+@gv_tv
+
+tv
+
+@gv_tv_options
+
+news
