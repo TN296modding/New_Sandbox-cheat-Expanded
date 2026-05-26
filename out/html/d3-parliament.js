@@ -37,6 +37,7 @@ d3.parliament = function() {
 
             var outerParliamentRadius = Math.min(width/2, height);
             var innerParliementRadius = outerParliamentRadius * innerRadiusCoef;
+            console.log('outerParliamentRadius:', outerParliamentRadius, 'width:', width, 'height:', height);
 
             /* init the svg */
             var svg = d3.select(this);
