@@ -1138,6 +1138,8 @@ if (window && d3) {
     parliament.width(width).height(height).innerRadiusCoef(0.4);
     parliament.enter.fromCenter(true).smallToBig(true);
     parliament.exit.toCenter(false).bigToSmall(true);
+    console.log('reichstag element:', document.getElementById('reichstag'));
+    console.log('data:', JSON.stringify(data));
     d3.select("#reichstag").datum(data).call(parliament);
 }
 !}
