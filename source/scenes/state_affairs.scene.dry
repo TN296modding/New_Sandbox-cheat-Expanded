@@ -1,6 +1,7 @@
 title: state_affairs
 new-page: true
 go-to: state_menu
+is-special: true
 ### Add emergency situations, like calling general strikes
 ### Alsace Minstries: Government Ministries + Culture Ministry
 ### Anhalt Ministries: Government Ministries

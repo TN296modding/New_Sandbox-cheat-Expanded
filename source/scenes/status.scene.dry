@@ -463,25 +463,25 @@ Q.splin_list_disp = Q.kpo_votes + Q.sapd_votes + Q.adgbpf_votes + Q.srp_votes + 
 
 <span style="color: #c00000;">**SPD**</span>: [+ spd_votes +]%
 
-**[+ kpo_name +]**:[? if kpo_formed : [+ kpo_votes +]% ?][? if not kpo_formed : Not Formed ?]
+[? if debug_mode = 1 : **[+ kpo_name +]**:[? if kpo_formed : [+ kpo_votes +]% ?][? if not kpo_formed : Not Formed ?]?]
 
-**SAPD**:[? if sapd_formed : [+ sapd_votes +]% ?][? if not sapd_formed : Not Formed ?]
+[? if debug_mode = 1 : **SAPD**:[? if sapd_formed : [+ sapd_votes +]% ?][? if not sapd_formed : Not Formed ?]?]
 
-**ADGBPF**</span>:[? if adgbpf_formed : [+ adgbpf_votes +]% ?][? if not adgbpf_formed : Not Formed ?]
+[? if debug_mode = 1 : **ADGBPF**</span>:[? if adgbpf_formed : [+ adgbpf_votes +]% ?][? if not adgbpf_formed : Not Formed ?]?]
 
-**SRP**</span>:[? if srp_formed : [+ srp_votes +]% ?][? if not srp_formed : Not Formed ?]
+[? if debug_mode = 1 : **SRP**</span>:[? if srp_formed : [+ srp_votes +]% ?][? if not srp_formed : Not Formed ?]?]
 
-**SLP**</span>:[? if slp_formed : [+ slp_votes +]% ?][? if not slp_formed : Not Formed ?]
+[? if debug_mode = 1 : **SLP**</span>:[? if slp_formed : [+ slp_votes +]% ?][? if not slp_formed : Not Formed ?]?]
 
-**NSBP**</span>:[? if nsbp_formed : [+ nsbp_votes +]% ?][? if not nsbp_formed : Not Formed ?]
+[? if debug_mode = 1 : **NSBP**</span>:[? if nsbp_formed : [+ nsbp_votes +]% ?][? if not nsbp_formed : Not Formed ?]?]
 
-**ASPD**</span>:[? if aspd_reformed : [+ aspd_votes +]% ?][? if not aspd_reformed : Not Formed ?]
+[? if debug_mode = 1 : **ASPD**</span>:[? if aspd_reformed : [+ aspd_votes +]% ?][? if not aspd_reformed : Not Formed ?]?]
 
-**MSP**</span>:[? if msp_formed : [+ msp_votes +]% ?][? if not msp_formed : Not Formed ?]
+[? if debug_mode = 1 : **MSP**</span>:[? if msp_formed : [+ msp_votes +]% ?][? if not msp_formed : Not Formed ?]?]
 
-**SZ**</span>:[? if sz_formed : [+ sz_votes +]% ?][? if not sz_formed : Not Formed ?]
+[? if debug_mode = 1 : **SZ**</span>:[? if sz_formed : [+ sz_votes +]% ?][? if not sz_formed : Not Formed ?]?]
 
-**NSPD**</span>:[? if nspd_formed : [+ nspd_votes +]% ?][? if not nspd_formed : Not Formed ?]
+[? if debug_mode = 1 : **NSPD**</span>:[? if nspd_formed : [+ nspd_votes +]% ?][? if not nspd_formed : Not Formed ?]?]
 
 <span style="color: #000000;">**[+ z_party_name +]**</span> + <span style="color: #A2D8E0;">**BVP**</span>: [+ z_votes +]%
 
@@ -765,7 +765,7 @@ Labour Affairs:
 
 = States Menu
 
-<button class="button-30" role="button" onclick="window.dendryUI.dendryEngine.goToScene('state_affairs');">Debug</button>
+<button class="button-30" role="button" onclick="window.dendryUI.dendryEngine.goToScene('state_affairs');">State Affairs</button>
 
 @internal_tab
 on-arrival: {! 
