@@ -5,6 +5,8 @@ on-arrival: party_actions += 1; nmc_cc_timer = 4
 is-card: true
 card-image: img/freiheit_und_arbeit.jpg
 tags: party_affairs_spd
+frequency: 100
+max-visits: 500
 
 = Socialism in the New Middle Class
 

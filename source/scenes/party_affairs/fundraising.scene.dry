@@ -5,6 +5,8 @@ on-arrival: party_actions += 1; fundraising_timer = 12
 is-card: true
 card-image: img/poster_2.jpg
 tags: party_affairs_spd
+frequency: 100
+max-visits: 500
 
 = Fundraising
 

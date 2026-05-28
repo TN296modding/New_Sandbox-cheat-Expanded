@@ -5,6 +5,8 @@ tags: party_affairs_spd
 is-card: true
 on-arrival: party_actions += 1; inter_party_relationships_timer = 4;
 card-image: img/weimar_coalition_2.jpg
+frequency: 100
+max-visits: 500
 #subtitle: Building relations with the other political parties of Germany.
 
 = Inter-Party Relationships

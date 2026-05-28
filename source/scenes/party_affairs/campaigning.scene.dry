@@ -5,6 +5,7 @@ on-arrival: party_actions += 1
 is-card: true
 card-image: img/flags.jpg
 frequency: 100
+max-visits: 500
 tags: party_affairs_spd
 
 = Campaigning

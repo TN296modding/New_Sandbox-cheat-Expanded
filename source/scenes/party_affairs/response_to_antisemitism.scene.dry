@@ -6,6 +6,7 @@ on-arrival: confronting_antisemitism += 1; party_actions += 1
 card-image: img/iron_front.png
 tags: party_affairs_spd, antifascism
 max-visits: 1
+frequency: 100
 
 = Confronting Antisemitism
 
