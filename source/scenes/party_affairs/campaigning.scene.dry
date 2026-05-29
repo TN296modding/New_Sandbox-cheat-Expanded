@@ -1,6 +1,5 @@
 title: Campaigning
 new-page: true
-view-if: campaigning_timer <= 0
 on-arrival: party_actions += 1
 is-card: true
 card-image: img/flags.jpg

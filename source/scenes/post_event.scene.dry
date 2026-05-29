@@ -4479,17 +4479,48 @@ if (Q.in_social_liberal_coalition == 1 && Q.pro_republic >= 75) {
 /// Q.old_middle_spd += Q.old_middle_spd_growth/48
 /// Q.rural_spd += Q.rural_spd_growth/48
 /// Q.catholics_spd += Q.catholics_spd_growth/48
-Q.kpd_relation += Q.kpd_spd_relation_growth/4
-Q.sapd_relation += Q.spd_spd_relation_growth/4
-Q.ddp_relation += Q.ddp_spd_relation_growth/4
-Q.z_relation += Q.z_spd_relation_growth/4
-Q.dvp_relation += Q.dvp_spd_relation_growth/4
-Q.dbp_relation += Q.dbp_spd_relation_growth/4
-Q.dhp_relation += Q.dhp_spd_relation_growth/4
-Q.cnblp_relation += Q.cnblp_spd_relation_growth/4
-Q.wp_relation += Q.wp_spd_relation_growth/4
-Q.csvd_relation += Q.csvd_spd_relation_growth/4
-Q.rural_relation += Q.rural_others_relation_growth/4 
+///Q.kpd_relation += Q.kpd_spd_relation_growth/4
+///Q.sapd_relation += Q.spd_spd_relation_growth/4
+///Q.ddp_relation += Q.ddp_spd_relation_growth/4
+///Q.z_relation += Q.z_spd_relation_growth/4
+///Q.dvp_relation += Q.dvp_spd_relation_growth/4
+///Q.dbp_relation += Q.dbp_spd_relation_growth/4
+///Q.dhp_relation += Q.dhp_spd_relation_growth/4
+///Q.cnblp_relation += Q.cnblp_spd_relation_growth/4
+///Q.wp_relation += Q.wp_spd_relation_growth/4
+///Q.csvd_relation += Q.csvd_spd_relation_growth/4
+///Q.rural_relation += Q.rural_others_relation_growth/4 
+
+if (Q.dominant_fac_era = 1 && !Q.domfac_r0 && Q.year >= 1928) {
+    Q.dominant_fac_era = 0
+    Q.dominant_fac = "None"
+    Q.domfac_r0 = 1
+}
+
+if (Q.dominant_fac_era = 1 && !Q.domfac_r1 && Q.year >= 1940) {
+    Q.dominant_fac_era = 0
+    Q.dominant_fac = "None"
+    Q.domfac_r1 = 1
+}
+
+if (Q.dominant_fac_era = 1 && !Q.domfac_r2 && Q.year >= 1960) {
+    Q.dominant_fac_era = 0
+    Q.dominant_fac = "None"
+    Q.domfac_r2 = 1
+}
+
+if (Q.dominant_fac_era = 1 && !Q.domfac_r3 && Q.year >= 1960) {
+    Q.dominant_fac_era = 0
+    Q.dominant_fac = "None"
+    Q.domfac_r3 = 1
+}
+
+if (Q.dominant_fac_era = 1 && !Q.domfac_r4 && Q.year >= 1980) {
+    Q.dominant_fac_era = 0
+    Q.domfac_r4 = 1
+    Q.dominant_fac = "None"
+}
+
 /// fourth barrier
 /// third barrier
 /// second barier

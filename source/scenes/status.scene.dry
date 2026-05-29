@@ -254,6 +254,8 @@ Q.chrun_tot_perc_dis = (Q.chrun_tot_perc * 100).toFixed(3);
 
 = Internal Factions of the <span style="color: #c00000;">**SPD**</span>
 
+Dominant Faction: [+ dominant_fac +]
+
 <span style="color: #5b0303;">**Left**</span> strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
 <span style="color: #9b0000;">**Center**</span> strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
