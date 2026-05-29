@@ -4554,6 +4554,7 @@ if (typeof window !== "undefined" && window.generateBar) {
 }
 
 !}
+call: research_bakground
 go-to: events_choice if has_event = 1; main if has_event = 0
 
 = [+ month : month +] [+ year +] Week [+ week +]
