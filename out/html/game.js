@@ -227,6 +227,7 @@ window.disableGrayMode = function() {
     dendryUI.dendryEngine._runActions(scene.onArrival);
     var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
     $('#qualities').append(dendryUI.contentToHTML.convert(displayContent));
+    colorTextNodes(document.getElementById('qualities'), colors);
 };
 
     window.updateSidebarRight = function() {
@@ -235,6 +236,7 @@ window.disableGrayMode = function() {
         dendryUI.dendryEngine._runActions(scene.onArrival);
         var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
         $('#qualities_right').append(dendryUI.contentToHTML.convert(displayContent));
+        colorTextNodes(document.getElementById('qualities_right'), colors);
 };
 
   window.changeTab = function(newTab, tabId, isRight) {
@@ -262,7 +264,48 @@ window.disableGrayMode = function() {
   window.onDisplayContent = function() {
     window.updateSidebar();
     window.updateSidebarRight();
-    var colors = {
+    colorTextNodes(document.getElementById('content'), colors);
+    colorTextNodes(document.getElementById('qualities'), colors);
+    colorTextNodes(document.getElementById('qualities_right'), colors);
+    // This was sotlen for GTS, so I don't know how it works
+    var PartyAffairsCard = document.querySelector('a.card[card-id="party_affairs"]');
+    if (PartyAffairsCard && !PartyAffairsCard.dataset.clickAttached) {
+        PartyAffairsCard.dataset.clickAttached = 'true';
+        PartyAffairsCard.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.dendryUI.dendryEngine.goToScene('party_affairs_list');
+        });
+    }
+    var GovAffairsCard = document.querySelector('a.card[card-id="gov_affairs"]');
+    if (GovAffairsCard && !GovAffairsCard.dataset.clickAttached) {
+        GovAffairsCard.dataset.clickAttached = 'true';
+        GovAffairsCard.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.dendryUI.dendryEngine.goToScene('gov_affairs_list');
+        });
+    }
+    var PresAffairsCard = document.querySelector('a.card[card-id="pres_affairs"]');
+    if (PressAffairsCard && !PresAffairsCard.dataset.clickAttached) {
+        PresAffairsCard.dataset.clickAttached = 'true';
+        PresAffairsCard.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.dendryUI.dendryEngine.goToScene('pres_affairs_list');
+        });
+    }
+    var EcoAffairsCard = document.querySelector('a.card[card-id="eco_affairs"]');
+    if (EcoAffairsCard && !EcoAffairsCard.dataset.clickAttached) {
+        EcoAffairsCard.dataset.clickAttached = 'true';
+        EcoAffairsCard.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.dendryUI.dendryEngine.goToScene('eco_affairs_list');
+        });
+    }
+};
+var colors = {
         'kpd': '#700000',
         'spd': '#c90000',
         'ddp': '#D3C24D',
@@ -357,10 +400,6 @@ window.disableGrayMode = function() {
             }
         });
     }
-    colorTextNodes(document.getElementById('content'), colors);
-    colorTextNodes(document.getElementById('qualities'), colors);
-    colorTextNodes(document.getElementById('qualities_right'), colors);
-};
 
   window.toggleDem = function toggleDemographicTable() {
       const resultsDiv = document.getElementById('results');

@@ -1000,3 +1000,37 @@ th {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
+
+/* Stolen from GTS */
+ul.decks a.card[card-id="party_affairs"] {
+    border-width: 10px !important;
+    border-style: solid !important;
+    /* border-color stays whatever your current dark gray is, not overridden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+ul.decks a.card[card-id="gov_affairs"] {
+    border-width: 10px !important;
+    border-style: solid !important;
+    /* border-color stays whatever your current dark gray is, not overridden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+ul.decks a.card[card-id="eco_affairs"] {
+    border-width: 10px !important;
+    border-style: solid !important;
+    /* border-color stays whatever your current dark gray is, not overridden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+ul.decks a.card[card-id="pres_affairs"] {
+    border-width: 10px !important;
+    border-style: solid !important;
+    /* border-color stays whatever your current dark gray is, not overridden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+}
