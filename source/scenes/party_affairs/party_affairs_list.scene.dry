@@ -1,0 +1,103 @@
+title: debug
+
+= Party Affairs
+
+- @agr_cc
+- @campaigning
+- @confronting_nazis
+- @crisis_program
+- @enemies
+- @fundraising
+- @ideology
+- @inter_party_relationships
+- @international_relations
+- @iron_front
+- @media
+- @neorevisionism
+- @nmc_cc
+- @party_disunity
+- @party_organizations
+- @peoples_party
+- @rally
+- @reichsbanner
+- @response_to_antisemitism
+- @streetfighting
+
+@agr_cc
+go-to: agr_cc
+view-if: agr_cc >= 6 and agr_cc_timer <= 0 and agr_awakened = 0
+
+@campaigning
+go-to: campaigning
+
+@confronting_nazis
+go-to: confronting_nazis
+view-if: (nsdap_r >= 10 and nazi_urgency > 1) and confronting_nazis_timer == 0 and iron_front_formed == 0
+
+@crisis_program
+go-to: crisis_program
+view-if: (crisis_urgency >= 2 or year >= 1931 or (month >= 6 and year == 1930)) and crisis_program_timer = 0 and economic_plan = 0 and black_thursday_seen == 1
+
+@enemies
+go-to: enemies
+view-if: enemies_timer <= 0
+
+@fundraising
+go-to: fundraising
+view-if: fundraising_timer <= 0
+
+@ideology
+go-to: ideology
+view-if: ideology_timer = 0
+
+@inter_party_relationships
+go-to: inter_party_relationships
+view-if: inter_party_relationships_timer <= 0
+
+@international_relations
+go-to: international_relations
+view-if: international_relations_timer <= 0
+
+@iron_front
+go-to: iron_front
+view-if: iron_front_formed == 1 and iron_front_timer = 0
+
+@media
+go-to: media
+view-if: media_timer <= 0
+
+@neorevisionism
+go-to: neorevisionism
+view-if: nazi_urgency > 0 and neorevisionism == 0 and (nsdap_r >= 10 or nsdap_normalized >= 0.15 or radicalization >= 3) and not neorevisionism_card_seen
+
+@nmc_cc
+go-to: nmc_cc
+view-if: nmc_cc >= 8 and nmc_cc_timer <= 0 and nmc_awakened = 0
+
+@party_disunity
+go-to: party_disunity
+view-if: party_disunity_timer = 0 and (dissent >= 0.3 or (reformist_dissent > 30 and not reformists_resign) or (center_dissent > 30 and not centrists_resign) or (left_dissent > 30 and not left_split) or (labor_dissent > 30 and not unions_independent) or (neorevisionist_dissent > 30 and neorevisionism))
+
+@party_organizations
+go-to: party_organizations
+view-if: party_organizations_timer <= 0
+
+@peoples_party
+go-to: peoples_party
+view-if: neorevisionism > 0 and peoples_party_support >= 3 and peoples_party = 0 and peoples_party_timer == 0
+
+@rally
+go-to: rally
+view-if: rally_timer <= 0
+
+@reichsbanner
+go-to: reichsbanner
+view-if: reichsbanner_timer <= 0
+
+@response_to_antisemitism
+go-to: response_to_antisemitism
+view-if: iron_front_formed == 1 and nazi_urgency >= 3
+
+@streetfighting
+go-to: streetfighting
+view-if: year >= 1930 and far_right_force >= 30 and streetfighting_timer == 0 and not return_to_normalcy and (chancellor != "Schleicher" or schleicher_time < 8)

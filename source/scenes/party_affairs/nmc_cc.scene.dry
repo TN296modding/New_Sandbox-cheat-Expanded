@@ -1,6 +1,5 @@
 title: Class Consciousness in the New Middle Class
 new-page: true
-view-if: nmc_cc >= 8 and nmc_cc_timer <= 0 and nmc_awakened = 0
 on-arrival: party_actions += 1; nmc_cc_timer = 4
 is-card: true
 card-image: img/freiheit_und_arbeit.jpg

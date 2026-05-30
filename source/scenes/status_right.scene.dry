@@ -2,4 +2,4 @@ title: Status Right
 new-page: true 
 is-special: true
 
-<button class="button-30" role="button" onclick="var q = window.dendryUI.dendryEngine.state.qualities; alert('workers_spd: ' + q.workers_spd + ', spd_support: ' + q.spd_support); window.dendryUI.dendryEngine.goToScene('next_week_card');">Next Week</button>
+<button class="button-30" role="button" onclick="window.dendryUI.dendryEngine.goToScene('next_week_card');">Next Week</button>
