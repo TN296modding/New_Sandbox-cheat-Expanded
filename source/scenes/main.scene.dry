@@ -30,18 +30,22 @@ max-cards: 4
 @party_affairs
 title: Party Affairs
 card-image: img/Vorwaerts_nr_1.png
+is-deck: true
 
 @gov_affairs
 title: Government Affairs
 view-if: time >= 6
 card-image: img/reichstag_2.jpg
+is-deck: true
 
 @eco_affairs
 title: Economic Policy
 view-if: spd_in_government = 1 and (economic_minister_party == "SPD" or finance_minister_party == "SPD") and economic_policy_timer <= 0 and economic_plan > 0 and black_thursday_seen
 card-image: img/portraits/SchmidtRobert.jpg
+is-deck: true
 
 @pres_affairs
 title: Presidential Affairs
 card-image: weimar_constitution.jpg
 view-if: spd_president
+is-deck: true
