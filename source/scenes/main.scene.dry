@@ -17,8 +17,6 @@ if (Q.shuffle_leadership_timer <= 0) {
 }
 Q.last_time_updated = Q.time;
 Q.last_week_updated = Q.week;
-
-alert('workers_spd: ' + Q.workers_spd + ', spd_votes: ' + Q.spd_votes);
 !}
 max-cards: 4
 

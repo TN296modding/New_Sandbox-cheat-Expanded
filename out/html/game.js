@@ -450,16 +450,17 @@ window.disableGrayMode = function() {
   };
 document.addEventListener('keydown', function(event) {
     switch(event.key) {
-        case '1': window.dendryUI.dendryEngine.goToScene('scene1'); break;
-        case '2': window.dendryUI.dendryEngine.goToScene('scene2'); break;
-        case '3': window.dendryUI.dendryEngine.goToScene('scene3'); break;
-        case '4': window.dendryUI.dendryEngine.goToScene('scene4'); break;
-        case '5': window.dendryUI.dendryEngine.goToScene('scene5'); break;
-        case '6': window.dendryUI.dendryEngine.goToScene('scene6'); break;
-        case '7': window.dendryUI.dendryEngine.goToScene('scene7'); break;
-        case '8': window.dendryUI.dendryEngine.goToScene('scene8'); break;
-        case '9': window.dendryUI.dendryEngine.goToScene('scene9'); break;
-        case '0': window.dendryUI.dendryEngine.goToScene('scene0'); break;
+        case '1': window.dendryUI.dendryEngine.goToScene('rightcomleader'); break;
+        case '2': window.dendryUI.dendryEngine.goToScene('leftleader'); break;
+        case '3': window.dendryUI.dendryEngine.goToScene('centreleader'); break;
+        case '4': window.dendryUI.dendryEngine.goToScene('agsocleader'); break;
+        case '5': window.dendryUI.dendryEngine.goToScene('laborleader'); break;
+        case '6': window.dendryUI.dendryEngine.goToScene('reformistleader'); break;
+        case '7': window.dendryUI.dendryEngine.goToScene('neorevleader'); break;
+        case '8': window.dendryUI.dendryEngine.goToScene('leftnatleader'); break;
+        case '9': window.dendryUI.dendryEngine.goToScene('liberalleader'); break;
+        case '0': window.dendryUI.dendryEngine.goToScene('leftchrisleader'); break;
+        case '-': window.dendryUI.dendryEngine.goToScene('businessleader'); break;
     }
 });
 
