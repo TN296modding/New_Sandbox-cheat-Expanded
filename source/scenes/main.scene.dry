@@ -1,5 +1,4 @@
 title: Next month
-is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - an action is available';
@@ -18,34 +17,12 @@ if (Q.shuffle_leadership_timer <= 0) {
 Q.last_time_updated = Q.time;
 Q.last_week_updated = Q.week;
 !}
-max-cards: 4
 
-- @party_affairs
-- @gov_affairs
-- @eco_affairs
-- @pres_affairs
-- #advisor
-- @shuffle_leadership_pinned
-
-@party_affairs
-title: Party Affairs
-card-image: img/Vorwaerts_nr_1.png
-is-deck: true
-
-@gov_affairs
-title: Government Affairs
-view-if: time >= 6
-card-image: img/reichstag_2.jpg
-is-deck: true
-
-@eco_affairs
-title: Economic Policy
-view-if: spd_in_government = 1 and (economic_minister_party == "SPD" or finance_minister_party == "SPD") and economic_policy_timer <= 0 and economic_plan > 0 and black_thursday_seen
-card-image: img/portraits/SchmidtRobert.jpg
-is-deck: true
-
-@pres_affairs
-title: Presidential Affairs
-card-image: weimar_constitution.jpg
-view-if: spd_president
-is-deck: true
+<ul class="decks">
+    <li class="deck">
+        <a class="card" href="#" card-id="main.party_affairs" title="Party Affairs"><img class="card-img" src="img/Vorwaerts_nr_1></a>
+        <a class="card" href="#" card-id="main.gov_affairs" title="Government Affairs"><img class="card-img" src="img/reichstag_2.jpg"></a>
+        <a class="card" href="#" card-id="main.eco_affairs" title="Economic Affairs"><img class="card-img" src="img/portraits/SchmidtRobert.jpg"></a>
+        <a class="card" href="#" card-id="main.pres_affairs" title="Presidential Affairs"><img class="card-img" src="img/weimar_constitution.jpg"></a>
+    </li>
+</ul>
