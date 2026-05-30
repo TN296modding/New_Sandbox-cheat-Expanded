@@ -266,7 +266,7 @@ window.disableGrayMode = function() {
     window.updateSidebarRight();
     colorTextNodes(document.getElementById('content'), colors);
     // This was stolen for GTS, so I don't know how it works
-    var PartyAffairsCard = document.querySelector('a.card[card-id="party_affairs"]');
+    var PartyAffairsCard = document.querySelector('a.card[card-id="main.party_affairs"]');
     if (PartyAffairsCard && !PartyAffairsCard.dataset.clickAttached) {
         PartyAffairsCard.dataset.clickAttached = 'true';
         PartyAffairsCard.addEventListener('click', function(e) {
@@ -275,7 +275,7 @@ window.disableGrayMode = function() {
             window.dendryUI.dendryEngine.goToScene('party_affairs_list');
         });
     }
-    var GovAffairsCard = document.querySelector('a.card[card-id="gov_affairs"]');
+    var GovAffairsCard = document.querySelector('a.card[card-id="main.gov_affairs"]');
     if (GovAffairsCard && !GovAffairsCard.dataset.clickAttached) {
         GovAffairsCard.dataset.clickAttached = 'true';
         GovAffairsCard.addEventListener('click', function(e) {
@@ -284,7 +284,7 @@ window.disableGrayMode = function() {
             window.dendryUI.dendryEngine.goToScene('gov_affairs_list');
         });
     }
-    var PresAffairsCard = document.querySelector('a.card[card-id="pres_affairs"]');
+    var PresAffairsCard = document.querySelector('a.card[card-id="main.pres_affairs"]');
     if (PresAffairsCard && !PresAffairsCard.dataset.clickAttached) {
         PresAffairsCard.dataset.clickAttached = 'true';
         PresAffairsCard.addEventListener('click', function(e) {
@@ -293,7 +293,7 @@ window.disableGrayMode = function() {
             window.dendryUI.dendryEngine.goToScene('pres_affairs_list');
         });
     }
-    var EcoAffairsCard = document.querySelector('a.card[card-id="eco_affairs"]');
+    var EcoAffairsCard = document.querySelector('a.card[card-id="main.eco_affairs"]');
     if (EcoAffairsCard && !EcoAffairsCard.dataset.clickAttached) {
         EcoAffairsCard.dataset.clickAttached = 'true';
         EcoAffairsCard.addEventListener('click', function(e) {
