@@ -265,43 +265,6 @@ window.disableGrayMode = function() {
     window.updateSidebar();
     window.updateSidebarRight();
     colorTextNodes(document.getElementById('content'), colors);
-    // This was stolen for GTS, so I don't know how it works
-    var PartyAffairsCard = document.querySelector('a.card[card-id="main.party_affairs"]');
-    if (PartyAffairsCard && !PartyAffairsCard.dataset.clickAttached) {
-        PartyAffairsCard.dataset.clickAttached = 'true';
-        PartyAffairsCard.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.dendryUI.dendryEngine.goToScene('party_affairs_list');
-        });
-    }
-    var GovAffairsCard = document.querySelector('a.card[card-id="main.gov_affairs"]');
-    if (GovAffairsCard && !GovAffairsCard.dataset.clickAttached) {
-        GovAffairsCard.dataset.clickAttached = 'true';
-        GovAffairsCard.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.dendryUI.dendryEngine.goToScene('gov_affairs_list');
-        });
-    }
-    var PresAffairsCard = document.querySelector('a.card[card-id="main.pres_affairs"]');
-    if (PresAffairsCard && !PresAffairsCard.dataset.clickAttached) {
-        PresAffairsCard.dataset.clickAttached = 'true';
-        PresAffairsCard.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.dendryUI.dendryEngine.goToScene('pres_affairs_list');
-        });
-    }
-    var EcoAffairsCard = document.querySelector('a.card[card-id="main.eco_affairs"]');
-    if (EcoAffairsCard && !EcoAffairsCard.dataset.clickAttached) {
-        EcoAffairsCard.dataset.clickAttached = 'true';
-        EcoAffairsCard.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.dendryUI.dendryEngine.goToScene('eco_affairs_list');
-        });
-    }
 };
 var colors = {
         'kpd': '#700000',
@@ -500,6 +463,51 @@ document.addEventListener('keydown', function(event) {
         case '-': window.dendryUI.dendryEngine.goToScene('businessleader'); break;
     }
 });
+window._decorateChoices = function() {
+    var cardRoutes = {
+        'main.party_affairs': 'party_affairs_list',
+        'main.gov_affairs': 'gov_affairs_list',
+        'main.pres_affairs': 'pres_affairs_list',
+        'main.eco_affairs': 'eco_affairs_list'
+    };
+
+    document.querySelectorAll('a.card[card-id]').forEach(function(card) {
+        var id = card.getAttribute('card-id');
+        if (cardRoutes[id] && !card.dataset.clickAttached) {
+            card.dataset.clickAttached = 'true';
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.dendryUI.dendryEngine.goToScene(cardRoutes[id]);
+            });
+        }
+    });
+};
+
+function initDecorator() {
+    var contentEl = document.getElementById('content');
+    if (!contentEl) {
+        setTimeout(initDecorator, 100);
+        return;
+    }
+    var decoObserver = new MutationObserver(function() {
+        decoObserver.disconnect();
+        try {
+            window._decorateChoices();
+        } catch (e) {
+            console.error('[decorator error]', e);
+        }
+        decoObserver.observe(contentEl, { childList: true, subtree: true });
+    });
+    decoObserver.observe(contentEl, { childList: true, subtree: true });
+    window._decorateChoices();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDecorator);
+} else {
+    initDecorator();
+}
 
 
   window.justLoaded = true;
