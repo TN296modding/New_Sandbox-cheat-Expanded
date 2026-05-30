@@ -2,26 +2,26 @@ title: debug
 
 = Party Affairs
 
-- @agr_cc
-- @campaigning
-- @confronting_nazis
-- @crisis_program
-- @enemies
-- @fundraising
-- @ideology
-- @inter_party_relationships
-- @international_relations
-- @iron_front
-- @media
-- @neorevisionism
-- @nmc_cc
-- @party_disunity
-- @party_organizations
-- @peoples_party
-- @rally
-- @reichsbanner
-- @response_to_antisemitism
-- @streetfighting
+- @agr_cc: Class Consciousness in the Peasant Class
+- @campaigning: campaigning
+- @confronting_nazis: Confronting Nazis
+- @crisis_program: Crisis Program
+- @enemies: Enemies
+- @fundraising: Fundraising
+- @ideology: Ideology
+- @inter_party_relationships: Inter-Party Relationships
+- @international_relations: International Relations
+- @iron_front: Iron Front
+- @media: Media
+- @neorevisionism: Neorevisionism
+- @nmc_cc: Class Consciousness in the New Middle Class
+- @party_disunity: Party Disunity
+- @party_organizations: Party Organizations
+- @peoples_party: Peoples Party
+- @rally: Rally
+- @reichsbanner: Reichsbanner
+- @response_to_antisemitism: Response to Antisemitism
+- @streetfighting: Streetfighting
 
 @agr_cc
 go-to: agr_cc
