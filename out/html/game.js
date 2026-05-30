@@ -265,9 +265,7 @@ window.disableGrayMode = function() {
     window.updateSidebar();
     window.updateSidebarRight();
     colorTextNodes(document.getElementById('content'), colors);
-    colorTextNodes(document.getElementById('qualities'), colors);
-    colorTextNodes(document.getElementById('qualities_right'), colors);
-    // This was sotlen for GTS, so I don't know how it works
+    // This was stolen for GTS, so I don't know how it works
     var PartyAffairsCard = document.querySelector('a.card[card-id="party_affairs"]');
     if (PartyAffairsCard && !PartyAffairsCard.dataset.clickAttached) {
         PartyAffairsCard.dataset.clickAttached = 'true';
@@ -287,7 +285,7 @@ window.disableGrayMode = function() {
         });
     }
     var PresAffairsCard = document.querySelector('a.card[card-id="pres_affairs"]');
-    if (PressAffairsCard && !PresAffairsCard.dataset.clickAttached) {
+    if (PresAffairsCard && !PresAffairsCard.dataset.clickAttached) {
         PresAffairsCard.dataset.clickAttached = 'true';
         PresAffairsCard.addEventListener('click', function(e) {
             e.preventDefault();
