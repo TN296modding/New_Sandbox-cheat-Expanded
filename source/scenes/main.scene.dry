@@ -32,7 +32,7 @@ title: Party Affairs
 card-image: img/Vorwaerts_nr_1.png
 is-deck: true
 on-arrival: {!
-    window.dendryUI.dendryEngine.goToScene('party_affairs_list')
+    onclick="window.dendryUI.dendryEngine.goToScene('party_affairs_list')";
 !}
 
 @govt
