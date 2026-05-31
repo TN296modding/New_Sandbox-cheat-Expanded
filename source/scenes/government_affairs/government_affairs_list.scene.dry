@@ -3,103 +3,189 @@ new-page: true
 
 = Government Affairs
 
-- @agr_cc: Class Consciousness in the Peasant Class
-- @campaigning: campaigning
-- @confronting_nazis: Confronting Nazis
-- @crisis_program: Crisis Program
-- @enemies: Enemies
-- @fundraising: Fundraising
-- @ideology: Ideology
-- @inter_party_relationships: Inter-Party Relationships
-- @international_relations: International Relations
-- @iron_front: Iron Front
-- @media: Media
-- @neorevisionism: Neorevisionism
-- @nmc_cc: Class Consciousness in the New Middle Class
-- @party_disunity: Party Disunity
-- @party_organizations: Party Organizations
-- @peoples_party: Peoples Party
-- @rally: Rally
-- @reichsbanner: Reichsbanner
-- @response_to_antisemitism: Response to Antisemitism
-- @streetfighting: Streetfighting
+- @agricultural_policy: Agricultural Policy ([+ agriculture_minister +])
+- @air_policy: Air Policy ([+ reichswehr_minister +])([+ luftwaffe_commander +])
+- @coalition_affairs: Coalition Affairs 
+- @communications_policy: Communications Policy [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ media_minister +])]
+- @constitutional_reform: Constitutional Reform ([+ justice_minister +])
+- @dealing_with_toleration: Dealing with toleration ([+ chancellor +])
+- @drug_policy: Drug Policy [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ health_minister +])]
+- @economic_democracy: Economic Democracy ([+ economic_minister +])
+- @economic_development: Economic Development ([+ economic_minister +])
+- @economic_policy: Economic Policy ([+ economic_minister +])
+- @education_science: Education & Science [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ edu_sci_minister +])]
+- @energy_affairs: Energy Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +])]
+- @fiscal_policy: Fiscal Policy ([+ finance_minster +])
+- @foreign_policy: Foreign Policy ([+ foreign_minister +])
+- @forestry_policy: Foresty Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +])]
+- @green_policy: Green Policy ([+ green_minister +])
+- @health_policy: Health Policy [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ health_minister +])]
+- @homosexual_rights: Homosexual Rights ([+ chancellor +])
+- @industrial_policy: Industrial Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +])]
+- @intelligence_affairs: Intelligence Affairs ([+ foreign_minister +])
+- @internet_affairs: Internet Affairs [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ media_minister +])]
+- @justice: Judicial Affairs ([+ justice_minister +])
+- @labor_affairs: Labor Affairs ([+ labor_minister +])
+- @labor_rights: Labor Rights ([+ labor_minster +])
+- @miliary_policy: Army Policy ([+ reichswehr_minister +])([+ reichsheer_general +])
+- @minority_affairs: Minority Affairs ([+ chancellor +])
+- @navy_policy: Navy Policy ([+ reichswehr_minister +])([+ reichsmarine_admiral +])
+- @police: Police Affairs ([+ interior_minister +])
+- @shuffle_cabinet: Shuffle Cabinet ([+ chancellor +])
+- @social_welfare: Social Welfare
+- @space_policy: Space Policy [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ edu_sci_minister +])]
+- @tax_credits: Tax Credits ([+ finance_minster +])
+- @trade_policy: Trade Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +])]
+- @transport_policy: Transport Policy ([+ transport_minister +])
+- @versailles: Treaty of Versailles ([+ foreign_minister +])
+- @war_guilt: War Guilt ([+ foreign_minister +])
+- @womens_rights: Women's Rights
 - @return
 
-@agr_cc
-go-to: agr_cc
-view-if: agr_cc >= 6 and agr_cc_timer <= 0 and agr_awakened = 0
-
-@campaigning
-go-to: campaigning
-
-@confronting_nazis
-go-to: confronting_nazis
-view-if: (nsdap_r >= 10 and nazi_urgency > 1) and confronting_nazis_timer == 0 and iron_front_formed == 0
-
-@crisis_program
-go-to: crisis_program
-view-if: (crisis_urgency >= 2 or year >= 1931 or (month >= 6 and year == 1930)) and crisis_program_timer = 0 and economic_plan = 0 and black_thursday_seen == 1
-
-@enemies
-go-to: enemies
-view-if: enemies_timer <= 0
-
-@fundraising
-go-to: fundraising
-view-if: fundraising_timer <= 0
-
-@ideology
-go-to: ideology
-view-if: ideology_timer = 0
-
-@inter_party_relationships
-go-to: inter_party_relationships
-view-if: inter_party_relationships_timer <= 0
-
-@international_relations
-go-to: international_relations
-view-if: international_relations_timer <= 0
-
-@iron_front
-go-to: iron_front
-view-if: iron_front_formed == 1 and iron_front_timer = 0
-
-@media
-go-to: media
-view-if: media_timer <= 0
-
-@neorevisionism
-go-to: neorevisionism
-view-if: nazi_urgency > 0 and neorevisionism == 0 and (nsdap_r >= 10 or nsdap_normalized >= 0.15 or radicalization >= 3) and not neorevisionism_card_seen
-
-@nmc_cc
-go-to: nmc_cc
-view-if: nmc_cc >= 8 and nmc_cc_timer <= 0 and nmc_awakened = 0
-
-@party_disunity
-go-to: party_disunity
-view-if: party_disunity_timer = 0 and (dissent >= 0.3 or (reformist_dissent > 30 and not reformists_resign) or (center_dissent > 30 and not centrists_resign) or (left_dissent > 30 and not left_split) or (labor_dissent > 30 and not unions_independent) or (neorevisionist_dissent > 30 and neorevisionism))
-
-@party_organizations
-go-to: party_organizations
-view-if: party_organizations_timer <= 0
-
-@peoples_party
-go-to: peoples_party
-view-if: neorevisionism > 0 and peoples_party_support >= 3 and peoples_party = 0 and peoples_party_timer == 0
-
-@rally
-go-to: rally
-view-if: rally_timer <= 0
-
-@reichsbanner
-go-to: reichsbanner
-view-if: reichsbanner_timer <= 0
-
-@response_to_antisemitism
-go-to: response_to_antisemitism
-view-if: iron_front_formed == 1 and nazi_urgency >= 3
-
-@streetfighting
-go-to: streetfighting
-view-if: year >= 1930 and far_right_force >= 30 and streetfighting_timer == 0 and not return_to_normalcy and (chancellor != "Schleicher" or schleicher_time < 8)
+@agricultural_policy
+ 
+wip
+ 
+@air_policy
+ 
+wip
+ 
+@coalition_affairs
+ 
+wip
+ 
+@communications_policy
+ 
+wip
+ 
+@constitutional_reform
+ 
+wip
+ 
+@dealing_with_toleration
+ 
+wip
+ 
+@drug_policy
+ 
+wip
+ 
+@economic_democracy
+ 
+wip
+ 
+@economic_development
+ 
+wip
+ 
+@economic_policy
+ 
+wip
+ 
+@education_science
+ 
+wip
+ 
+@energy_affairs
+ 
+wip
+ 
+@fiscal_policy
+ 
+wip
+ 
+@foreign_policy
+ 
+wip
+ 
+@forestry_policy
+ 
+wip
+ 
+@green_policy
+ 
+wip
+ 
+@health_policy
+ 
+wip
+ 
+@homosexual_rights
+ 
+wip
+ 
+@industrial_policy
+ 
+wip
+ 
+@intelligence_affairs
+ 
+wip
+ 
+@internet_affairs
+ 
+wip
+ 
+@justice
+ 
+wip
+ 
+@labor_affairs
+ 
+wip
+ 
+@labor_rights
+ 
+wip
+ 
+@miliary_policy
+ 
+wip
+ 
+@minority_affairs
+ 
+wip
+ 
+@navy_policy
+ 
+wip
+ 
+@police
+ 
+wip
+ 
+@shuffle_cabinet
+ 
+wip
+ 
+@social_welfare
+ 
+wip
+ 
+@space_policy
+ 
+wip
+ 
+@tax_credits
+ 
+wip
+ 
+@trade_policy
+ 
+wip
+ 
+@transport_policy
+ 
+wip
+ 
+@versailles
+ 
+wip
+ 
+@war_guilt
+ 
+wip
+ 
+@womens_rights
+ 
+wip
