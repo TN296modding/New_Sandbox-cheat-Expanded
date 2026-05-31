@@ -17,6 +17,9 @@ if (Q.shuffle_leadership_timer <= 0) {
 Q.last_time_updated = Q.time;
 Q.last_week_updated = Q.week;
 !}
+new-page: true
+
+= Week [+ week +], Month [+ month +]([+ month : month +]), Year [+ year +]
 
 <ul class="decks">
     <li class="deck">
