@@ -20,6 +20,6 @@ Q.last_week_updated = Q.week;
 
 <ul class="decks">
     <li class="deck">
-        <a class="card" href="#" card-id="main.party_affairs" title="Party Affairs"><img class="card-img" src="img/Vorwaerts_nr_1></a><a class="card" href="#" card-id="main.gov_affairs" title="Government Affairs"><img class="card-img" src="img/reichstag_2.jpg"></a><a class="card" href="#" card-id="main.eco_affairs" title="Economic Affairs"><img class="card-img" src="img/portraits/SchmidtRobert.jpg"></a><a class="card" href="#" card-id="main.pres_affairs" title="Presidential Affairs"><img class="card-img" src="img/weimar_constitution.jpg"></a>
+        <a class="card" href="#" card-id="main.party_affairs" title="Party Affairs"><img class="card-img" src="img/Vorwaerts_nr_1></a> <a class="card" href="#" card-id="main.gov_affairs" title="Government Affairs"><img class="card-img" src="img/reichstag_2.jpg"></a> <a class="card" href="#" card-id="main.eco_affairs" title="Economic Affairs"><img class="card-img" src="img/portraits/SchmidtRobert.jpg"></a> <a class="card" href="#" card-id="main.pres_affairs" title="Presidential Affairs"><img class="card-img" src="img/weimar_constitution.jpg"></a>
     </li>
 </ul>
