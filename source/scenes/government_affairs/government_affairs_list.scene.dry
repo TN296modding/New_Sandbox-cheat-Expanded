@@ -3,27 +3,28 @@ new-page: true
 
 = Government Affairs
 
+
 - @agricultural_policy: Agricultural Policy ([+ agriculture_minister +])
 - @air_policy: Air Policy ([+ reichswehr_minister +])([+ luftwaffe_commander +])
 - @coalition_affairs: Coalition Affairs 
-- @communications_policy: Communications Policy [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ media_minister +])]
+- @communications_policy: Communications Policy [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ media_minister +]) ?]
 - @constitutional_reform: Constitutional Reform ([+ justice_minister +])
 - @dealing_with_toleration: Dealing with toleration ([+ chancellor +])
-- @drug_policy: Drug Policy [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ health_minister +])]
+- @drug_policy: Drug Policy [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ health_minister +]) ?]
 - @economic_democracy: Economic Democracy ([+ economic_minister +])
 - @economic_development: Economic Development ([+ economic_minister +])
 - @economic_policy: Economic Policy ([+ economic_minister +])
-- @education_science: Education & Science [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ edu_sci_minister +])]
-- @energy_affairs: Energy Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +])]
+- @education_science: Education & Science [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ edu_sci_minister +]) ?]
+- @energy_affairs: Energy Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +]) ?]
 - @fiscal_policy: Fiscal Policy ([+ finance_minster +])
 - @foreign_policy: Foreign Policy ([+ foreign_minister +])
-- @forestry_policy: Foresty Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +])]
+- @forestry_policy: Forestry Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +]) ?]
 - @green_policy: Green Policy ([+ green_minister +])
-- @health_policy: Health Policy [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ health_minister +])]
+- @health_policy: Health Policy [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ health_minister +]) ?]
 - @homosexual_rights: Homosexual Rights ([+ chancellor +])
-- @industrial_policy: Industrial Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +])]
+- @industrial_policy: Industrial Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +]) ?]
 - @intelligence_affairs: Intelligence Affairs ([+ foreign_minister +])
-- @internet_affairs: Internet Affairs [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ media_minister +])]
+- @internet_affairs: Internet Affairs [? if not expanded_ministries : ([+ interior_minister +]) ?][? if expanded_ministries : ([+ media_minister +]) ?]
 - @justice: Judicial Affairs ([+ justice_minister +])
 - @labor_affairs: Labor Affairs ([+ labor_minister +])
 - @labor_rights: Labor Rights ([+ labor_minster +])
@@ -33,9 +34,9 @@ new-page: true
 - @police: Police Affairs ([+ interior_minister +])
 - @shuffle_cabinet: Shuffle Cabinet ([+ chancellor +])
 - @social_welfare: Social Welfare
-- @space_policy: Space Policy [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ edu_sci_minister +])]
+- @space_policy: Space Policy [? if not expanded_ministries : ([+ chancellor +]) ?][? if expanded_ministries : ([+ edu_sci_minister +]) ?]
 - @tax_credits: Tax Credits ([+ finance_minster +])
-- @trade_policy: Trade Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +])]
+- @trade_policy: Trade Policy [? if not expanded_ministries : ([+ economic_minister +]) ?][? if expanded_ministries : ([+ efit_minister +]) ?]
 - @transport_policy: Transport Policy ([+ transport_minister +])
 - @versailles: Treaty of Versailles ([+ foreign_minister +])
 - @war_guilt: War Guilt ([+ foreign_minister +])
