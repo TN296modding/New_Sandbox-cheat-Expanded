@@ -18,6 +18,10 @@ Q.last_time_updated = Q.time;
 Q.last_week_updated = Q.week;
 !}
 new-page: true
+/// basic timed news element template: [? if year == year and month == month and week == week : text <div>Options Button</div> ?]
+/// Delete later: You can work with the farmers in Schleswig to lobby for price floors, or emergency aid for farmers, or do nothing. 
+///# The first option increases spd rural by 2, and shifts Agricultural parties left, as well as forming a SSBB (Sozialdemokratische Schleswig Bauern Bund) in Schleswig, which provides a passive buff & floor to rural support. Additionally if the DBP left > 3, the SSBB merges into the DBP in March, increasing thier vote share by a tiny percent during elections, and pushing them left, and should unlock a secret option for (one of) the DBP congress. However, this decreases worker support by 1 (Shifting to the DDP), and provides a passive buff to DDP worker support and floor if SPD worker vote is >55
+///# The sceond option increases rural support by 1, and increases the rural support gain from any non-base faction economic plan by 0.1, so this buff is only useful if you want to go something that isn't one of the abse factions or AgSoc (The first option would be better for agsoc)
 
 = Week [+ week +], Month [+ month +]([+ month : month +]), Year [+ year +]
 
@@ -35,3 +39,36 @@ new-page: true
         <a class="card" href="#" card-id="main.pres_affairs" title="Presidential Affairs"><img class="card-img" src="img/weimar_constitution.jpg"></a>
     </li>
 </ul>
+
+= News
+
+[? if year == 1928 and and month == 1 and week == 4 : 140'000 <span style="color:#006400;">farmers</span> in <span style="color:#0C1B33;">Schleswig-Holstein<span> demonstrate against the Reichstag's <span style="color:#006400;">Agricultural</span> <span style="color:#808080;">policy</span>. <div>Options Button</div> ?]
+[? if year == 1928 and month == 2 and week == 2 : The Reichstag discusses a bill that would lower protections for tenants, against eviction. <div>Options Button</div> ?]
+[? if year == 1928 and month == 2 and week == 4 : The Reich Government approves an emergency aid programme for <span style="color:#000;">Ge</span><span style="color:#DD0000;">rm</span><span style="color:#FFCE00;">an</span> <span style="color:#006400>agriculture</span> worth [? if schleswig_farmers_option2_seen = 1 : 120 ?][? if not schleswig_farmers_option2_seen : 100 ?] million marks. [? if schleswig_farmers_option1_seen : Additionally, minor price floors for agricultural goods have been instituted, lessening tha damage of the Agricultural crisis ?] <div>Options Button</div> ?] 
+[? if year == 1928 and month == 3 and week == 4 : The State of Waldeck is annexed to Prussia <div>Options Button</div> ?]
+[? if year == 1928 and month == 5 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 7 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 7 and week == 2 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 8 and week == 3 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 9 and week == 3 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 9 and week == 4 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 10 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 10 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 10 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 10 and week == 2 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 10 and week == 2 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 10 and week == 3 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 10 and week == 3 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 11 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 11 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 11 and week == 2 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 11 and week == 3 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 11 and week == 4 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 12 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 12 and week == 1 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 12 and week == 2 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 12 and week == 2 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 12 and week == 2 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 12 and week == 3 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 12 and week == 3 : text <div>Options Button</div> ?]
+[? if year == 1928 and month == 12 and week == 4 : text <div>Options Button</div> ?]
