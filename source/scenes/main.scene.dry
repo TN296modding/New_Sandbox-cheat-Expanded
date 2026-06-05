@@ -42,7 +42,7 @@ new-page: true
 
 = News
 
-[? if year == 1928 and month == 1 and week == 4 : 140'000 <span style="color:#006400;">farmers</span> in <span style="color:#0C1B33;">Schleswig-Holstein<span> demonstrate against the Reichstag's <span style="color:#006400;">Agricultural</span> <span style="color:#808080;">policy</span>. <div>Options Button</div> ?]
+[? if year == 1928 and month == 1 and week == 4 : 140'000 <span style="color:#006400;">farmers</span> in <mark><span style="color:#0C1B33;">Schleswig-Holstein</span><//mark> demonstrate against the Reichstag's <span style="color:#006400;">Agricultural</span> <span style="color:#808080;">policy</span>. <div onclick="window.dendryUI.dendryEngine.goToScene('schleswig_demonstrations');">Options Button</div> ?]
 [? if year == 1928 and month == 2 and week == 2 : The Reichstag discusses a bill that would lower protections for tenants, against eviction. <div>Options Button</div> ?]
 [? if year == 1928 and month == 2 and week == 4 : The Reich Government approves an emergency aid programme for <span style="color:#000;">Ge</span><span style="color:#DD0000;">rm</span><span style="color:#FFCE00;">an</span> <span style="color:#006400>agriculture</span> worth [? if schleswig_farmers_option2_seen = 1 : 120 ?][? if not schleswig_farmers_option2_seen : 100 ?] million marks. [? if schleswig_farmers_option1_seen : Additionally, minor price floors for agricultural goods have been instituted, lessening tha damage of the Agricultural crisis ?] <div>Options Button</div> ?] 
 [? if year == 1928 and month == 3 and week == 4 : The State of Waldeck is annexed to Prussia <div>Options Button</div> ?]

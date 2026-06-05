@@ -1,6 +1,6 @@
 title: The [+ year +] <span style="color: #097100;">**DBP**</span> Party Congress
 subtitle: The <span style="color: #097100;">**DBP**</span> decides its political direction
-view-if: (dbp_congress_timer = 0 and dbp_left_seen and not dbp_congress_seen) or debug_mode and not dbp_congress_seen
+view-if: (dbp_congress_timer = 0 and dbp_left_seen and not dbp_congress_seen) or (debug_mode and not dbp_congress_seen
 on-arrival: dbp_congress_seen = 1
 tags: event
 
