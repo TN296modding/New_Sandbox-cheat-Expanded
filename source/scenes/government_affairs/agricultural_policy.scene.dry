@@ -16,6 +16,8 @@ While <span style=" color: #228B22;">agricultural</span> <span style=" color: #9
 - @agricultural_finance
 - @food_prices
 - @state_buyer
+- @food_price_controls
+- @food_price_floors
 - @root: Do not enact any policies for now.
 - @easy_discard
 - @cancel_advisor_action
@@ -60,3 +62,16 @@ Our new purchasing agency guarantees fair prices for farmers, while also providi
 
 [? if president == "Hindenburg": This policy has earned us the ire of President Hindenburg and his inner circle. ?]
 
+@food_price_controls
+title: Establish price controls on agricultural products
+subtitle: This will be unpopular among the Rural populace, but leads to cheaper food for workers
+max-visits: 1
+
+Text
+
+@food_price_floors
+title: Establish price floors 
+subtitle: This will be unpopular among the workers, but it leads to wealthier rural regions, and brings the Agrarian parties closer to the SPD
+max-visits: 1
+
+Text

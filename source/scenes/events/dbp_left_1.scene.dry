@@ -1,7 +1,7 @@
 title: The <span style="color: #097100;">**DBP**</span> shifts towards the left
 subtitle: Progressivism is beginning to take root among the Rural parties
 view-if: dbp_left >= 9 and not dbp_left_seen
-on-arrival: dbp_left_seen = 1; dbp_congress_timer = 6;
+on-arrival: dbp_left_seen = 1; dbp_congress_timer = 6; dbp_congress_timer = 2 if schleswig_farmers_option1_seen
 tags: event
 
-As the DBP shifts further to the left, due to the <span style="color: #c90000;">**SPD**</span> being seen as the only non-rural party helping the peasant class, we have noticed that their left-most factions are growing stronger and stronger. Could the Agrarian parties convert to progressivism?
+As the DBP shifts further to the left, due to the <span style="color: #c90000;">**SPD**</span> being seen as the only non-rural party helping the peasant class, we have noticed that their left-most factions are growing stronger and stronger. Could the Agrarian parties likes the DBP convert to progressivism?

@@ -15,6 +15,30 @@ new-page: true
 
 = 1928 Schleswig-Holstein Demonstrations
 
-text
+The ongoing Agricultural Crisis that forced peasants to take out disadvantageous loans in 1927, and now driving many to bankruptcy, has taken it's toll on the Schleswig population, and many have started to demonstrate, calling for an emergency aid program, loan bailouts, and price floors. The SPD, while not a party of the peasants and rural smallholders, still sympathises with the victims of the capitalist cycle that caused this situation.
 
-- @return
+- @price_floors: Call for price floors on agricultural goods, which would help deal with the immense losses faced by the peasants.
+- @emergency_aid: Call for emergency aid for Schleswig farmers.
+- @nothing: Do nothing.
+- @return:
+
+@price_floors
+on-arrival: sch_hol_demo_seen = 1; rural_spd += 2; workers_spd -= 1; schleswig_farmers_option1_seen = 1; cnblp_left += 1; agr_cc += 1; workers_ddp += 1; workers_ddp_floor += 0.1; workers_ddp_gain_55 += 0.05
+choose-if: sch_hol_demo_seen = 0
+unavailable-subtitle: We have already decided on an action
+
+We rally with the Schleswig demonstrators, for economic aid and price floors. This is popular among the Schleswig farmers, however much less so among the workers of Schleswig, who would now have to pay more for their food. Additionally, this action has allowed us to establish a presence in rural Schleswig, and we have called this organisation the Sozialdemokratische Schleswig Bauernbund, or SSB
+
+@emergency_aid
+on-arrival: sch_hol_demo_seen = 1; rural_spd += 1; rural_eco_plan_boost += 1; schleswig_farmers_option2_seen = 1; dbp_left += 1; agr_cc += 0.5
+choose-if: sch_hol_demo_seen = 0
+unavailable-subtitle: We have already decided on an action 
+
+We offer our support to the Schleswig demonstrators, and pressure the current governing coalition to provide emergency aid.
+
+@nothing:
+on-arrival: sch_hol_demo_seen = 1
+choose-if: sch_hol_demo_seen = 0
+unavailable-subtitle: We have already decided on an action
+
+We have decided to do nothing about the situation, which alienates nobody, as the SPD wasn't expected to get involved
