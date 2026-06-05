@@ -11,6 +11,7 @@ on-display: {!
     var contentDiv = document.querySelector("#page #mid_panel #content");
     contentDiv.appendChild(cardEl);
 !}
+new-page: true
 
 = 1928 Schleswig-Holstein Demonstrations
 
