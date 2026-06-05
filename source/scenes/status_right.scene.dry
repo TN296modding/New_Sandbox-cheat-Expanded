@@ -3,3 +3,6 @@ new-page: true
 is-special: true
 
 <button class="button-30" role="button" onclick="window.dendryUI.dendryEngine.goToScene('next_week_card');">Next Week</button>
+
+[? if president == "Hindenburg" : <img src="img/portraits/Hindenburg.jpg width="100" height="200"> ?]</br>
+President : [+ president +]
