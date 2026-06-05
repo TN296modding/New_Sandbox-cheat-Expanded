@@ -6,7 +6,20 @@ v0.0.1
 A lot of changes
 Removed Rubicon
 
-v0.02
+v0.0.2
 
 Added Communications Card | WIP
+Removed Rubicon
+
+v0.0.3
+
+Added footer
+Added showing splinter parties on debug 
+Removed Linegraphs
+Added the absolute WIP-est of WIP's for environmentalism
+Added Back-Scenes
+Fixed Decks
+Added Faction Scenes
+Added News 
+A LOT of bug fixes
 Removed Rubicon

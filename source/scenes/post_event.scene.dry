@@ -342,7 +342,9 @@ if (Q.month_actions >= 4) {
         }
         Q.cooperatives_tax += ((Q.cooperatives/10) - (Q.cooperatives_credit))
         Q.budget += Q.budgetgrowth;
-        Q.budget += (Q.economic_growth/10)
+        if (Q.economic_growth > 0) {
+            Q.budget += (Q.economic_growth/10)
+        }
         if (Q.cooperatives_tax > 0) {
             Q.budget += Q.cooperatives_tax
         }
@@ -4473,23 +4475,23 @@ if (Q.in_social_liberal_coalition == 1 && Q.pro_republic >= 75) {
     Q.catholics_ddp += 1/48;
     Q.workers_z -= 1/48;
 }
-/// Q.workers_spd += (Q.workers_spd_growth/48)
-/// Q.unemployed_spd += Q.unemployed_spd_growth/48
-/// Q.new_middle_spd += Q.new_middle_spd_growth/48
-/// Q.old_middle_spd += Q.old_middle_spd_growth/48
-/// Q.rural_spd += Q.rural_spd_growth/48
-/// Q.catholics_spd += Q.catholics_spd_growth/48
-///Q.kpd_relation += Q.kpd_spd_relation_growth/4
-///Q.sapd_relation += Q.spd_spd_relation_growth/4
-///Q.ddp_relation += Q.ddp_spd_relation_growth/4
-///Q.z_relation += Q.z_spd_relation_growth/4
-///Q.dvp_relation += Q.dvp_spd_relation_growth/4
-///Q.dbp_relation += Q.dbp_spd_relation_growth/4
-///Q.dhp_relation += Q.dhp_spd_relation_growth/4
-///Q.cnblp_relation += Q.cnblp_spd_relation_growth/4
-///Q.wp_relation += Q.wp_spd_relation_growth/4
-///Q.csvd_relation += Q.csvd_spd_relation_growth/4
-///Q.rural_relation += Q.rural_others_relation_growth/4 
+Q.workers_spd += (Q.workers_spd_growth/48)
+Q.unemployed_spd += Q.unemployed_spd_growth/48
+Q.new_middle_spd += Q.new_middle_spd_growth/48
+Q.old_middle_spd += Q.old_middle_spd_growth/48
+Q.rural_spd += Q.rural_spd_growth/48
+Q.catholics_spd += Q.catholics_spd_growth/48
+Q.kpd_relation += Q.kpd_spd_relation_growth/4
+Q.sapd_relation += Q.spd_spd_relation_growth/4
+Q.ddp_relation += Q.ddp_spd_relation_growth/4
+Q.z_relation += Q.z_spd_relation_growth/4
+Q.dvp_relation += Q.dvp_spd_relation_growth/4
+Q.dbp_relation += Q.dbp_spd_relation_growth/4
+Q.dhp_relation += Q.dhp_spd_relation_growth/4
+Q.cnblp_relation += Q.cnblp_spd_relation_growth/4
+Q.wp_relation += Q.wp_spd_relation_growth/4
+Q.csvd_relation += Q.csvd_spd_relation_growth/4
+Q.rural_relation += Q.rural_others_relation_growth/4 
 
 if (Q.dominant_fac_era = 1 && !Q.domfac_r0 && Q.year >= 1928) {
     Q.dominant_fac_era = 0
@@ -4585,7 +4587,7 @@ if (typeof window !== "undefined" && window.generateBar) {
 }
 
 !}
-call: research_bakground
+call: research_background
 go-to: events_choice if has_event = 1; main if has_event = 0
 
 = [+ month : month +] [+ year +] Week [+ week +]

@@ -40,7 +40,7 @@ Q.debug_mode = 1;
 Q.time = 1;
 Q.year = 1928;
 Q.month = 1;
-Q.week = 0;
+Q.week = 1;
 Q.week_checked = 0;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -264,6 +264,19 @@ Q.economic_growth = 4.4;
 // economic expansion timer
 Q.economic_expansion = 0;
 
+// Other Economy stuff
+Q.socializations = 0;
+Q.welfare = 0;
+Q.welfare_cost = 1;
+
+// Taxes
+Q.lower_tax_rates = 0;
+Q.middle_tax_rates = 0;
+Q.upper_tax_rates = 0;
+Q.small_bus_tax_rates = 0;
+Q.big_bus_tax_rates = 0;
+Q.tariffs = 0;
+
 // quality of life (as % of 1928 - currently unused - should be welfare-adjusted.)
 Q.workers_qol = 40;
 Q.rural_qol = 40;
@@ -272,7 +285,7 @@ Q.old_middle_qol = 40;
 Q.new_middle_qol = 40;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
+Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other', 'cnblp', 'dbp', 'wp'];
 Q.parties_graph = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
 
 Q.sapd_formed = 0;
@@ -361,6 +374,7 @@ Q.other_r = 5.9;
 Q.bvp_r = 3.9;
 Q.wp_r = 2.4;
 Q.cnblp_r = 1.7;
+Q.dbp_r = 0;
 Q.true_other_r = 1.8;
 Q.reichstag_size = 4.93;
 Q.landtag_size = 4.5;
@@ -646,9 +660,6 @@ Q.judicial_reform = 0;
 Q.bureaucratic_reform = 0;
 Q.military_reform = 0;
 Q.womens_rights = 0;
-// level of welfare relative to 1928 (can go negative)
-Q.welfare = 0;
-Q.welfare_cost = 1;
 // level of support for farmers
 Q.agricultural_policy = 0;
 Q.land_reform = 0;
@@ -668,8 +679,6 @@ Q.reparations = 0;
 Q.reparations_negotiation = 0;
 // nationalization_progress is part of the left economic plan.
 Q.nationalization_progress = 0;
-// socializations is part of the economic democracy card.
-Q.socializations = 0;
 Q.nationalize_budget = 4;
 // have there been any factory takeovers?
 Q.factory_takeovers = 0;
@@ -681,11 +690,6 @@ Q.eu_progress = 0;
 // science/education
 Q.science = 0;
 Q.education_science = 0;
-
-// Tax rates relative to 1928 baseline
-Q.lower_tax_rates = 0;
-Q.upper_tax_rates = 0;
-Q.tariffs = 0;
 
 Q.electoral_threshold = 0;
 
@@ -923,13 +927,6 @@ Q.dsu_policy = 0;
 Q.mefo_bills = 0;
 Q.marburg_time = 0;
 Q.marburg_trigger = 0;
-Q.workers_dnef_bonus = 0;
-Q.new_middle_dnef_bonus = 0;
-Q.old_middle_dnef_bonus = 0;
-Q.rural_dnef_bonus = 0;
-Q.unemployed_dnef_bonus = 0;
-Q.catholics_dnef_bonus = 0;
-Q.total_dnef_bonus = 0;
 Q.workers_schleicher_bonus = 0;
 Q.industrialists_schleicher_bonus = 0;
 Q.republicans_schleicher_bonus = 0;
@@ -965,6 +962,7 @@ for (let i = 0; i <= 100; i++) {
     Q[`flavour_${i}_trigger_time`] = 0;
 }
 
+// Factions 
 dominant_fac = "None"
 dominant_fac_era = 1
 
@@ -1012,6 +1010,27 @@ Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.stampfer_advisor = 0; // Friedrich Stampfer
 
 // Agsoc advisors
+
+// Growths
+
+Q.workers_spd_growth = 0;
+Q.unemployed_spd_growth = 0;
+Q.new_middle_spd_growth = 0;
+Q.old_middle_spd_growth = 0;
+Q.rural_spd_growth = 0;
+Q.catholics_spd_growth = 0;
+Q.kpd_spd_relation_growth = 0;
+Q.spd_spd_relation_growth = 0;
+Q.ddp_spd_relation_growth = 0;
+Q.z_spd_relation_growth = 0;
+Q.dvp_spd_relation_growth = 0;
+Q.dbp_spd_relation_growth = 0;
+Q.dhp_spd_relation_growth = 0;
+Q.cnblp_spd_relation_growth = 0;
+Q.wp_spd_relation_growth = 0;
+Q.csvd_spd_relation_growth = 0;
+Q.rural_others_relation_growth = 0;
+Q.budget_growth = 0;
 
 if (Q.achievement_holy_moly) {
     const content = document.getElementById('content');
