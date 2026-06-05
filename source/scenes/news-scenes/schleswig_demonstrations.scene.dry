@@ -36,7 +36,7 @@ unavailable-subtitle: We have already decided on an action
 
 We offer our support to the Schleswig demonstrators, and pressure the current governing coalition to provide emergency aid.
 
-@nothing:
+@nothing
 on-arrival: sch_hol_demo_seen = 1
 choose-if: sch_hol_demo_seen = 0
 unavailable-subtitle: We have already decided on an action

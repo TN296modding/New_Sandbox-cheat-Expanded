@@ -66,12 +66,14 @@ Our new purchasing agency guarantees fair prices for farmers, while also providi
 title: Establish price controls on agricultural products
 subtitle: This will be unpopular among the Rural populace, but leads to cheaper food for workers
 max-visits: 1
+on-arrival: food_price_controls = 1; workers_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); new_middle_spd += 1*(1-dissent); old_middle_spd -= 1*(1-dissent); rural_spd -= 2; rural_spd -= 3 if agr_awakened; economic_growth -= 0.1; inflation -= 0.2; dbp_left -= 1; dbp_right += 1; cnblp_left -= 1; others_left -= 1; coalition_dissent += 1 if z_in_government or in grand_coalition
 
-Text
+We have estblished price controls on agricultural products. This is extremely unpopular among the rural populace and old middle class, however, popular among everybody else.
 
 @food_price_floors
 title: Establish price floors 
 subtitle: This will be unpopular among the workers, but it leads to wealthier rural regions, and brings the Agrarian parties closer to the SPD
 max-visits: 1
+on-arrival: food_price_floors = 1; workers_spd -= 3; unemployed -= 1; old_middle_spd += 1; rural_spd += 3; rural_spd += 3 if agr_awakened; agr_cc += 0.5 economic_growth += 0.1; inflation += 0.2; dbp_left += 1; cnblp_left += 1; others_left += 1
 
-Text
+We have established price floors on agricultural products. The is quite popular among rural audiences, however our main support bases, the working class and unemployed, are quite unhappy with this decision

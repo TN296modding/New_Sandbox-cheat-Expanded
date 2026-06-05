@@ -23,3 +23,10 @@ Added Faction Scenes
 Added News 
 A LOT of bug fixes
 Removed Rubicon
+
+v.0.0.4
+
+Small rural update
+Bug fixes
+Broke the Reichstag Diagram
+Removed Rubicon
