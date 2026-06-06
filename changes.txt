@@ -30,3 +30,8 @@ Small rural update
 Bug fixes
 Broke the Reichstag Diagram
 Removed Rubicon
+
+v.0.0.5
+
+Added choosing your leader
+Removed Rubicon
