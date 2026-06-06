@@ -1259,18 +1259,20 @@ go-to: leader_choice
 
 @leader_choice
 
+Choose a leader. Otto Wels is highly recommended for first-time playthroughs
+
 <ul class="decks">
     <li class="deck">
-        <span class="advisor-tip-wrap"><a class="card" href="#" card-id="root.rosenfeld_choice" title="Kurt Rosenfeld"><img class="card-img" src="img/portraits/RosenfeldKurt.jpg"></a><span class="advisor-tip">Kurt Rosenfeld (Left): </br></br> Easier to co-operate with the KPD, harder to co-operate with the bourgeois. Peoples Party is harder to acheive, but class consciousness is easier to acheive </span></span>
+        <a class="card" href="#" card-id="root.rosenfeld_choice" title="Kurt Rosenfeld"><img class="card-img" src="img/portraits/RosenfeldKurt.jpg"></a>Kurt Rosenfeld (Left)
     </li>
     <li class="deck">
-        <span class="advisor-tip-wrap"><a class="card" href="#" card-id="root.wels_choice" title="Otto Wels"><img class="card-img" src="img/portraits/WelsOtto.jpg"></a><span class="advisor-tip">Otto Wels (Centre): </br></br> Easier to manage internal dissent, harder to adopt an economic plan. Easier to increase relations with the Bourgeois, harder to keep Hindeburg (And other right-wing preisdents) happy. Recommended for first-time players</span></span>
+        <a class="card" href="#" card-id="root.wels_choice" title="Otto Wels"><img class="card-img" src="img/portraits/WelsOtto.jpg"></a>Otto Wels (Centre)
     </li>
     <li class="deck">
-        <span class="advisor-tip-wrap"><a class="card" href="#" card-id="root.wissell_choice" title="Rudolf Wissell"><img class="card-img" src="img/portraits/WissellRudolf.jpg"></a><span class="advisor-tip">Easier to adopt economic plans, and you bleed less support to the extremist parties, but harder to form coalitions with the DVP, and your actions are more restricted regarding compromise with the bourgeois and toleration</span></span>
+        <a class="card" href="#" card-id="root.wissell_choice" title="Rudolf Wissell"><img class="card-img" src="img/portraits/WissellRudolf.jpg"></a>Rudolf Wissell (Labor)
     </li>
     <li class="deck">
-        <span class="advisor-tip-wrap"><a class="card" href="#" card-id="root.severing_choice" title="Carl Severing"><img class="card-img" src="img/portraits/SeveringCarl.jpg"></a><span class="advisor-tip">Easier to maintain coalitions, and passive buffs to the Prussian Police when you are in the Prussian government, but much harder to works with the KPD, and many more left-wing actions will be restricted, like Nationalizations or State Buyers. Somewhat recommended for first-time players</span></span>
+        <a class="card" href="#" card-id="root.severing_choice" title="Carl Severing"><img class="card-img" src="img/portraits/SeveringCarl.jpg"></a>Carl Severing (Reformisy)
     </li>
 </ul>
 
@@ -1278,25 +1280,25 @@ go-to: leader_choice
 on-arrival: spd_leader = "Rosenfeld"; spd_ideology = "Left Democratic Socialism"; left_strength += 10; center_strength -= 5; reformist_strength -= 5; left_dissent -= 10; labor_dissent += 5; reformist_dissent += 5
 go-to: 1928_main
 
-Kurt Rosenfeld leads the SPD, under a Democratic-Socialist ideology
+Kurt Rosenfeld leads the SPD, under a Democratic-Socialist ideology. Rosenfeld's leadership makes co-operating with the KPD and building class consciousness easier, but building a peoples party and co-operating with the bourgeois is harder.
 
 @wels_chosen
 on-arrival: spd_leader = "Wels"; spd_ideology = "Orthodox Marxism"
 go-to: 1928_main
 
-Otto Wels leads the SPD (Along with Müller and Crispien), under a Orthodox Marxisst ideology
+Otto Wels leads the SPD (Along with Müller and Crispien), under a Orthodox Marxisst ideology. Wels' leadership passively reduces internal dissent.
 
 @wissell_chosen
 on-arrival: spd_leader = "Wissell"; spd_ideology = "Trade Union Socialism"; labor_dissent -= 10; reformist_dissent += 5; center_dissent += 5; labor_strength += 10; left_strength -= 5; center_strength -= 5
 go-to: 1928_main
 
-Rudolf Wissell leads the SPD, under a Union Socialist ideology
+Rudolf Wissell leads the SPD, under a Trade Union Socialist ideology. Wissell's leadership reduces suppoort bleed to the KPD and NSDAP, as well as making it eaiser to adpot an economic plan, however it makes it harder to compromises with the bourgeois (DDP , DVP , Z) parties, and the Liberal parties have an easier time moving to the right due to your highly union-aligned stance.
 
 @severing_chosen
 on-arrival: spd_leader = "Severing"; spd_ideology = "Right Democratic Socialism"; reformist_strength += 10; labor_strength -= 5; left_strength += 5; reformist_dissent -= 5; left_dissent += 5; prussian_police_loyalty += 0.05; prussian_police_militancy += 0.01; interior_police_loyalty += 0.03
 go-to: 1928_main
 
-Carl Severing leads the SPD, under a (Right) Democratic Socialist ideology
+Carl Severing leads the SPD, under a (Right) Democratic Socialist ideology. Severing's leadership passively buffs the police, along with passive incresing their loyalty towards you, however co-operating with the KPD is harder, and the more left-wing choices may be restricted. 
 
 @1928_main
 new-page: true

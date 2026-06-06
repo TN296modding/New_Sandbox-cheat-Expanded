@@ -956,33 +956,6 @@ th {
     display: block;
 }
 
-.advisor-tip-wrap {
-    position: relative;
-    display: inline;
-    cursor: help;
-    text-decoration: underline dotted;
-}
-.advisor-tip-wrap .advisor-tip {
-    display: none;
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    right: 50%;
-    transform: translateX(25%);
-    background: #fff;
-    border: 1px solid #999;
-    padding: 5px;
-    width: 400px;
-    font-size: 0.80em;
-    text-align: center;
-    z-index: 100;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    color: #000;
-}
-.advisor-tip-wrap:hover .advisor-tip {
-    display: block;
-}
-
 .button-30 {
   align-items: center;
   appearance: none;
