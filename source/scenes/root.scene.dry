@@ -1261,16 +1261,16 @@ go-to: leader_choice
 
 <ul class="decks">
     <li class="deck">
-        <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.rosenfeld_chosen') class="card" href="#" card-id="root.rosenfeld_choice" title="Kurt Rosenfeld"><img class="card-img" src="img/portraits/RosenfeldKurt.jpg"></a><span class="state-tip">Kurt Rosenfeld (Left): </br></br> Easier to co-operate with the KPD, harder to co-operate with the bourgeois. Peoples Party is harder to acheive, but class consciousness is easier to acheive </span></span>
+        <span class="advisor-tip-wrap"><a class="card" href="#" card-id="root.rosenfeld_choice" title="Kurt Rosenfeld"><img class="card-img" src="img/portraits/RosenfeldKurt.jpg"></a><span class="advisor-tip">Kurt Rosenfeld (Left): </br></br> Easier to co-operate with the KPD, harder to co-operate with the bourgeois. Peoples Party is harder to acheive, but class consciousness is easier to acheive </span></span>
     </li>
     <li class="deck">
-        <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.wels_chosen') class="card" href="#" card-id="root.wels_choice" title="Otto Wels"><img class="card-img" src="img/portraits/WelsOtto.jpg"></a><span class="state-tip">Otto Wels (Centre): </br></br> Easier to manage internal dissent, harder to adopt an economic plan. Easier to increase relations with the Bourgeois, harder to keep Hindeburg (And other right-wing preisdents) happy. Recommended for first-time players</span></span>
+        <span class="advisor-tip-wrap"><a class="card" href="#" card-id="root.wels_choice" title="Otto Wels"><img class="card-img" src="img/portraits/WelsOtto.jpg"></a><span class="advisor-tip">Otto Wels (Centre): </br></br> Easier to manage internal dissent, harder to adopt an economic plan. Easier to increase relations with the Bourgeois, harder to keep Hindeburg (And other right-wing preisdents) happy. Recommended for first-time players</span></span>
     </li>
     <li class="deck">
-        <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.wissell_chosen') class="card" href="#" card-id="root.wissell_choice" title="Rudolf Wissell"><img class="card-img" src="img/portraits/WissellRudolf.jpg"></a><span class="state-tip">Easier to adopt economic plans, and you bleed less support to the extremist parties, but harder to form coalitions with the DVP, and your actions are more restricted regarding compromise with the bourgeois and toleration</span></span>
+        <span class="advisor-tip-wrap"><a class="card" href="#" card-id="root.wissell_choice" title="Rudolf Wissell"><img class="card-img" src="img/portraits/WissellRudolf.jpg"></a><span class="advisor-tip">Easier to adopt economic plans, and you bleed less support to the extremist parties, but harder to form coalitions with the DVP, and your actions are more restricted regarding compromise with the bourgeois and toleration</span></span>
     </li>
     <li class="deck">
-        <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.severing_chosen') class="card" href="#" card-id="root.severing_choice" title="Carl Severing"><img class="card-img" src="img/portraits/SeveringCarl.jpg"></a><span class="state-tip">Easier to maintain coalitions, and passive buffs to the Prussian Police when you are in the Prussian government, but much harder to works with the KPD, and many more left-wing actions will be restricted, like Nationalizations or State Buyers. Somewhat recommended for first-time players</span></span>
+        <span class="advisor-tip-wrap"><a class="card" href="#" card-id="root.severing_choice" title="Carl Severing"><img class="card-img" src="img/portraits/SeveringCarl.jpg"></a><span class="advisor-tip">Easier to maintain coalitions, and passive buffs to the Prussian Police when you are in the Prussian government, but much harder to works with the KPD, and many more left-wing actions will be restricted, like Nationalizations or State Buyers. Somewhat recommended for first-time players</span></span>
     </li>
 </ul>
 

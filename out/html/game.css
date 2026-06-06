@@ -956,6 +956,33 @@ th {
     display: block;
 }
 
+.advisor-tip-wrap {
+    position: relative;
+    display: inline;
+    cursor: help;
+    text-decoration: underline dotted;
+}
+.advisor-tip-wrap .advisor-tip {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    right: 50%;
+    transform: translateX(25%);
+    background: #fff;
+    border: 1px solid #999;
+    padding: 5px;
+    width: 400px;
+    font-size: 0.80em;
+    text-align: center;
+    z-index: 100;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    color: #000;
+}
+.advisor-tip-wrap:hover .advisor-tip {
+    display: block;
+}
+
 .button-30 {
   align-items: center;
   appearance: none;
@@ -1027,6 +1054,38 @@ ul.decks a.card[card-id="eco_affairs"] {
     padding: 0 !important;
 }
 ul.decks a.card[card-id="pres_affairs"] {
+    border-width: 10px !important;
+    border-style: solid !important;
+    /* border-color stays whatever your current dark gray is, not overridden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+ul.decks a.card[card-id="rosenfeld_choice"] {
+    border-width: 10px !important;
+    border-style: solid !important;
+    /* border-color stays whatever your current dark gray is, not overridden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+ul.decks a.card[card-id="wels_choice"] {
+    border-width: 10px !important;
+    border-style: solid !important;
+    /* border-color stays whatever your current dark gray is, not overridden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+ul.decks a.card[card-id="wissell_choice"] {
+    border-width: 10px !important;
+    border-style: solid !important;
+    /* border-color stays whatever your current dark gray is, not overridden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+ul.decks a.card[card-id="severing_choice"] {
     border-width: 10px !important;
     border-style: solid !important;
     /* border-color stays whatever your current dark gray is, not overridden */

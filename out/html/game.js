@@ -469,6 +469,10 @@ window._decorateChoices = function() {
         'main.gov_affairs': 'gov_affairs_list',
         'main.pres_affairs': 'pres_affairs_list',
         'main.eco_affairs': 'eco_affairs_list'
+        'root.rosenfeld_choice': 'root.rosenfeld_chhosen'
+        'root.wels_choice': 'root.wels_chosen'
+        'root.wissell_choice': 'root.wissell_chosen'
+        'root.severing_choice': 'root.severing_chosen'
     };
 
     document.querySelectorAll('a.card[card-id]').forEach(function(card) {
