@@ -1272,33 +1272,37 @@ Choose a leader. Otto Wels is highly recommended for first-time playthroughs
         <a class="card" href="#" card-id="root.wissell_choice" title="Rudolf Wissell"><img class="card-img" src="img/portraits/WissellRudolf.jpg"></a>Rudolf Wissell (Labor)
     </li>
     <li class="deck">
-        <a class="card" href="#" card-id="root.severing_choice" title="Carl Severing"><img class="card-img" src="img/portraits/SeveringCarl.jpg"></a>Carl Severing (Reformisy)
+        <a class="card" href="#" card-id="root.severing_choice" title="Carl Severing"><img class="card-img" src="img/portraits/SeveringCarl.jpg"></a>Carl Severing (Reformist)
     </li>
 </ul>
 
 @rosenfeld_chosen
 on-arrival: spd_leader = "Rosenfeld"; spd_ideology = "Left Democratic Socialism"; left_strength += 10; center_strength -= 5; reformist_strength -= 5; left_dissent -= 10; labor_dissent += 5; reformist_dissent += 5
-go-to: 1928_main
 
 Kurt Rosenfeld leads the SPD, under a Democratic-Socialist ideology. Rosenfeld's leadership makes co-operating with the KPD and building class consciousness easier, but building a peoples party and co-operating with the bourgeois is harder.
 
+- @1928_main: Start
+
 @wels_chosen
 on-arrival: spd_leader = "Wels"; spd_ideology = "Orthodox Marxism"
-go-to: 1928_main
 
 Otto Wels leads the SPD (Along with Müller and Crispien), under a Orthodox Marxisst ideology. Wels' leadership passively reduces internal dissent.
 
+- @1928_main: Start
+
 @wissell_chosen
 on-arrival: spd_leader = "Wissell"; spd_ideology = "Trade Union Socialism"; labor_dissent -= 10; reformist_dissent += 5; center_dissent += 5; labor_strength += 10; left_strength -= 5; center_strength -= 5
-go-to: 1928_main
 
 Rudolf Wissell leads the SPD, under a Trade Union Socialist ideology. Wissell's leadership reduces suppoort bleed to the KPD and NSDAP, as well as making it eaiser to adpot an economic plan, however it makes it harder to compromises with the bourgeois (DDP , DVP , Z) parties, and the Liberal parties have an easier time moving to the right due to your highly union-aligned stance.
 
+- @1928_main: Start
+
 @severing_chosen
 on-arrival: spd_leader = "Severing"; spd_ideology = "Right Democratic Socialism"; reformist_strength += 10; labor_strength -= 5; left_strength += 5; reformist_dissent -= 5; left_dissent += 5; prussian_police_loyalty += 0.05; prussian_police_militancy += 0.01; interior_police_loyalty += 0.03
-go-to: 1928_main
 
 Carl Severing leads the SPD, under a (Right) Democratic Socialist ideology. Severing's leadership passively buffs the police, along with passive incresing their loyalty towards you, however co-operating with the KPD is harder, and the more left-wing choices may be restricted. 
+
+- @1928_main: Start
 
 @1928_main
 new-page: true
