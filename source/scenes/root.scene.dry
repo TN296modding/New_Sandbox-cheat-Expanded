@@ -1011,8 +1011,10 @@ Q.stampfer_advisor = 0; // Friedrich Stampfer
 
 // Agsoc advisors
 
-// Growths
+// Leader
+wels_leader = 0
 
+// Growths
 Q.workers_spd_growth = 0;
 Q.unemployed_spd_growth = 0;
 Q.new_middle_spd_growth = 0;
@@ -1250,14 +1252,53 @@ go-to: tips_menu
 
 @tips
 on-arrival: {! Q.tips = 1 !}
+go-to: leader_choice
 
 @no_tips
+go-to: leader_choice
+
+@leader_choice
+<ul class="decks">
+    <li class="deck">
+        <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.rosenfeld_chosen') class="card" href="#" card-id="root.rosenfeld_choice" title="Kurt Rosenfeld"><img class="card-img" src="img/portraits/RosenfeldKurt.jpg"></a><span class="state-tip">Kurt Rosenfeld (Left): </br></br> Easier to co-operate with the KPD, harder to co-operate with the bourgeois. Peoples Party is harder to acheive, but class consciousness is easier to acheive </span></span>
+    </li>
+    <li class="deck">
+        <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.wels_chosen') class="card" href="#" card-id="root.wels_choice" title="Otto Wels"><img class="card-img" src="img/portraits/WelsOtto.jpg"></a><span class="state-tip">Otto Wels (Centre): </br></br> Easier to manage internal dissent, harder to adopt an economic plan. Easier to increase relations with the Bourgeois, harder to keep Hindeburg (And other right-wing preisdents) happy. Recommended for first-time players</span></span>
+    </li>
+    <li class="deck">
+        <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.wissell_chosen') class="card" href="#" card-id="root.wissell_choice" title="Rudolf Wissell"><img class="card-img" src="img/portraits/WissellRudolf.jpg"></a><span class="state-tip">Easier to adopt economic plans, and you bleed less support to the extremist parties, but harder to form coalitions with the DVP, and your actions are more restricted regarding compromise with the bourgeois and toleration</span></span>
+    </li>
+    <li class="deck">
+        <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.severing_chosen') class="card" href="#" card-id="root.severing_choice" title="Carl Severing"><img class="card-img" src="img/portraits/SeveringCarl.jpg"></a><span class="state-tip">Easier to maintain coalitions, and passive buffs to the Prussian Police when you are in the Prussian government, but much harder to works with the KPD, and many more left-wing actions will be restricted, like Nationalizations or State Buyers. Somewhat recommended for first-time players</span></span>
+    </li>
+</ul>
+
+@rosenfeld_chosen
+on-arrival: spd_leader = "Rosenfeld"; spd_ideology = "Left Democratic Socialism"; left_strength += 10; center_strength -= 5; reformist_strength -= 5; left_dissent -= 10; labor_dissent += 5; reformist_dissent += 5
 go-to: 1928_main
 
-@1928_main
-audio: shuffle music/1928_1930/FruhlingsliedMendelssohn.mp3 music/1928_1930/AUF_HOHEN_BERGEN_noise_reduced.mp3 music/1928_1930/MarekWeber.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
-new-page: true
-go-to: main if difficulty >= 0
+Kurt Rosenfeld leads the SPD, under a Democratic-Socialist ideology
 
+@wels_chosen
+on-arrival: spd_leader = "Wels"; spd_ideology = "Orthodox Marxism"
+go-to: 1928_main
+
+Otto Wels leads the SPD (Along with Müller and Crispien), under a Orthodox Marxisst ideology
+
+@wissell_chosen
+on-arrival: spd_leader = "Wissell"; spd_ideology = "Trade Union Socialism"; labor_dissent -= 10; reformist_dissent += 5; center_dissent += 5; labor_strength += 10; left_strength -= 5; center_strength -= 5
+go-to: 1928_main
+
+Rudolf Wissell leads the SPD, under a Union Socialist ideology
+
+@severing_chosen
+on-arrival: spd_leader = "Severing"; spd_ideology = "Right Democratic Socialism"; reformist_strength += 10; labor_strength -= 5; left_strength += 5; reformist_dissent -= 5; left_dissent += 5; prussian_police_loyalty += 0.05; prussian_police_militancy += 0.01; interior_police_loyalty += 0.03
+go-to: 1928_main
+
+Carl Severing leads the SPD, under a (Right) Democratic Socialist ideology
+
+@1928_main
+new-page: true
+go-to: main
 
 = 1928

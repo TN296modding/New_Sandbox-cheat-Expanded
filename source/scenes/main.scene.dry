@@ -20,7 +20,7 @@ Q.last_week_updated = Q.week;
 new-page: true
 ###/// basic timed news element template: [? if year == year and month == month and week == week : text <div>Options Button</div> ?]
 
-= Week [+ week +], Month [+ month +]([+ month : month +]), Year [+ year +]
+= Week [+ week +], Month [+ month +] ([+ month : month +]), Year [+ year +]
 
 <ul class="decks">
     <li class="deck">
