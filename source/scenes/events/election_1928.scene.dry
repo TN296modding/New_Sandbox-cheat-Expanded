@@ -1219,8 +1219,6 @@ go-to: achievement_check_e
 {!</table>!}
 
 {!<button class="tab_button" id="demographics_tab" onclick="window.toggleDem();">Demographic Results</button>!}
-{!<button class="tab_button" id="election_tab" onclick="window.toggleElectionGraph();">Previous Elections Graph</button>!}
-{!<button class="tab_button" id="graph_tab" onclick="window.toggleGraph();">Party Support Graph</button>!}
 
 {!<div id="results" style="display: none;">!}
     {!<div style="overflow-x:auto;">!}
@@ -3350,14 +3348,14 @@ We are seen as responsible for the failure to form a government, and many of our
 We can pick from any number of ministries. Controlling a ministry allows us to directly effect policy in that area. [? if in_left_front : Any ministry that we do not take will be given to the <span style="color: #700000;">**KPD**</span>. ?] [? if in_left_front and reichswehr_minister_party == "KPD" : If the <span style="color: #700000;">**KPD**</span> controls the Reichswehr Ministry, the army will most likely revolt. ?]
 
 - @dvp_prussia_1: Offer the <span style="color: #C0A054;">**DVP**</span> a spot in the Prussian government for more leverage.
-- #mins_1928
-- #drop_mins_1928
+- #mins_1928_spd
+- #drop_mins_1928_spd
 
 @labor
 title: Labor Ministry
 subtitle: Taking the Labor Ministry is expected of us.
 unavailable-subtitle: We do not have enough leverage.
-tags: mins_1928
+tags: mins_1928_spd
 choose-if: leverage >= 5
 view-if: labor_minister_party != "SPD"
 on-arrival: leverage -= 5; labor_minister_party = "SPD"; labor_minister = "Wissell"
@@ -3369,7 +3367,7 @@ Rudolf Wissell of the <span style="color: #c00000;">**SPD**</span> has been appo
 title: Interior Ministry
 subtitle: Taking the Interior Ministry is expected of us. The Interior Ministry controls domestic security.
 unavailable-subtitle: We do not have enough leverage.
-tags: mins_1928
+tags: mins_1928_spd
 choose-if: leverage >= 5
 view-if: interior_minister_party != "SPD"
 on-arrival: leverage -= 5; interior_minister_party = "SPD"; interior_minister = "Severing"
@@ -3381,7 +3379,7 @@ Carl Severing of the <span style="color: #c00000;">**SPD**</span> has been appoi
 title: Finance Ministry
 subtitle: The Finance Ministry controls the government budget and taxes.
 unavailable-subtitle: We do not have enough leverage.
-tags: mins_1928
+tags: mins_1928_spd
 choose-if: leverage >= 10 
 view-if: finance_minister_party != "SPD"
 on-arrival: leverage -= 10; finance_minister_party = "SPD"; finance_minister = "Hilferding"
@@ -3393,7 +3391,7 @@ Rudolf Hilferding of the <span style="color: #c00000;">**SPD**</span> has been a
 title: Economic Ministry
 subtitle: The Economic Ministry controls broader economic policy.
 unavailable-subtitle: We do not have enough leverage.
-tags: mins_1928
+tags: mins_1928_spd
 choose-if: leverage >= 10 
 view-if: economic_minister_party != "SPD"
 on-arrival: leverage -= 10; economic_minister_party = "SPD"; economic_minister = "Schmidt"
@@ -3405,7 +3403,7 @@ Robert Schmidt of the <span style="color: #c00000;">**SPD**</span> has been appo
 title: Justice Ministry
 subtitle: The Justice Ministry controls the courts.
 unavailable-subtitle: [? if leverage < 10: We do not have enough leverage. ?] [? if cvp_ministers_accepted: Our coalition agreement stipulates that we must forfeit the Justice Ministry. ?]
-tags: mins_1928
+tags: mins_1928_spd
 choose-if: leverage >= 10 and not cvp_ministers_accepted
 view-if: justice_minister_party != "SPD"
 on-arrival: leverage -= 10; justice_minister_party = "SPD"; justice_minister = "Radbruch"
@@ -3417,7 +3415,7 @@ Gustav Radbruch of the <span style="color: #c00000;">**SPD**</span> has been app
 title: Foreign Ministry
 subtitle: [? if stresemann_dead = 0: This is usually the domain of Gustav Stresemann of the [? if not lvp_formed: <span style="color: #C0A054;">**DVP**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?]?][? if stresemann_dead = 1: This is usually the domain of the [? if not lvp_formed and dvp_exist: <span style="color: #C0A054;">**DVP**</span>?][? if not lvp_formed and not dvp_exist: former <span style="color: #C0A054;">**DVP**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?] ?].
 unavailable-subtitle: We do not have enough leverage.
-tags: mins_1928
+tags: mins_1928_spd
 choose-if: leverage >= 10 
 view-if: foreign_minister_party != "SPD"
 on-arrival: leverage -= 10; foreign_minister_party = "SPD"; foreign_minister = "Breitscheid"
@@ -3434,7 +3432,7 @@ choose-if: leverage >= 10 and not cvp_ministers_accepted
 view-if: agriculture_minister_party != "SPD"
 on-arrival: leverage -= 10; agriculture_minister_party = "SPD"; agriculture_minister = "Baade"
 go-to: ministries
-tags: mins_1928
+tags: mins_1928_spd
 
 Fritz Baade of the <span style="color: #c00000;">**SPD**</span> has been appointed Agriculture Minister.
 
@@ -3442,7 +3440,7 @@ Fritz Baade of the <span style="color: #c00000;">**SPD**</span> has been appoint
 title: Reichswehr Ministry
 subtitle: The Ministry responsible for the armed forces is not typically our domain; General Groener and the bourgeois-conservatives will be displeased[? if president = "Hindenburg" or president_ideology != "Left":&nbsp;along with President [+ president +]?].
 unavailable-subtitle: [? if leverage < 15: We do not have enough leverage. ?] [? if cvp_ministers_accepted: Our coalition agreement stipulates that we must forfeit the Reichswehr Ministry. ?]
-tags: mins_1928
+tags: mins_1928_spd
 choose-if: leverage >= 15 and not cvp_ministers_accepted
 view-if: reichswehr_minister_party != "SPD"
 on-arrival: leverage -= 15; reichswehr_minister_party = "SPD"; reichswehr_minister = "Leber"; hindenburg_angry += 10
@@ -3454,7 +3452,7 @@ Julius Leber of the <span style="color: #c00000;">**SPD**</span> has been appoin
 title: Transport Ministry
 subtitle: The Ministry responsible for transport is not typically our domain; This will use a fair amount of our leverage
 unavailable-subtitle: [? if leverage < 15: We don't have enough leverage ?]
-tags: mins_1928
+tags: mins_1928_spd
 choose-if: leverage >= 15
 view-if: transport_minister_party != "SPD"
 on-arrival: leverage -= 15; transport_minister_party = "SPD"; reichswehr_minister = "Bauer"; 
