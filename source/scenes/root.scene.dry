@@ -1258,6 +1258,7 @@ go-to: leader_choice
 go-to: leader_choice
 
 @leader_choice
+
 <ul class="decks">
     <li class="deck">
         <span class="state-tip-wrap"><a onclick="window.dendryUI.dendryEngine.goToScene('root.rosenfeld_chosen') class="card" href="#" card-id="root.rosenfeld_choice" title="Kurt Rosenfeld"><img class="card-img" src="img/portraits/RosenfeldKurt.jpg"></a><span class="state-tip">Kurt Rosenfeld (Left): </br></br> Easier to co-operate with the KPD, harder to co-operate with the bourgeois. Peoples Party is harder to acheive, but class consciousness is easier to acheive </span></span>
