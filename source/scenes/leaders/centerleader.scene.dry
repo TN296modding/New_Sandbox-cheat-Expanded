@@ -1,6 +1,6 @@
 title: XX
 new-page: true
 
-<ul class="decks"><li class="deck"><a class="card" href="#" card-id="centerleader.wels" title="Otto Wels (Leader)"><img class="card-img" src="img/Vorwaerts_nr_1.png"></a></li>&nbsp;&nbsp&nbsp;<li class="deck"><a class="card" href="#" card-id="centerleader.hilferding" title="Rudolf Hilferding (Economist)"><img class="card-img" src="img/reichstag_2.jpg"></a></li></ul>
+<ul class="decks"><li class="deck"><a class="card" href="#" card-id="centerleader.wels" title="Otto Wels (Leader)"><img class="card-img" src="img/Vorwaerts_nr_1.png"></a>Otto Wels (Centre Leader)</li>&nbsp;&nbsp;&nbsp;<li class="deck"><a class="card" href="#" card-id="centerleader.hilferding" title="Rudolf Hilferding (Economist)"><img class="card-img" src="img/reichstag_2.jpg"></a>Rudolf Hilferding (Centre Economist)</li></ul>
 
 - @return
