@@ -4,5 +4,5 @@ is-special: true
 
 <button class="button-30" role="button" onclick="window.dendryUI.dendryEngine.goToScene('next_week_card');">Next Week</button>
 
-[? if president == "Hindenburg" : <img class="card-img" src="img/portraits/Hindenburg.jpg > ?]</br>
+[? if president == "Hindenburg" : <img class="card-img" src="img/portraits/Hindenburg.jpg" > ?]</br>
 President : [+ president +]
