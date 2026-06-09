@@ -186,7 +186,7 @@ From the Wahlkreise of Liegnitz, Oppeln, and Breslau, the state of <span style="
 on-arrival: {!
     Q.minority_seats_support = Q.spd_normalized
     Q.mss_display = Q.spd_normalized
-    if (Q.ddp_relation > 80) and (Q.ddp_left + 4 > ddp_right) {
+    if ((Q.ddp_relation > 80) && (Q.ddp_left + 4 > ddp_right)) {
         Q.minority_seats_support += Q.ddp_normalized
         Q.mss_display += Q.ddp_normalized
     }
@@ -202,17 +202,17 @@ on-arrival: {!
         Q.minority_seats_support += Q.jvp_normalized
         Q.mss_display += Q.jvp_normalized
     }
-    if (Q.schleswig_mr_seats) || (Q.silesia_mr_seats) || (Q.bavaria_mr_seats) {
+    if ((Q.schleswig_mr_seats) || (Q.silesia_mr_seats) || (Q.bavaria_mr_seats)) {
         Q.minority_seats_support += (Q.others_normalized - Q.others_normalized/10)
         Q.minority_seats_support += (Q.dbp_normalized)
         Q.mss_display += (Q.others_normalized - Q.others_normalized/10)
         Q.mss_display += (Q.dbp_normalized)
     }
-    if (Q.bavaria_mr_seats) && (!Q.catholic_mr_seats) {
+    if ((Q.bavaria_mr_seats) && (!Q.catholic_mr_seats)) {
         Q.minority_seats_support += 0.03
         Q.mss_display += 0.03
     }
-    if (Q.pomerania_mr_seats) || (Q.danzig_mr_seats) {
+    if ((Q.pomerania_mr_seats) || (Q.danzig_mr_seats)) {
         Q.minority_seats_support += Q.dnvp_normalized
         Q.minority_seats_support += Q.cnblp_normalized
         Q.mss_display += Q.dnvp_normalized
