@@ -27,7 +27,8 @@ A constitutional reform requires either a two-thirds supermajority in the Reichs
 - @vote_threshold: Change the vote threshold.
 - @constructive_vonc: Ban non-constructive votes of no confidence.
 - @presidential_powers: Reduce presidential powers.
-# - @landtag_reform Split Prussia into more landtags, based on the Wahlkreise
+# - @landtag_reform: Split Prussia into more landtags, based on the Wahlkreise
+- @minority_reichstag_groups: Requires landtag reform, certain minorities get extra seats in the Reichstag. 
 - @as_is: Do not pursue constitutional reform.
 - @easy_discard
 - @cancel_advisor_action
@@ -181,6 +182,51 @@ From the Wahlkreise of Liegnitz, Oppeln, and Breslau, the state of <span style="
 
 # Temporarily disable this for now - how would this interact with the already-extant law for the protection of the republic? This 
 
+@minority_reichstag_groups
+on-arrival: {!
+    Q.minority_seats_support = Q.spd_normalized
+    Q.mss_display = Q.spd_normalized
+    if (Q.ddp_relation > 80) and (Q.ddp_left + 4 > ddp_right) {
+        Q.minority_seats_support += Q.ddp_normalized
+        Q.mss_display += Q.ddp_normalized
+    }
+    if (Q.hannover_mr_seats) {
+        Q.minority_seats_support += (Q.others_normalized/10)
+        Q.mss_display += (Q.others_normalized/10)
+    }
+    if (Q.catholic_mr_seats) {
+        Q.minority_seats_support += Q.z_normalized
+        Q.mss_display += Q.z_normalized
+    }
+    if (Q.jewish_mr_seats) {
+        Q.minority_seats_support += Q.jvp_normalized
+        Q.mss_display += Q.jvp_normalized
+    }
+    if (Q.schleswig_mr_seats) || (Q.silesia_mr_seats) || (Q.bavaria_mr_seats) {
+        Q.minority_seats_support += (Q.others_normalized - Q.others_normalized/10)
+        Q.minority_seats_support += (Q.dbp_normalized)
+        Q.mss_display += (Q.others_normalized - Q.others_normalized/10)
+        Q.mss_display += (Q.dbp_normalized)
+    }
+    if (Q.bavaria_mr_seats) && (!Q.catholic_mr_seats) {
+        Q.minority_seats_support += 0.03
+        Q.mss_display += 0.03
+    }
+    if (Q.pomerania_mr_seats) || (Q.danzig_mr_seats) {
+        Q.minority_seats_support += Q.dnvp_normalized
+        Q.minority_seats_support += Q.cnblp_normalized
+        Q.mss_display += Q.dnvp_normalized
+        Q.mss_display += Q.cnblp_normalized
+    }
+    console.log (Q.minority_seats_support)
+    console.log (Q.mss_display)
+!}
+
+[+ mss_display +]% of parties support this bill (SPD + DDP + Z + BVP + DHP + JVP + Others + DBP + CNBLP + DNVP)
+
+The DVP, WP, VRP, and KPD does not support Minority seats - They do not benefit
+
+The NSDAP does not support Minority seats - They believe that there is not such a thing as a "Hannoverian" or a "Holsteiner" or a "Silesian", to them, these people are all "German" (Though, this assumes they're aryan)
 
 @as_is
 go-to: root
