@@ -5,7 +5,6 @@ on-arrival: communcations_timer = 6
 is-card: true
 new-page: true
 tags: government_affairs
-view-if: year >= 1936 and spd_in_government and communications_timer <= 0 and (chancellor_party == "SPD" or interior_minister_party == "SPD")
 
 @compol
 

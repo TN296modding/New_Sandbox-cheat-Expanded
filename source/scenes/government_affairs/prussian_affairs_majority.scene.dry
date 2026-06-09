@@ -1,7 +1,6 @@
 title: The Prussian Bulwark
 new-page: true
 is-card: true
-view-if: in_spd_majority_prussia and (prussian_affairs_timer <= 0 or (prussian_affairs_timer <= 3 and rubicon))
 on-arrival: prussian_affairs_timer += 6; prussian_affairs_timer += 6 if prussia_leader != "Braun"; gov_actions += 1
 tags: govt_affairs_spd
 card-image: img/braun.jpg

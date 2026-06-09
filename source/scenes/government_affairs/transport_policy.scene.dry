@@ -3,7 +3,6 @@ new-page: true
 is-card: true
 tags: govt_affairs_spd
 on-arrival: transport_timer = 18; gov_actions += 1
-view-if: spd_in_government = 1 and transport_minister_party = "SPD"
 card-image: img/portraits/tractors.jpg
 
 = Transport Policy

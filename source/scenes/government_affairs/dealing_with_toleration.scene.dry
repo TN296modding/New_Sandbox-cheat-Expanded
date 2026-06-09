@@ -2,7 +2,6 @@ title: Dealing with Toleration
 new-page: true
 is-card: true
 card-image: img/portraits/BrüningHeinrich.jpg
-view-if: dealing_with_toleration_timer = 0 and spd_toleration and not spd_toleration_right and chancellor_party == "Z" and not cvp_formed
 on-arrival: dealing_with_toleration_timer += 6; gov_actions += 1
 tags: govt_affairs_spd
 #subtitle: Despite not being in government, we can still provide support.

@@ -3,7 +3,6 @@ new-page: true
 is-card: true
 tags: govt_affairs_spd
 on-arrival: gov_actions += 1; coalition_affairs_timer = 5
-view-if: spd_in_government = 1 and coalition_dissent >= 1 and coalition_affairs_timer = 0 and (in_grand_coalition or in_weimar_coalition or in_popular_front)
 card-image: img/muller_cabinet.jpg
 #subtitle: There is dissent within our coalition.
 ### WIP promising no nationalizations, which signifcantly reduces dissent, tax reliefs for the middle and upper class, deregulation or deregulation zones, 

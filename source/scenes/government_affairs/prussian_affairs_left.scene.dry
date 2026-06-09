@@ -1,7 +1,6 @@
 title: The Prussian Bulwark
 new-page: true
 is-card: true
-view-if: prussia_leader = "Rosenfeld" and in_popular_front_prussia = 1 or in_left_front_prussia = 1 and prussian_affairs_timer <= 0
 on-arrival: prussian_affairs_timer += 6; gov_actions += 1
 tags: govt_affairs_spd
 card-image: img/braun.jpg

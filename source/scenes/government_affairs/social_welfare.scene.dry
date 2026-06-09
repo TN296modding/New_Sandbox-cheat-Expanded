@@ -3,7 +3,6 @@ new-page: true
 is-card: true
 tags: govt_affairs_spd
 on-arrival: social_welfare_timer = 10; gov_actions += 1
-view-if: spd_in_government = 1 and social_welfare_timer = 0
 card-image: img/portraits/JuchaczMarie.jpg
 
 = Social Welfare Policy
