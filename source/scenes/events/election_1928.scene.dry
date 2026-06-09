@@ -1009,6 +1009,96 @@ if (Q.year < 1929) {
     if (Q.unemployed < 25) Q.reichstag_size -= 0.1;
     if (Q.unemployed < 30) Q.reichstag_size -= 0.1;
 }
+if (Q.hannover_mr_seats) {
+    Q.reichstag_size += 0.07
+    if (Q.hannover_dissent > 87) {
+        Q.others_hannover_seats += 0.00
+        Q.dnvp_hannover_seats += 0.02
+        Q.spd_hannover_seats += 0.03
+        Q.ddp_hannover_seats += 0.02
+    }
+    else if (Q.hannover_dissent > 72) {
+        Q.others_hannover_seats += 0.01
+        Q.dnvp_hannover_seats += 0.02
+        Q.spd_hannover_seats += 0.03
+        Q.ddp_hannover_seats += 0.01
+    }
+    else if (Q.hannover_dissent > 58) {
+        Q.others_hannover_seats += 0.02
+        Q.dnvp_hannover_seats += 0.02
+        Q.spd_hannover_seats += 0.02
+        Q.ddp_hannover_seats += 0.01
+    }
+    else if (Q.hannover_dissent > 44) {
+        Q.others_hannover_seats += 0.03
+        Q.dnvp_hannover_seats += 0.01
+        Q.spd_hannover_seats += 0.02
+        Q.ddp_hannover_seats += 0.01
+    }
+    else if (Q.hannover_dissent > 30) {
+        Q.others_hannover_seats += 0.04
+        Q.dnvp_hannover_seats += 0.01
+        Q.spd_hannover_seats += 0.01
+        Q.ddp_hannover_seats += 0.01
+    }
+    else if (Q.hannover_dissent > 16) {
+        Q.others_hannover_seats += 0.05
+        Q.dnvp_hannover_seats += 0.01
+        Q.spd_hannover_seats += 0.01
+        Q.ddp_hannover_seats += 0.00
+    }
+    else if (Q.hannover_dissent > 2) {
+        Q.others_hannover_seats += 0.06
+        Q.dnvp_hannover_seats += 0.00
+        Q.spd_hannover_seats += 0.01
+        Q.ddp_hannover_seats += 0.00
+    }
+    else {
+        Q.others_hannover_seats += 0.07
+        Q.dnvp_hannover_seats += 0.00
+        Q.spd_hannover_seats += 0.00
+        Q.ddp_hannover_seats += 0.00
+    }
+}
+if (Q.catholic_mr_seats) { 
+    Q.reichstag_size += 0.08
+}
+if (Q.jewish_mr_seats) {
+    Q.reichstag_size += 0.05
+}
+if (Q.schleswig_mr_seats) {
+    Q.reichstag_size += 0.04
+}
+if (Q.silesia_mr_seats) {
+    Q.reichstag_size += 0.06
+}
+if (Q.pomerania_mr_seats) {
+    Q.reichstag_size += 0.06
+}
+
+Q.kpd_seats = (Q.kpd_r * Q.reichstag_size)
+Q.kpo_seats = (Q.kpo_r * Q.reichstag_size)
+Q.sapd_seats = (Q.sapd_r * Q.reichstag_size)
+Q.spd_seats = ((Q.spd_r * Q.reichstag_size) + Q.spd_hannover_seats)
+Q.srp_seats = (Q.srp_r * Q.reichstag_size)
+Q.nsbp_seats = (Q.nsbp_r * Q.reichstag_size)
+Q.slp_seats = (Q.slp_r * Q.reichstag_size)
+Q.msp_seats = (Q.msp_r * Q.reichstag_size)
+Q.ddp_seats = ((Q.ddp_r * Q.reichstag_size) + Q.ddp_hannover_seats)
+Q.z_seats = (Q.z_minus_r * Q.reichstag_size)
+Q.bvp_seats = (Q.bvp_r * Q.reichstag_size)
+Q.lvp_seats = (Q.lvp_r * Q.reichstag_size)
+Q.dvp_seats = (Q.dvp_r * Q.reichstag_size)
+Q.kvp_seats = (Q.kvp_r * Q.reichstag_size)
+Q.dnvp_seats = ((Q.dnvp_r * Q.reichstag_size) + Q.dnvp_hannover_seats)
+Q.dnf_seats = (Q.dnf_r * Q.reichstag_size)
+Q.nsdap_seats = (Q.nsdap_r * Q.reichstag_size)
+Q.wp_seats = (Q.wp_r * Q.reichstag_size)
+Q.vnr_seats = (Q.vnr_r * Q.reichstag_size)
+Q.aspd_seats = (Q.aspd_r * Q.reichstag_size)
+Q.cnblp_seats = (Q.cnblp_r * Q.reichstag_size)
+Q.dbp_seats = (Q.dbp_r * Q.reichstag_size)
+Q.others_seats = ((Q.others_r * Q.reichstag_size) + Q.others_hannover_seats)
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties_graph) {
@@ -1025,7 +1115,7 @@ if (Q.kpd_r) {
         "id": "kpd",
         "legend": "KPD",
         "name": "KPD",
-        "seats": Math.round(Q.kpd_r * Q.reichstag_size),
+        "seats": Math.round(Q.kpd_seats),
     });
 }
 
@@ -1034,7 +1124,7 @@ if (Q.sapd_r && Q.sapd_formed) {
         "id": "sapd",
         "legend": "SAPD",
         "name": "SAPD",
-        "seats": Math.round(Q.sapd_r * Q.reichstag_size),
+        "seats": Math.round(Q.sapd_seats),
     });
 }
 
@@ -1043,14 +1133,7 @@ if (Q.spd_r && !Q.rdp_r) {
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
-        "seats": Math.round(Q.spd_r * Q.reichstag_size),
-    });
-} else if (Q.spd_r && Q.rdp_r) {
-    data.push({
-        "id": "spd",
-        "legend": "SPD",
-        "name": "SPD",
-        "seats": Math.round((Q.spd_r - Q.rdp_r) * Q.reichstag_size),
+        "seats": Q.spd_seats,
     });
 }
 
@@ -1059,7 +1142,7 @@ if (Q.dnvp_r && Q.dnvp_wholesome) {
         "id": "dnvp_wholesome",
         "legend": "DNVP",
         "name": "DNVP",
-        "seats": Math.round(Q.dnvp_r * Q.reichstag_size),
+        "seats": Q.dnvp_seats,
     });
 }
 
@@ -1068,7 +1151,7 @@ if (Q.ddp_r && !Q.lvp_formed) {
         "id": "ddp",
         "legend": Q.ddp_name,
         "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_r * Q.reichstag_size),
+        "seats": Q.ddp_seats,
     });
 }
 
@@ -1077,17 +1160,16 @@ if (Q.lvp_r && Q.lvp_formed) {
         "id": "lvp",
         "legend": "LVP",
         "name": "LVP",
-        "seats": Math.round(Q.lvp_r * Q.reichstag_size),
+        "seats": Q.lvp_seats,
     });
 }
-
 
 if (Q.z_minus_bvp_r) {
     data.push({
         "id": "z",
         "legend": "Center",
         "name": "Center",
-        "seats": Math.round(Q.z_minus_bvp_r * Q.reichstag_size),
+        "seats": Q.z_seats,
     });
 }
 
@@ -1096,7 +1178,7 @@ if (Q.bvp_r) {
         "id": "bvp",
         "legend": "BVP",
         "name": "BVP",
-        "seats": Math.round(Q.bvp_r * Q.reichstag_size),
+        "seats": Q.bvp_seats,
     });
 }
 
@@ -1105,7 +1187,7 @@ if (Q.dvp_r && !Q.lvp_formed && Q.dvp_exist) {
         "id": "dvp",
         "legend": "DVP",
         "name": "DVP",
-        "seats": Math.round(Q.dvp_r * Q.reichstag_size),
+        "seats": Q.dvp_seats,
     });
 }
 
@@ -1114,7 +1196,7 @@ if (Q.wp_r) {
         "id": "wp",
         "legend": "WP",
         "name": "WP",
-        "seats": Math.round(Q.wp_r * Q.reichstag_size),
+        "seats": Q.wp_seats,
     });
 }
 
@@ -1123,7 +1205,7 @@ if (Q.cnblp_r) {
         "id": "farm3",
         "legend": "CNBLP",
         "name": "CNBLP",
-        "seats": Math.round(Q.cnblp_r * Q.reichstag_size),
+        "seats": Q.cnblp_seats,
     });
 }
 
@@ -1132,7 +1214,7 @@ if (Q.csvd_r && Q.csvd_formed) {
         "id": "csvd",
         "legend": "CSVD",
         "name": "CSVD",
-        "seats": Math.round(Q.csvd_r * Q.reichstag_size),
+        "seats": Q.csvd_seats,
     });
 }
 
@@ -1141,7 +1223,7 @@ if (Q.other_r) {
         "id": "other",
         "legend": "Other",
         "name": "Other",
-        "seats": Math.round(Q.true_other_r * Q.reichstag_size),
+        "seats": Q.others_seats,
     });
 }
 
@@ -1150,7 +1232,7 @@ if (Q.dbp_r) {
         "id": "dbp",
         "legend": "DBP",
         "name": "DBP",
-        "seats": Math.round(Q.dbp_r * Q.reichstag_size),
+        "seats": Q.dbp_seats,
     });
 }
 
@@ -1159,7 +1241,7 @@ if (Q.true_aspd_r && (Q.aspd_other || Q.aspd_kvp)) {
         "id": "aspd",
         "legend": "ASPD",
         "name": "ASPD",
-        "seats": Math.round(Q.true_aspd_r * Q.reichstag_size),
+        "seats": Q.aspd_seats,
     });
 }
 
@@ -1168,14 +1250,14 @@ if (Q.kvp_formed && Q.kvp_r && !Q.aspd_kvp && !Q.dnvp_dvp_formed) {
         "id": "kvp",
         "legend": "KVP",
         "name": "KVP",
-        "seats": Math.round(Q.kvp_r * Q.reichstag_size),
+        "seats": Q.kvp_seats,
     });
 } else if (Q.kvp_formed && Q.kvp_r && Q.aspd_kvp && !Q.dnvp_dvp_formed) {
     data.push({
         "id": "kvp",
         "legend": "KVP",
         "name": "KVP",
-        "seats": Math.round((Q.kvp_r - Q.true_aspd_r) * Q.reichstag_size),
+        "seats": Math.round((Q.kvp_seats - Q.aspd_seats) * Q.reichstag_size),
     });
 }
 
@@ -1184,7 +1266,7 @@ if (Q.dnvp_dvp_formed) {
         "id": "fkp",
         "legend": "FKP",
         "name": "FKP",
-        "seats": Math.round(Q.kvp_r * Q.reichstag_size),
+        "seats": Q.kvp_seats,
     });
 }
 
@@ -1193,7 +1275,7 @@ if (Q.dnvp_r && !Q.dnvp_wholesome) {
         "id": "dnvp",
         "legend": "DNVP",
         "name": "DNVP",
-        "seats": Math.round(Q.dnvp_r * Q.reichstag_size),
+        "seats": Q.dnvp_seats,
     });
 }
 
@@ -1202,7 +1284,7 @@ if (Q.dnf_formed && Q.dnf_r) {
         "id": "dnf",
         "legend": "DNF",
         "name": "DNF",
-        "seats": Math.round(Q.dnf_r * Q.reichstag_size),
+        "seats": Q.dnf_seats,
     });
 }
 
@@ -1211,7 +1293,7 @@ if (Q.vnr_r) {
         "id": "vnr",
         "legend": "VNR",
         "name": "VNR",
-        "seats": Math.round(Q.vnr_r * reichstag_size),
+        "seats": Q.vnr_seats,
     });
 }
 
@@ -1220,7 +1302,7 @@ if (Q.nsdap_r) {
         "id": "nsdap",
         "legend": "NSDAP",
         "name": "NSDAP",
-        "seats": Math.round(Q.nsdap_r * Q.reichstag_size),
+        "seats": Q.nsdap_seats,
     });
 }
 

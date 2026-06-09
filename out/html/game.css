@@ -876,6 +876,41 @@ th {
   fill: #0076ea
 }
 
+/* DHP specifically for the Minority Seats for Hannover */
+.seat.dhp_mr {
+  fill: #63c388
+}
+
+/* Silesian Bauernbund - Local of the DBP - Minority Seats for Silesia */
+.seat.sb_mr {
+  fill: #097100
+}
+
+/* DNVP - Local of the DNVP - Minority Seats for Pomerania */
+.seat.dnvp_mr {
+  fill: #3a8893
+}
+
+/* CNBLP - Local of the CNBLP - Minority Seats for Pomerania */
+.seat.cnblp_mr {
+  fill: #7afeb1
+}
+
+/* BB - Local of the DBP - Minority Seats for Bavaria */
+.seat.bb_mr {
+  fill: #097100
+}
+
+/* SSBB - Local of the DBP - Minority Seats for Schleswig, only if the SSBB has been established and merged */
+.seat.ssbb.mr {
+  fill: #097100
+}
+
+/* SK - Schlesiwg Klub - Minority Seats for Schleswig, if no SSBB-DBP */
+.seat.sk_mr {
+  fill: #455b95
+}
+
 .tooltip-text {
   text-decoration: underline;
   text-decoration-style: dotted;
