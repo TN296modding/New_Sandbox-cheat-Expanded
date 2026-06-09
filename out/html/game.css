@@ -872,6 +872,10 @@ th {
     fill: #097100
 }
 
+.seat.vnr {
+  fill: #0076ea
+}
+
 .tooltip-text {
   text-decoration: underline;
   text-decoration-style: dotted;
