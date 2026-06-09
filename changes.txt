@@ -35,3 +35,11 @@ v.0.0.5
 
 Added choosing your leader
 Removed Rubicon
+
+v.0.0.6
+
+Added showing your leadfer on the Right Status
+Added British Foreign Menu
+Added Hidden stats scene
+Edited Research Roll back-scene
+Removed Rubicon

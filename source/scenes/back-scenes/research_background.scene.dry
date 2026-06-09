@@ -1,6 +1,6 @@
 title: Research Debug
 go-to: main
 on-arrival: {! 
-    var roll = Math.floor(Math.random() * 100);
-    console.log(roll);
+    var researchroll = Math.floor(Math.random() * 100);
+    console.log(researchroll);
 !}

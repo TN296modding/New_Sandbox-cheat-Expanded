@@ -1,0 +1,25 @@
+title: Debug
+
+Stats here:
+eapd_formed : [+ eapd_formed +]
+eapd_relation : [+ eapd_relation +]
+week : [+ week +]
+wei_list_disp : [+ wei_list_disp +]
+war_guilt : [+ war_guilt +]
+war_guilt_timer : [+ war_guilt_timer +]
+was_in_center_right_coalition : [+ was_in_center_right_coalition +]
+was_in_right_coalition : [+ was_in_right_coalition +]
+week_checked : [+ week_checked +]
+weimar_coalition : [+ weimar_coalition +]
+weimar_coalition_prussia : [+ weimar_coalition_prussia +]
+weimar_rally : [+ weimar_rally +]
+weimar_rally_timer : [+ weimar_rally_timer +]
+weimar_ref_signatures : [+ weimar_ref_signatures +]
+weimar_ref_votes : [+ weimar_ref_votes +]
+welfare
+welfare_cost
+welfare_goal_spd
+wels_advisor
+wels_choice
+wels_chosen
+wels_leader
