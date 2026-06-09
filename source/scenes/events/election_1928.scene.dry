@@ -325,85 +325,93 @@ if (Q.aspd_votes) Q.aspd_r = Math.round(Q.aspd_votes * Q.adjustmentFactors_other
 if (Q.dbp_votes) Q.dbp_r = Math.round(Q.dbp_votes * Q.adjustmentFactors_other * 10) / 10;
 if (Q.year > 1928) { 
     Q.vnr_r = 0.05; 
+
     if (Q.z_r > 0.08) {
         Q.z_r -= 0.05; 
     }
     else if (Q.dvp_r > 0.05) {
-        Q.dvp_r -= 0.05
+        Q.dvp_r -= 0.05;
     }
     else if (Q.ddp_r > 0.05) {
-        Q.ddp_r -= 0.05
+        Q.ddp_r -= 0.05;
     }
     else if (Q.others_r > 0.05) {
-        Q.others_r -= 0.05
+        Q.others_r -= 0.05;
     }
     else if (Q.spd_r > 0.05) {
-        Q.spd_r -= 0.05
+        Q.spd_r -= 0.05;
     }
     else {
-        Q.vnr_r = 0
+        Q.vnr_r = 0;
     }
 }
-if (Q.inflation > 9.9 or Q.inflation < -9.9) { 
-    Q.vnr_r += 0.05
+
+if (Q.inflation > 9.9 || Q.inflation < -9.9) { 
+    Q.vnr_r += 0.05;
+
     if (Q.z_r > 0.08) {
         Q.z_r -= 0.05; 
     }
     else if (Q.dvp_r > 0.05) {
-        Q.dvp_r -= 0.05
+        Q.dvp_r -= 0.05;
     }
     else if (Q.ddp_r > 0.05) {
-        Q.ddp_r -= 0.05
+        Q.ddp_r -= 0.05;
     }
     else if (Q.others_r > 0.05) {
-        Q.others_r -= 0.05
+        Q.others_r -= 0.05;
     }
     else if (Q.spd_r > 0.05) {
-        Q.spd_r -= 0.05
+        Q.spd_r -= 0.05;
     }
     else {
-        Q.vnr_r -= 0.05
-}
-if (Q.inflation > 19.9 or Q.inflation < -19.9) {
-    Q.vnr_r += 0.05
-    if (Q.z_r > 0.08) {
-        Q.z_r -= 0.05; 
-    }
-    else if (Q.dvp_r > 0.05) {
-        Q.dvp_r -= 0.05
-    }
-    else if (Q.ddp_r > 0.05) {
-        Q.ddp_r -= 0.05
-    }
-    else if (Q.others_r > 0.05) {
-        Q.others_r -= 0.05
-    }
-    else if (Q.spd_r > 0.05) {
-        Q.spd_r -= 0.05
-    }
-    else {
-        Q.vnr_r -= 0.05
+        Q.vnr_r -= 0.05;
     }
 }
-if (Q.inflation > 29.9 or Q.inflation < -29.9) {
-    Q.vnr_r += 0.05
+
+if (Q.inflation > 19.9 || Q.inflation < -19.9) {
+    Q.vnr_r += 0.05;
+
     if (Q.z_r > 0.08) {
         Q.z_r -= 0.05; 
     }
     else if (Q.dvp_r > 0.05) {
-        Q.dvp_r -= 0.05
+        Q.dvp_r -= 0.05;
     }
     else if (Q.ddp_r > 0.05) {
-        Q.ddp_r -= 0.05
+        Q.ddp_r -= 0.05;
     }
     else if (Q.others_r > 0.05) {
-        Q.others_r -= 0.05
+        Q.others_r -= 0.05;
     }
     else if (Q.spd_r > 0.05) {
-        Q.spd_r -= 0.05
+        Q.spd_r -= 0.05;
     }
     else {
-        Q.vnr_r -= 0.05
+        Q.vnr_r -= 0.05;
+    }
+}
+
+if (Q.inflation > 29.9 || Q.inflation < -29.9) {
+    Q.vnr_r += 0.05;
+
+    if (Q.z_r > 0.08) {
+        Q.z_r -= 0.05; 
+    }
+    else if (Q.dvp_r > 0.05) {
+        Q.dvp_r -= 0.05;
+    }
+    else if (Q.ddp_r > 0.05) {
+        Q.ddp_r -= 0.05;
+    }
+    else if (Q.others_r > 0.05) {
+        Q.others_r -= 0.05;
+    }
+    else if (Q.spd_r > 0.05) {
+        Q.spd_r -= 0.05;
+    }
+    else {
+        Q.vnr_r -= 0.05;
     }
 }
 
