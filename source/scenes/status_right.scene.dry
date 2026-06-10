@@ -7,7 +7,6 @@ is-special: true
 [? if spd_leader = "Rosenfeld" : <ul class="decks"><li class="deck"><a class="card" href="#" card-id="status.rosenfeld" title="Kurt Rosenfeld"><img class="card-img" src="img/portraits/RosenfeldKurt.jpg"></a>SPD Leader: Kurt Rosenfeld (Left)</li></ul> ?]
 [? if spd_leader = "Wels" : <ul class="decks"><li class="deck"><a class="card" href="#" card-id="status.wels" title="Otto Wels"><img class="card-img" src="img/portraits/WelsOtto.jpg"></a>SPD Leader: Otto Wels (Centre)</li></ul> ?]
 [? if spd_leader = "Wissell" : <ul class="decks"><li class="deck"><a class="card" href="#" card-id="status.wissell" title="Rudolf Wissell"><img class="card-img" src="img/portraits/WissellRudolf.jpg"></a>SPD Leader: Rudolf Wissell (Labor)</li></ul> ?]
-[? if spd_leader = "Severing" : <ul class="decks"><li class="deck"><a class="card" href="#" card-id="status.severing" title="Carl Severing"><img class="card-img" src="img/portraits/SeveringCarl.jpg"></a>SPD LEader: Carl Severing (Reformist)</li></ul> ?]
 
 [? if president == "Hindenburg" : <img class="card-img" src="img/portraits/Hindenburg.jpg" > ?]</br>
 President : [+ president +]
