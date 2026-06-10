@@ -261,10 +261,20 @@ window.disableGrayMode = function() {
           window.updateSidebar();
   };
 
-  window.onDisplayContent = function() {
+ javascriptwindow.onDisplayContent = function() {
     window.updateSidebar();
     window.updateSidebarRight();
+
+    // Pause the observer so colorTextNodes mutations don't fire it
+    if (window._decoObserver) window._decoObserver.disconnect();
+
     colorTextNodes(document.getElementById('content'), colors);
+
+    // Re-attach after coloring is done
+    var contentEl = document.getElementById('content');
+    if (contentEl && window._decoObserver) {
+        window._decoObserver.observe(contentEl, { childList: true, subtree: true });
+    }
 };
 var colors = {
         'kpd': '#700000',
@@ -343,24 +353,30 @@ var colors = {
         'VLP': '#B2A000'
     };
     function colorTextNodes(element, colors) {
-        element.childNodes.forEach(function(node) {
-            if (node.nodeType === 3) { // text node only
-                var text = node.textContent;
-                var newHTML = text;
-                Object.keys(colors).forEach(function(word) {
-                    newHTML = newHTML.replace(new RegExp('\\b' + word + '\\b', 'g'),
-                        '<span style="color:' + colors[word] + ';">' + word + '</span>');
-                });
-                if (newHTML !== text) {
-                    var span = document.createElement('span');
-                    span.innerHTML = newHTML;
-                    node.parentNode.replaceChild(span, node);
-                }
-            } else if (node.nodeType === 1) { // element node, recurse
-                colorTextNodes(node, colors);
+    // Skip spans we already colored
+    if (element.dataset && element.dataset.colored === 'true') return;
+
+    element.childNodes.forEach(function(node) {
+        if (node.nodeType === 3) { // text node
+            var text = node.textContent;
+            var newHTML = text;
+            Object.keys(colors).forEach(function(word) {
+                newHTML = newHTML.replace(
+                    new RegExp('\\b' + word + '\\b', 'g'),
+                    '<span data-colored="true" style="color:' + colors[word] + ';">' + word + '</span>'
+                );
+            });
+            if (newHTML !== text) {
+                var span = document.createElement('span');
+                span.dataset.colored = 'true';
+                span.innerHTML = newHTML;
+                node.parentNode.replaceChild(span, node);
             }
-        });
-    }
+        } else if (node.nodeType === 1) {
+            colorTextNodes(node, colors); // recurse, but guarded above
+        }
+    });
+}
 
   window.toggleDem = function toggleDemographicTable() {
       const resultsDiv = document.getElementById('results');
@@ -490,20 +506,15 @@ window._decorateChoices = function() {
 
 function initDecorator() {
     var contentEl = document.getElementById('content');
-    if (!contentEl) {
-        setTimeout(initDecorator, 100);
-        return;
-    }
-    var decoObserver = new MutationObserver(function() {
-        decoObserver.disconnect();
-        try {
-            window._decorateChoices();
-        } catch (e) {
-            console.error('[decorator error]', e);
-        }
-        decoObserver.observe(contentEl, { childList: true, subtree: true });
+    if (!contentEl) { setTimeout(initDecorator, 100); return; }
+
+    window._decoObserver = new MutationObserver(function() {
+        window._decoObserver.disconnect();
+        try { window._decorateChoices(); } catch(e) { console.error('[decorator error]', e); }
+        window._decoObserver.observe(contentEl, { childList: true, subtree: true });
     });
-    decoObserver.observe(contentEl, { childList: true, subtree: true });
+
+    window._decoObserver.observe(contentEl, { childList: true, subtree: true });
     window._decorateChoices();
 }
 
