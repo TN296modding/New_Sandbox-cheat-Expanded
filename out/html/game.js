@@ -261,7 +261,7 @@ window.disableGrayMode = function() {
           window.updateSidebar();
   };
 
- javascriptwindow.onDisplayContent = function() {
+ window.onDisplayContent = function() {
     window.updateSidebar();
     window.updateSidebarRight();
 
@@ -492,7 +492,8 @@ window._decorateChoices = function() {
     };
 
     document.querySelectorAll('a.card[card-id]').forEach(function(card) {
-        var id = card.getAttribute('card-id');
+    var id = card.getAttribute('card-id');
+    console.log('[decorator] found card:', id, 'already attached:', !!card.dataset.clickAttached);
         if (cardRoutes[id] && !card.dataset.clickAttached) {
             card.dataset.clickAttached = 'true';
             card.addEventListener('click', function(e) {
