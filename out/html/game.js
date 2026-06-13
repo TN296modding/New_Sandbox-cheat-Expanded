@@ -352,28 +352,52 @@ var colors = {
         'DLP': '#D8C200',
         'VLP': '#B2A000'
     };
-    function colorTextNodes(element, colors) {
-    // Skip spans we already colored
-    if (element.dataset && element.dataset.colored === 'true') return;
-
-    element.childNodes.forEach(function(node) {
-        if (node.nodeType === 3) { // text node
-            var text = node.textContent;
-            var newHTML = text;
-            Object.keys(colors).forEach(function(word) {
-                newHTML = newHTML.replace(
-                    new RegExp('\\b' + word + '\\b', 'g'),
-                    '<span data-colored="true" style="color:' + colors[word] + ';">' + word + '</span>'
-                );
-            });
-            if (newHTML !== text) {
-                var span = document.createElement('span');
-                span.dataset.colored = 'true';
-                span.innerHTML = newHTML;
-                node.parentNode.replaceChild(span, node);
+    function colorTextNodes(rootElement, colors) {
+    // Use TreeWalker to find all text nodes iteratively (no recursion = no stack overflow).
+    // We also snapshot them into an array BEFORE touching the DOM, so live-NodeList
+    // mutation during replaceChild can never cause re-visits or infinite loops.
+    var walker = document.createTreeWalker(
+        rootElement,
+        NodeFilter.SHOW_TEXT,
+        {
+            acceptNode: function(node) {
+                // Walk up to rootElement; reject any text inside an already-colored span.
+                var p = node.parentElement;
+                while (p && p !== rootElement) {
+                    if (p.dataset && p.dataset.colored === 'true') {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    p = p.parentElement;
+                }
+                return NodeFilter.FILTER_ACCEPT;
             }
-        } else if (node.nodeType === 1) {
-            colorTextNodes(node, colors); // recurse, but guarded above
+        }
+    );
+
+    // Snapshot first so DOM mutations during replacement don't affect iteration.
+    var textNodes = [];
+    var n;
+    while ((n = walker.nextNode())) {
+        textNodes.push(n);
+    }
+
+    textNodes.forEach(function(node) {
+        // Guard: node may have been detached by an earlier replacement in the same pass.
+        if (!node.parentNode) return;
+
+        var text = node.textContent;
+        var newHTML = text;
+        Object.keys(colors).forEach(function(word) {
+            newHTML = newHTML.replace(
+                new RegExp('\\b' + word + '\\b', 'g'),
+                '<span data-colored="true" style="color:' + colors[word] + ';">' + word + '</span>'
+            );
+        });
+        if (newHTML !== text) {
+            var span = document.createElement('span');
+            span.dataset.colored = 'true';
+            span.innerHTML = newHTML;
+            node.parentNode.replaceChild(span, node);
         }
     });
 }
