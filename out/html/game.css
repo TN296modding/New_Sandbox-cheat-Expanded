@@ -1105,3 +1105,14 @@ ul.decks a.card[card-id="severing_choice"] {
     background-color: transparent !important;
     padding: 0 !important;
 }
+/* -------------------------------------------------------
+   Fix: Dendry renders false [? if ... ?] conditionals as
+   bare <p></p> elements. With hundreds of date-gated news
+   events, these pile up (~2350+) and slow the whole page.
+   Hide them entirely — they carry no content anyway.
+   ------------------------------------------------------- */
+#content p:empty,
+#qualities p:empty,
+#qualities_right p:empty {
+    display: none;
+}
