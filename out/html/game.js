@@ -13,6 +13,94 @@
     ui = dendryUI;
     game = ui.game;
 
+    // -------------------------------------------------------------------------
+    // PATCH: Replace the mutually-recursive _mergeStateEvals /
+    // _mergeStateEvalsInArray pair with a stack-based iterative version.
+    //
+    // The originals call each other until the content tree is fully resolved.
+    // Deep sidebar scenes (hundreds of conditionals/nested paragraph nodes)
+    // blow past JS call stack limit => RangeError in core.js:716.
+    //
+    // We cannot edit core.js, but overwriting prototype methods here works
+    // because core.js is fully parsed before main() is ever called, and the
+    // live engine instance gives us the right prototype object to patch.
+    // -------------------------------------------------------------------------
+    var engineProto = Object.getPrototypeOf(dendryUI.dendryEngine);
+
+    engineProto._mergeStateEvalsInArray = function(array, evals) {
+        if (!Array.isArray(array)) { array = [array]; }
+
+        // Each stack frame: { items, index, target }
+        // target = the output array we push resolved nodes into.
+        var output = [];
+        var stack = [{ items: array, index: 0, target: output }];
+
+        while (stack.length > 0) {
+            var frame = stack[stack.length - 1];
+
+            if (frame.index >= frame.items.length) {
+                stack.pop();
+                continue;
+            }
+
+            var content = frame.items[frame.index];
+            frame.index++;
+
+            // Raw / already-resolved node: pass through.
+            if (content.type === undefined) {
+                frame.target.push(content);
+                continue;
+            }
+
+            switch (content.type) {
+            case 'conditional':
+                if (evals[content.predicate]) {
+                    // Conditionals are transparent: resolve children into the
+                    // SAME target so the wrapper itself disappears.
+                    var condItems = Array.isArray(content.content)
+                        ? content.content : [content.content];
+                    stack.push({ items: condItems, index: 0, target: frame.target });
+                }
+                // false conditional: emit nothing.
+                break;
+
+            case 'insert':
+                var insertVal = evals[content.insert];
+                if (Array.isArray(insertVal)) {
+                    for (var j = 0; j < insertVal.length; j++) {
+                        frame.target.push(insertVal[j]);
+                    }
+                } else if (insertVal !== undefined && insertVal !== null) {
+                    frame.target.push(insertVal);
+                }
+                break;
+
+            default:
+                // Structural node (paragraph, emphasis, etc.): keep it but
+                // resolve its children into a fresh newContent array.
+                // Push the node NOW to preserve ordering in the parent target,
+                // then push a child frame to populate newContent.
+                var newE = { type: content.type };
+                var newContent = [];
+                newE.content = newContent;
+                frame.target.push(newE);
+
+                var childItems = Array.isArray(content.content)
+                    ? content.content : [content.content];
+                stack.push({ items: childItems, index: 0, target: newContent });
+                break;
+            }
+        }
+
+        return output;
+    };
+
+    // Single-node entry point: just delegate to the array version.
+    engineProto._mergeStateEvals = function(content, evals) {
+        return this._mergeStateEvalsInArray([content], evals);
+    };
+    // -------------------------------------------------------------------------
+
     // Add your custom code here.
   };
 
