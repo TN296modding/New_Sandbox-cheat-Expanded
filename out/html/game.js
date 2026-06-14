@@ -95,11 +95,60 @@
         return output;
     };
 
-    // Single-node entry point: just delegate to the array version.
+     // Single-node entry point: just delegate to the array version.
     engineProto._mergeStateEvals = function(content, evals) {
         return this._mergeStateEvalsInArray([content], evals);
     };
     // -------------------------------------------------------------------------
+ 
+    // -------------------------------------------------------------------------
+    // PATCH: Trampoline for __changeScene to eliminate go-to recursion.
+    //
+    // Every `go-to:` in a .dry scene causes __changeScene to call itself
+    // synchronously. With deeply chained scenes (e.g. party_affairs_list
+    // has ~20 sub-scenes that each chain further), the JS call stack fills
+    // with 50+ __changeScene frames. Any subsequent work — updateSidebar,
+    // colorTextNodes, acceptNode — then overflows it.
+    //
+    // All recursive calls happen AFTER `done = true`, so nothing meaningful
+    // runs in the caller after the recursive call returns. This makes every
+    // goto a tail call, which means a trampoline is safe:
+    //   - The first __changeScene enters the while loop.
+    //   - Inner recursive calls just stash the next scene ID and return.
+    //   - The while loop picks it up and iterates instead of recursing.
+    // -------------------------------------------------------------------------
+    (function() {
+        var originalChangeScene = engineProto.__changeScene;
+        var activeDepth = 0;        // how many trampoline frames are running
+        var pendingId   = null;     // next scene queued by an inner redirect
+ 
+        engineProto.__changeScene = function(id) {
+            if (activeDepth > 0) {
+                // We're already inside the trampoline loop.
+                // Store the target and return immediately instead of recursing.
+                pendingId = id;
+                return;
+            }
+ 
+            // Top-level entry: run the loop until no more redirects are pending.
+            activeDepth++;
+            try {
+                var nextId = id;
+                while (nextId !== null) {
+                    pendingId = null;
+                    originalChangeScene.call(this, nextId);
+                    nextId = pendingId;     // null if no go-to fired this round
+                }
+            } finally {
+                activeDepth--;
+                pendingId = null;
+            }
+        };
+    }());
+    // -------------------------------------------------------------------------
+ 
+    // Add your custom code here.
+  };
 
     // Add your custom code here.
   };
