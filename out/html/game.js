@@ -13,143 +13,6 @@
     ui = dendryUI;
     game = ui.game;
 
-    // -------------------------------------------------------------------------
-    // PATCH: Replace the mutually-recursive _mergeStateEvals /
-    // _mergeStateEvalsInArray pair with a stack-based iterative version.
-    //
-    // The originals call each other until the content tree is fully resolved.
-    // Deep sidebar scenes (hundreds of conditionals/nested paragraph nodes)
-    // blow past JS call stack limit => RangeError in core.js:716.
-    //
-    // We cannot edit core.js, but overwriting prototype methods here works
-    // because core.js is fully parsed before main() is ever called, and the
-    // live engine instance gives us the right prototype object to patch.
-    // -------------------------------------------------------------------------
-    var engineProto = Object.getPrototypeOf(dendryUI.dendryEngine);
-
-    engineProto._mergeStateEvalsInArray = function(array, evals) {
-        if (!Array.isArray(array)) { array = [array]; }
-
-        // Each stack frame: { items, index, target }
-        // target = the output array we push resolved nodes into.
-        var output = [];
-        var stack = [{ items: array, index: 0, target: output }];
-
-        while (stack.length > 0) {
-            var frame = stack[stack.length - 1];
-
-            if (frame.index >= frame.items.length) {
-                stack.pop();
-                continue;
-            }
-
-            var content = frame.items[frame.index];
-            frame.index++;
-
-            // Raw / already-resolved node: pass through.
-            if (content.type === undefined) {
-                frame.target.push(content);
-                continue;
-            }
-
-            switch (content.type) {
-            case 'conditional':
-                if (evals[content.predicate]) {
-                    // Conditionals are transparent: resolve children into the
-                    // SAME target so the wrapper itself disappears.
-                    var condItems = Array.isArray(content.content)
-                        ? content.content : [content.content];
-                    stack.push({ items: condItems, index: 0, target: frame.target });
-                }
-                // false conditional: emit nothing.
-                break;
-
-            case 'insert':
-                var insertVal = evals[content.insert];
-                if (Array.isArray(insertVal)) {
-                    for (var j = 0; j < insertVal.length; j++) {
-                        frame.target.push(insertVal[j]);
-                    }
-                } else if (insertVal !== undefined && insertVal !== null) {
-                    frame.target.push(insertVal);
-                }
-                break;
-
-            default:
-                // Structural node (paragraph, emphasis, etc.): keep it but
-                // resolve its children into a fresh newContent array.
-                // Push the node NOW to preserve ordering in the parent target,
-                // then push a child frame to populate newContent.
-                var newE = { type: content.type };
-                var newContent = [];
-                newE.content = newContent;
-                frame.target.push(newE);
-
-                var childItems = Array.isArray(content.content)
-                    ? content.content : [content.content];
-                stack.push({ items: childItems, index: 0, target: newContent });
-                break;
-            }
-        }
-
-        return output;
-    };
-
-     // Single-node entry point: just delegate to the array version.
-    engineProto._mergeStateEvals = function(content, evals) {
-        return this._mergeStateEvalsInArray([content], evals);
-    };
-    // -------------------------------------------------------------------------
- 
-    // -------------------------------------------------------------------------
-    // PATCH: Trampoline for __changeScene to eliminate go-to recursion.
-    //
-    // Every `go-to:` in a .dry scene causes __changeScene to call itself
-    // synchronously. With deeply chained scenes (e.g. party_affairs_list
-    // has ~20 sub-scenes that each chain further), the JS call stack fills
-    // with 50+ __changeScene frames. Any subsequent work — updateSidebar,
-    // colorTextNodes, acceptNode — then overflows it.
-    //
-    // All recursive calls happen AFTER `done = true`, so nothing meaningful
-    // runs in the caller after the recursive call returns. This makes every
-    // goto a tail call, which means a trampoline is safe:
-    //   - The first __changeScene enters the while loop.
-    //   - Inner recursive calls just stash the next scene ID and return.
-    //   - The while loop picks it up and iterates instead of recursing.
-    // -------------------------------------------------------------------------
-    (function() {
-        var originalChangeScene = engineProto.__changeScene;
-        var activeDepth = 0;        // how many trampoline frames are running
-        var pendingId   = null;     // next scene queued by an inner redirect
- 
-        engineProto.__changeScene = function(id) {
-            if (activeDepth > 0) {
-                // We're already inside the trampoline loop.
-                // Store the target and return immediately instead of recursing.
-                pendingId = id;
-                return;
-            }
- 
-            // Top-level entry: run the loop until no more redirects are pending.
-            activeDepth++;
-            try {
-                var nextId = id;
-                while (nextId !== null) {
-                    pendingId = null;
-                    originalChangeScene.call(this, nextId);
-                    nextId = pendingId;     // null if no go-to fired this round
-                }
-            } finally {
-                activeDepth--;
-                pendingId = null;
-            }
-        };
-    }());
-    // -------------------------------------------------------------------------
- 
-    // Add your custom code here.
-  };
-
     // Add your custom code here.
   };
 
@@ -362,9 +225,6 @@ window.disableGrayMode = function() {
     document.getElementById('qualities').innerHTML = 'tab: ' + window.statusTab;
     if (!scene) return;
     dendryUI.dendryEngine._runActions(scene.onArrival);
-    var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
-    $('#qualities').append(dendryUI.contentToHTML.convert(displayContent));
-    colorTextNodes(document.getElementById('qualities'), colors);
 };
 
     window.updateSidebarRight = function() {
@@ -372,8 +232,6 @@ window.disableGrayMode = function() {
         var scene = dendryUI.game.scenes[window.statusTabRight];
         dendryUI.dendryEngine._runActions(scene.onArrival);
         var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
-        $('#qualities_right').append(dendryUI.contentToHTML.convert(displayContent));
-        colorTextNodes(document.getElementById('qualities_right'), colors);
 };
 
   window.changeTab = function(newTab, tabId, isRight) {
@@ -401,143 +259,7 @@ window.disableGrayMode = function() {
  window.onDisplayContent = function() {
     window.updateSidebar();
     window.updateSidebarRight();
-
-    // Pause the observer so colorTextNodes mutations don't fire it
-    if (window._decoObserver) window._decoObserver.disconnect();
-
-    colorTextNodes(document.getElementById('content'), colors);
-
-    // Re-attach after coloring is done
-    var contentEl = document.getElementById('content');
-    if (contentEl && window._decoObserver) {
-        window._decoObserver.observe(contentEl, { childList: true, subtree: true });
-    }
 };
-var colors = {
-        'kpd': '#700000',
-        'spd': '#c90000',
-        'ddp': '#D3C24D',
-        'z': '#000000',
-        'dvp': '#C0A054',
-        'dnvp': '#3E88B3',
-        'nsdap': '#7A3C00',
-        'others': '#808080',
-        'independents': '#808080',
-        'wp': '#e9ebf0',
-        'vnr': '#d3d3a9',
-        'vrp': '#0076ea',
-        'dbp': '#097100',
-        'cnblp': '#7FCEB1',
-        'csvd': '#67bed9',
-        'kvp': '#0087DC',
-        'aspd': '#000000',
-        'sapd': '#9b0000',
-        'lvp': '#ffcc00',
-        'dnf': '#003755',
-        'slp': '#ffe600',
-        'kpo': '#c43988',
-        'spo': '#c43988',
-        'sed': '#5b0303',
-        'srp': '#f0b9ca',
-        'adgbpf': '#dd6400',
-        'nsbp': '#ff9393',
-        'msp': '#acacac',
-        'sz': '#61e790',
-        'nspd': '#ed5151',
-        'llb': '#ffff50',
-        'acvp': '#700147',
-        'pcp': '#a85c00',
-        'cvp': '#000000',
-        'dstp': '#d3c24d',
-        'dlp': '#d8c200',
-        'vlp': '#b2a000',
-        'KPD': '#700000',
-        'SPD': '#C90000',
-        'DDP': '#D3C24D',
-        'Z': '#000000',
-        'DVP': '#C0A054',
-        'DNVP': '#3E88B3',
-        'NSDAP': '#7A3C00',
-        'OTHERS': '#808080',
-        'INDEPENDENTS': '#808080',
-        'WP': '#E9EBF0',
-        'VNR': '#D3D3A9',
-        'VRP': '#0076ea',
-        'DBP': '#097100',
-        'CNBLP': '#7FCEB1',
-        'CSVD': '#67BED9',
-        'KVP': '#0087DC',
-        'ASPD': '#000000',
-        'SAPD': '#9B0000',
-        'LVP': '#FFCC00',
-        'DNF': '#003755',
-        'SLP': '#FFE600',
-        'KPO': '#C43988',
-        'SPO': '#C43988',
-        'SED': '#5B0303',
-        'SRP': '#F0B9CA',
-        'ADGBPF': '#DD6400',
-        'NSBP': '#FF9393',
-        'MSP': '#ACACAC',
-        'SZ': '#61E790',
-        'NSPD': '#ED5151',
-        'LLB': '#FFFF50',
-        'ACVP': '#700147',
-        'PCP': '#A85C00',
-        'CVP': '#000000',
-        'DStP': '#D3C24D',
-        'DLP': '#D8C200',
-        'VLP': '#B2A000'
-    };
-    function colorTextNodes(rootElement, colors) {
-    // Use TreeWalker to find all text nodes iteratively (no recursion = no stack overflow).
-    // We also snapshot them into an array BEFORE touching the DOM, so live-NodeList
-    // mutation during replaceChild can never cause re-visits or infinite loops.
-    var walker = document.createTreeWalker(
-        rootElement,
-        NodeFilter.SHOW_TEXT,
-        {
-            acceptNode: function(node) {
-                // Walk up to rootElement; reject any text inside an already-colored span.
-                var p = node.parentElement;
-                while (p && p !== rootElement) {
-                    if (p.dataset && p.dataset.colored === 'true') {
-                        return NodeFilter.FILTER_REJECT;
-                    }
-                    p = p.parentElement;
-                }
-                return NodeFilter.FILTER_ACCEPT;
-            }
-        }
-    );
-
-    // Snapshot first so DOM mutations during replacement don't affect iteration.
-    var textNodes = [];
-    var n;
-    while ((n = walker.nextNode())) {
-        textNodes.push(n);
-    }
-
-    textNodes.forEach(function(node) {
-        // Guard: node may have been detached by an earlier replacement in the same pass.
-        if (!node.parentNode) return;
-
-        var text = node.textContent;
-        var newHTML = text;
-        Object.keys(colors).forEach(function(word) {
-            newHTML = newHTML.replace(
-                new RegExp('\\b' + word + '\\b', 'g'),
-                '<span data-colored="true" style="color:' + colors[word] + ';">' + word + '</span>'
-            );
-        });
-        if (newHTML !== text) {
-            var span = document.createElement('span');
-            span.dataset.colored = 'true';
-            span.innerHTML = newHTML;
-            node.parentNode.replaceChild(span, node);
-        }
-    });
-}
 
   window.toggleDem = function toggleDemographicTable() {
       const resultsDiv = document.getElementById('results');
@@ -625,6 +347,7 @@ var colors = {
       bar.appendChild(value);
       return bar;
   };
+  
 document.addEventListener('keydown', function(event) {
     switch(event.key) {
         case '1': window.dendryUI.dendryEngine.goToScene('rightcomleader'); break;
